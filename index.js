@@ -9,4 +9,6 @@ http.createServer(function (request, response) {
     console.log(`Our app is running on port ${ PORT }`);
     });
 
+    console.log("test");
+
 console.log('Server started');
