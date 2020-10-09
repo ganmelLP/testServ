@@ -2,12 +2,12 @@ const http = require('http');
 require('dotenv').config()
 const express = require('express')
 const app = express()
-var birds = require('./birds')
+var routes = require('./routes')
 
 const PORT = process.env.PORT || 3000;
 
 
-app.use('/birds', birds)
+app.use('/routes', birds)
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
