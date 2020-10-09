@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/ganmelLP/testServ/issues"
   },
-  "homepage": "https://github.com/ganmelLP/testServ#readme"
+  "homepage": "https://github.com/ganmelLP/testServ#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "http": "0.0.1-security"
+  }
 }
