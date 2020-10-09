@@ -1,13 +1,20 @@
-var http = require('http');
+const http = require('http');
 require('dotenv').config()
+const express = require('express')
+const app = express()
+
 const PORT = process.env.PORT || 3000;
 
-http.createServer(function (request, response) {
-    response.writeHead(200, {'Content-Type': 'text/plain'});
-    response.end('Hello World2235\n');
-}).listen(PORT, () => {
-    console.log(`Our app is running on port ${ PORT }`);
-    });
+
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(PORT, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
+
 
     console.log("test");
 
