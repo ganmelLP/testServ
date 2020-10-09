@@ -1,0 +1,19 @@
+{
+  "name": "herokutest",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "index.js",
+  "scripts": {
+    "test": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ganmelLP/testServ.git"
+  },
+  "author": "gan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ganmelLP/testServ/issues"
+  },
+  "homepage": "https://github.com/ganmelLP/testServ#readme"
+}
