@@ -1,29 +1,19 @@
 {
-  "name": "lp-nodejs-sample-app-aothrization",
+  "name": "sample-app-authorization",
   "version": "1.0.0",
-  "description": "Liveperson NodeJS App Authorization",
-  "repository": "git://github.com/LivePersonInc/sample-app-authorization",
-  "author": "Liveperson",
-  "license": "MIT",
+  "description": "create ``.env`` file in the app directory, with the following properties:",
+  "main": "index.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "body-parser": "^1.16.1",
-    "connect-ensure-login": "^0.1.1",
-    "connect-flash": "^0.1.1",
-    "cookie-parser": "^1.4.3",
-    "debug": "^2.6.1",
-    "dotenv": "^4.0.0",
-    "express": "^4.16.1",
-    "express-session": "^1.11.3",
-    "morgan": "^1.8.1",
-    "passport": "^0.3.0",
-    "passport-oauth2": "^1.4.0",
-    "passport-oauth2-refresh": "^1.0.0",
-    "pug": "^2.0.4",
-    "request": "^2.88.0",
-    "request-promise": "^4.2.5",
-    "serve-favicon": "^2.4.0"
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LivePersonInc/sample-app-authorization.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LivePersonInc/sample-app-authorization/issues"
+  },
+  "homepage": "https://github.com/LivePersonInc/sample-app-authorization#readme"
 }
