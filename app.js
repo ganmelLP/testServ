@@ -77,6 +77,14 @@ app.use(
     cookie: { sameSite: 'none' },
   })
 );
+app.use(
+  session({
+      secret: 'shhhhhhhhh2',
+      resave: false,
+      saveUninitialized: false,
+      cookie: { sameSite: 'strict' },
+    }),
+  );
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
