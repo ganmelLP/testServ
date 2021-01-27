@@ -69,14 +69,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(
-  session({
-    secret: 'shhhhhhhhh',
-    resave: true,
-    saveUninitialized: true,
-    cookie: { sameSite: "none", secure: true }
-    })
-);
+const sessionConfig = {
+  secret: 'shhhhhhhhh',
+  resave: true,
+  saveUninitialized: true,
+  cookie: { sameSite: "None" }
+  };
+  app.set('trust proxy', 1); // trust first proxy
+  sessionConfig.cookie.secure = true; // serve secure cookies
+  app.use(session(sessionConfig));
 // app.use(
 //   session({
 //       cookie: { secure: true },
