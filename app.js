@@ -10,7 +10,7 @@ const passport = require('passport');
 const OAuth2Strategy = require('passport-oauth2');
 const refresh = require('passport-oauth2-refresh');
 const flash = require('connect-flash');
-
+app.enable("trust proxy");
 dotenv.load();
 
 const routes = require('./routes/index');
