@@ -81,7 +81,7 @@ app.use(
       secret: 'shhhhhhhhh2',
       resave: false,
       saveUninitialized: false,
-      cookie: { sameSite: 'strict' },
+      cookie: { sameSite: 'none' },
     }),
   );
 app.use(passport.initialize());
