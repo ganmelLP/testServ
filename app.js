@@ -69,18 +69,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// app.use(
-//   session({
-//     secret: 'shhhhhhhhh',
-//     resave: true,
-//     saveUninitialized: true
-//     })
-// );
 app.use(
   session({
-      secret: 'shhhhhhhhh',
-      resave: true,
-      saveUninitialized: true,
+    secret: 'shhhhhhhhh',
+    resave: true,
+    saveUninitialized: true
+    })
+);
+app.use(
+  session({
       cookie: { sameSite: 'none', secure: true },
     }),
   );
