@@ -73,14 +73,15 @@ app.use(
   session({
     secret: 'shhhhhhhhh',
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: { secure: true }
     })
 );
-app.use(
-  session({
-      cookie: { sameSite: 'none', secure: true },
-    }),
-  );
+// app.use(
+//   session({
+//       cookie: { secure: true },
+//     }),
+//   );
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
