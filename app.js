@@ -74,7 +74,7 @@ app.use(
     secret: 'shhhhhhhhh',
     resave: true,
     saveUninitialized: true,
-    cookie: { sameSite: none, secure: true }
+    cookie: { sameSite: "none", secure: true }
     })
 );
 // app.use(
