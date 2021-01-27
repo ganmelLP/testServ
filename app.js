@@ -78,9 +78,9 @@ app.use(cookieParser());
 // );
 app.use(
   session({
-      secret: 'shhhhhhhhh2',
-      resave: false,
-      saveUninitialized: false,
+      secret: 'shhhhhhhhh',
+      resave: true,
+      saveUninitialized: true,
       cookie: { sameSite: 'none' },
     }),
   );
