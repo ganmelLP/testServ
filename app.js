@@ -10,7 +10,7 @@ const passport = require('passport');
 const OAuth2Strategy = require('passport-oauth2');
 const refresh = require('passport-oauth2-refresh');
 const flash = require('connect-flash');
-app.enable("trust proxy");
+
 dotenv.load();
 
 const routes = require('./routes/index');
@@ -57,7 +57,7 @@ passport.deserializeUser(function(user, done) {
 });
 
 const app = express();
-
+app.enable("trust proxy");
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
