@@ -68,11 +68,13 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
 app.use(
   session({
     secret: 'shhhhhhhhh',
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: { sameSite: 'none' },
   })
 );
 app.use(passport.initialize());
