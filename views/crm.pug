@@ -20,7 +20,7 @@ block content
     // NEW VEHICLE OPTIONS
     .form-group
       // <label for="brand">Please select a brand</label>
-      select#brand.form-control.custom-select-lg.mb-3(onchange='showModels(this.value)' value='Please select' name='brand' required='')
+      select#brand.form-control.custom-select-lg.mb-3(onchange='showModels(this.value)' value='Please select' name='brand' required='' data-toggle="tooltip" data-placement="top" title="Please select a brand!")
         option Select Brand
     .form-group
       // <label for="model">Please select a Model</label>

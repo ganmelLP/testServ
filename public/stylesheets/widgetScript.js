@@ -2,6 +2,9 @@ var usedCars = [];
 var newCars = [];
 var SDEResult = {};
 window.onload = function () {
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+      });
     if (lpTag.agentSDK) {
         bindUser();
     }
