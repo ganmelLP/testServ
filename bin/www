@@ -87,5 +87,5 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
-  console.log('Listening on http://localhost:' + addr.port);
+  console.log('Listening on https://serene-falls-66485.herokuapp.com/:' + addr.port);
 }

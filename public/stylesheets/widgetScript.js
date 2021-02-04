@@ -22,13 +22,13 @@ document.onreadystatechange = () => {
 
             if (isEmpty(SDEResult) == true) {
                 console.log("SDE NOT Loaded , taking API, is SDEResult empty?:" + isEmpty(SDEResult))
-                fetch('http://localhost:3000/api/used') // GET used cars list
+                fetch('https://serene-falls-66485.herokuapp.com//api/used') // GET used cars list
                     .then(usedCarsResponse => usedCarsResponse.json())
                     .then(usedCarData => {
                         console.log(usedCarData)
                         usedCars = usedCarData;
 
-                        fetch('http://localhost:3000/api/new') // when used cars request is done, GET new cars list and init all values
+                        fetch('https://serene-falls-66485.herokuapp.com//api/new') // when used cars request is done, GET new cars list and init all values
                             .then(newCarResponse => newCarResponse.json()
                                 .then(newCarData => {
                                     console.log(newCarData)
