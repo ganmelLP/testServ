@@ -14,7 +14,7 @@ router.get('/login', passport.authenticate('oauth2', {
   responseType: 'code',
   scope: 'openid profile offline_access'}),
   function(req, res) {
-    res.redirect("/crm");
+    res.redirect("/");
 });
 
 router.get('/logout', function(req, res) {
