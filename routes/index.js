@@ -7,14 +7,14 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('crm');
+  res.render('/index');
 });
 
 router.get('/login', passport.authenticate('oauth2', {
   responseType: 'code',
   scope: 'openid profile offline_access'}),
   function(req, res) {
-    res.redirect("/");
+    res.redirect("/crm");
 });
 
 router.get('/logout', function(req, res) {
