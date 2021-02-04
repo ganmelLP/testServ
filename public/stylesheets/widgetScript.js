@@ -71,37 +71,39 @@ document.onreadystatechange = () => {
 
                                     let noUsedDuplicates = clearDuplicateUsedBrands(usedCars)
                                     showUsedBrands(noUsedDuplicates, usedBrandName);
+
+                                    if (SDEResult.vehicleOfInterest[0].voi.stockType == "NEW") {
+
+                                        optionBrand = SDEResult.vehicleOfInterest[0].voi.make;
+                                        brandName.getElementsByTagName('option')[0].innerHTML = optionBrand;
+                                        brandName.getElementsByTagName('option')[0].setAttribute("class", "brand selection")
+                
+                
+                                        optionModel = SDEResult.vehicleOfInterest[0].voi.model;
+                                        modelName.getElementsByTagName('option')[0].innerHTML = optionModel;
+                                        modelName.getElementsByTagName('option')[0].setAttribute("class", "model selection")
+                
+                
+                                        optionFuel = SDEResult.vehicleOfInterest[0].voi.trim;
+                                        fuelType.getElementsByTagName('option')[0].innerHTML = optionFuel;
+                                        fuelType.getElementsByTagName('option')[0].setAttribute("class", "fuel selection")
+                                    } else {
+                
+                                        document.getElementById("used").click();
+                
+                                        optionBrand = SDEResult.vehicleOfInterest[0].voi.make;
+                                        usedBrandName.getElementsByTagName('option')[0].innerHTML = optionBrand;
+                                        usedBrandName.getElementsByTagName('option')[0].setAttribute("class", "brand selection")
+                
+                
+                                        optionModel = SDEResult.vehicleOfInterest[0].voi.model;
+                                        usedModelName.getElementsByTagName('option')[0].innerHTML = optionModel;
+                                        usedModelName.getElementsByTagName('option')[0].setAttribute("class", "model selection")
+                                    }
                                 }))
                             });
 
-                    if (SDEResult.vehicleOfInterest[0].voi.stockType == "NEW") {
-
-                        optionBrand = SDEResult.vehicleOfInterest[0].voi.make;
-                        brandName.getElementsByTagName('option')[0].innerHTML = optionBrand;
-                        brandName.getElementsByTagName('option')[0].setAttribute("class", "brand selection")
-
-
-                        optionModel = SDEResult.vehicleOfInterest[0].voi.model;
-                        modelName.getElementsByTagName('option')[0].innerHTML = optionModel;
-                        modelName.getElementsByTagName('option')[0].setAttribute("class", "model selection")
-
-
-                        optionFuel = SDEResult.vehicleOfInterest[0].voi.trim;
-                        fuelType.getElementsByTagName('option')[0].innerHTML = optionFuel;
-                        fuelType.getElementsByTagName('option')[0].setAttribute("class", "fuel selection")
-                    } else {
-
-                        document.getElementById("used").click();
-
-                        optionBrand = SDEResult.vehicleOfInterest[0].voi.make;
-                        usedBrandName.getElementsByTagName('option')[0].innerHTML = optionBrand;
-                        usedBrandName.getElementsByTagName('option')[0].setAttribute("class", "brand selection")
-
-
-                        optionModel = SDEResult.vehicleOfInterest[0].voi.model;
-                        usedModelName.getElementsByTagName('option')[0].innerHTML = optionModel;
-                        usedModelName.getElementsByTagName('option')[0].setAttribute("class", "model selection")
-                    }
+   
 
                 } catch (e) {
                     console.error(e);
