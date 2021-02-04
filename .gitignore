@@ -4,3 +4,6 @@
 .env.auth0
 
 .env.lp
+/node_modules
+node_modules
+./node_modules
