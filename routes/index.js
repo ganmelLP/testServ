@@ -28,16 +28,21 @@ router.get('/logout', function(req, res) {
 
 
 router.get('/refresh', function(req, res, next) {
+  try{
   if (req.user.rt) {
     refresh.requestNewAccessToken('oauth2', req.user.rt, function(err, accessToken, refreshToken, results) {
       req.user.at = accessToken;
       req.user.rt = refreshToken || req.user.rt;
       req.user.idToken = results.idToken;
       res.redirect("/user");    
+  
     });    
   } else {
     res.redirect("/user");    
   }
+    }catch(e){
+      console.log(e);
+    }
 });
 
 router.get('/callback',
@@ -45,7 +50,7 @@ router.get('/callback',
     failureRedirect: '/failure'
   }),
   function(req, res) {
-    res.redirect(req.session.returnTo || '/user');
+    res.redirect('/crm');
   }
 );
 
