@@ -19,23 +19,23 @@ document.onreadystatechange = () => {
         const usedModelName = document.querySelector("#usedModel");
         const delayInMilliseconds = 4000;
 
-        var countries = [
-            { label: 'United Kingdom', value: 'UK' },
-            { label: 'United States', value: 'US' }
-        ];    
+        // var countries = [
+        //     { label: 'United Kingdom', value: 'UK' },
+        //     { label: 'United States', value: 'US' }
+        // ];    
         
-        autocomplete({
-            input: document.getElementById("dealership"),
-            fetch: function(text, update) {
-                text = text.toLowerCase();
-                // you can also use AJAX requests instead of preloaded data
-                var suggestions = countries.filter(n => n.label.toLowerCase().startsWith(text))
-                update(suggestions);
-            },
-            onSelect: function(item) {
-                input.value = item.label;
-            }
-        });
+        // autocomplete({
+        //     input: document.getElementById("dealership"),
+        //     fetch: function(text, update) {
+        //         text = text.toLowerCase();
+        //         // you can also use AJAX requests instead of preloaded data
+        //         var suggestions = countries.filter(n => n.label.toLowerCase().startsWith(text))
+        //         update(suggestions);
+        //     },
+        //     onSelect: function(item) {
+        //         input.value = item.label;
+        //     }
+        // });
 
         setTimeout(function () {
             //your code to be executed after 1 second
