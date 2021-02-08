@@ -1,6 +1,7 @@
 var usedCars = [];
 var newCars = [];
 var contextFull = {};
+var info = [];
 var conversationId = {};
 window.onload = function () {
     if (lpTag.agentSDK) {
@@ -21,12 +22,10 @@ document.onreadystatechange = () => {
         var countries = [
             { label: 'United Kingdom', value: 'UK' },
             { label: 'United States', value: 'US' }
-        ];
-        
-        var input = document.getElementById("dealership");
+        ];    
         
         autocomplete({
-            input: input,
+            input: document.getElementById("dealership"),
             fetch: function(text, update) {
                 text = text.toLowerCase();
                 // you can also use AJAX requests instead of preloaded data
@@ -189,7 +188,7 @@ var updateCallback = function (data) {
     // If there's an existing value when bind is called - this callback
     // will be called with the existing value
     console.log(path);
-    console.log("agentSDK Data Result: " + JSON.stringify(SDEResult));
+    console.log("agentSDK Data Result: " + JSON.stringify(conversationId));
 
 };
 
