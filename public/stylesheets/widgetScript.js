@@ -16,7 +16,7 @@ document.onreadystatechange = () => {
 
         const usedBrandName = document.querySelector("#usedBrand");
         const usedModelName = document.querySelector("#usedModel");
-        const delayInMilliseconds = 4000;
+        const delayInMilliseconds = 5000;
 
         // var countries = [
         //     { label: 'United Kingdom', value: 'UK' },
@@ -39,8 +39,8 @@ document.onreadystatechange = () => {
         setTimeout(function () {
             //your code to be executed after 1 second
 
-            if (isEmpty(conversationId) == true) {
-                console.log("SDE NOT Loaded , taking API, is SDEResult empty?:" + isEmpty(conversationId) + JSON.stringify(conversationId))
+            if (conversationId == true) {
+                console.log("SDE NOT Loaded , taking API, is SDEResult empty?:" + conversationId )
                 fetch('https://serene-falls-66485.herokuapp.com/api/used') // GET used cars list
                     .then(usedCarsResponse => usedCarsResponse.json())
                     .then(usedCarData => {
@@ -68,7 +68,7 @@ document.onreadystatechange = () => {
                     });
 
             } else {
-                console.log("SDEs Loaded, taking them instead of API, is SDEResult empty?:" + isEmpty(conversationId))
+                console.log("SDEs Loaded, taking them instead of API, is SDEResult empty?:" + conversationId)
                 try {
 
                     fetch('https://serene-falls-66485.herokuapp.com/api/used') // GET used cars list
