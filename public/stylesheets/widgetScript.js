@@ -85,7 +85,7 @@ document.onreadystatechange = () => {
                                     console.log(newCarData)
                                     newCars = newCarData;
 
-                                    fetch(`https://serene-falls-66485.herokuapp.com/api/new/contextData/?convId=${conversationId}`)
+                                    fetch(`https://serene-falls-66485.herokuapp.com/api/contextData/?convId=${conversationId}`)
                                       .then(contextResponse => contextResponse.json()
                                       .then(contextData => {
                                           console.log(contextData)
