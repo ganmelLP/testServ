@@ -74,7 +74,8 @@ function getContext(req, res) {
         
     })
     .catch(function (err) {
-      res.status(500).json({ error: err })
+      console.log(err);
+      res.status(500).json({ error: "There was an error getting data from Context Storage" })
     });
 }
 
