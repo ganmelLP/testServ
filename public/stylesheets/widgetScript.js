@@ -85,13 +85,8 @@ document.onreadystatechange = () => {
                                     console.log(newCarData)
                                     newCars = newCarData;
 
-                                    fetch(`https://serene-falls-66485.herokuapp.com/api/new/contextData/?convId=${conversationId}`, {
-                                        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-                                        headers: {
-                                          'Content-Type': 'application/json'
-                                        },
-                                        body: JSON.stringify(data) // body data type must match "Content-Type" header
-                                      }).then(contextResponse => contextResponse.json()
+                                    fetch(`https://serene-falls-66485.herokuapp.com/api/new/contextData/?convId=${conversationId}`)
+                                      .then(contextResponse => contextResponse.json()
                                       .then(contextData => {
                                           console.log(contextData)
                                           contextFull = contextData;
