@@ -257,31 +257,48 @@ function radioCheck(value, isChecked) {
 
     // Reset form when radio button is selected and make sure to remember only the previous radio button selection
     const newChecked = document.getElementById("new").checked;
+    const usedChecked = document.getElementById("used").checked;
 
     document.getElementById('carForm').reset();
 
     if (newChecked) {
         document.getElementById("new").checked = true;
-    } else {
+    } else if (usedChecked){
         document.getElementById("used").checked = true;
+    } else {
+        document.getElementById("service").checked = true;
     } // end of form reset form logic
 
+    //New
     const brandName = document.querySelector("#brand");
     const modelName = document.querySelector("#model");
     const fuelType = document.querySelector("#fuel");
-
+    const purchaseType = document.querySelector("#purchaseType");
+    
+    //Used
     const usedBrandName = document.querySelector("#usedBrand");
     const usedModelName = document.querySelector("#usedModel");
+    const usedRegNumber = document.querySelector("#usedRegNumber");
+    
+    //Service
+    const customerRegNumber = document.querySelector("#customerRegNumber");
+    const mileage = document.querySelector("#mileage");
+    const valuation = document.querySelector("#valuation");
+
 
     if (isChecked && value == "used") {
 
         brandName.style.display = "none";
         modelName.style.display = "none";
         fuelType.style.display = "none";
+        customerRegNumber.style.display = "none";
+        mileage.style.display = "none";
+        valuation.style.display = "none";
+        purchaseType.style.display = "none";
 
         usedBrandName.style.display = "block";
         usedModelName.style.display = "block";
-
+        usedRegNumber.style.display = "block";
 
     }
 
@@ -290,13 +307,33 @@ function radioCheck(value, isChecked) {
         brandName.style.display = "block";
         modelName.style.display = "block";
         fuelType.style.display = "block";
+        purchaseType.style.display = "block";
 
+        usedRegNumber.style.display = "none";
         usedBrandName.style.display = "none";
         usedModelName.style.display = "none";
+        customerRegNumber.style.display = "none";
+        mileage.style.display = "none";
+        valuation.style.display = "none";
+        
+    }
 
+    if (isChecked && value == "service") {
+
+
+        customerRegNumber.style.display = "block";
+        mileage.style.display = "block";
+        valuation.style.display = "block";
+        usedBrandName.style.display = "block";
+        usedModelName.style.display = "block";
+
+        brandName.style.display = "none";
+        modelName.style.display = "none";
+        fuelType.style.display = "none";
+        usedRegNumber.style.display = "none";
+        purchaseType.style.display = "none";
     }
 }
-
 
 function carSelectionValid(data) {
     console.log("checking validity")
