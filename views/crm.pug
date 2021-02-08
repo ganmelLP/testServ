@@ -1,125 +1,126 @@
 extends layout
-  block content
-    head
-    meta(http-equiv='content-type' content='text/html; charset=UTF-8')
-    title Robins And Day CRM Widget
-    form#carForm.needs-validation(action='/crm/send')
-    span.mx-auto
-    .middle
-    .form-check.form-check-inline
-    input#new.form-check-input(onchange='radioCheck(this.value,this.checked)' type='radio' name='carType' value='new' checked='')
-    label.form-check-label.front-end.box(for='new') New Vehicle
-    .form-check.form-check-inline
-    input#used.form-check-input(onchange='radioCheck(this.value,this.checked)' type='radio' name='carType' value='used')
-    label.form-check-label.back-end.box(for='used') Used Vehicle
-    .form-check.form-check-inline
-    input#service.form-check-input(onchange='radioCheck(this.value,this.checked)' type='radio' name='carType' value='service')
-    label.form-check-label.back-end.box(for='service') Service/Parts
-    br
-    br
-    hr
-    h2 Lead
-    input#dealership.form-control(type='text' placeholder='Dealership Name')
-    br
-    .form-group
-    label.float-left(for='channel') Preferred Channel
-    select#channel.form-control(value='Please select' name='channel' required='')
-    option WhatsApp
-    option SMS
-    option Email
-    option Other
-    input#source.form-control(type='url' placeholder='Source of Enquiry URL')
-    br
-    input#channelSource.form-control(type='text' placeholder='Client Channel Source')
-    br
-    br
-    hr
-    h2 Customer Information
-    .form-row
-    .form-group.col-sm-6
-    label(for='fName')
-    input#fName.form-control(type='text' placeholder='First Name' name='fName' required='')
-    .valid-feedback Looks good!
-    .form-group.col-sm-6
-    label(for='lName')
-    input#lName.form-control(type='text' placeholder='Last Name' name='lName' required='')
-    .valid-feedback Looks good!
-    .form-row
-    .form-group.col-sm-6
-    label(for='email')
-    input#email.form-control(type='email' aria-describedby='emailHelp' placeholder='Enter Email' name='email' required='')
-    .form-group.col-sm-6
-    label(for='phone')
-    input#phone.form-control(type='tel' aria-describedby='phoneHelp' placeholder='Enter Phone' name='phone' required='')
-    // Service / Parts Only
-    input#customerRegNumber.form-control(style='display:none;' type='text' placeholder="Customer's Vehicle Registration Number")
-    // Service / Parts Only
-    br
-    br
-    hr
-    h2 Vehicle of Interest
-    // NEW VEHICLE OPTIONS Only
-    .form-group
-    select#purchaseType.form-control.custom-select-lg.mb-3.top(value='Please select' name='purchaseType' required='' data-tooltip='Choose a purchase type' data-position='top')
-    option New Purchase
-    option Motability Purchase
-    option Business Purchase
-    .form-group
-    select#brand.form-control.custom-select-lg.mb-3.top(onchange='showModels(this.value)' value='Please select' name='brand' required='' data-tooltip='Choose a brand' data-position='top')
-    option Select Brand
-    .form-group
-    select#model.form-control(onchange='showFuels(this.value)' value='Please select' name='model' required='')
-    option Select Model
-    .form-group
-    select#fuel.form-control(value='Please select' name='fuel')
-    option Select Fuel Type
-    // NEW VEHICLE OPTIONS END
-    // USED VEHICLE OPTIONS Only
-    .form-group
-    select#usedBrand.form-control.custom-select-lg.mb-3(onchange='showUsedModels(this.value)' type='text' value='Enter Brand' style='display:none;' name='usedBrand')
-    option Select Brand
-    .form-group
-    select#usedModel.form-control(type='text' value='Enter Model' style='display:none;' name='usedModel')
-    option Select Model
-    input#usedRegNumber.form-control(style='display:none;' type='text' placeholder='Used Vehicle Registration Number')
-    // USED VEHICLE OPTIONS END
-    // Service / Parts Only
-    br
-    input#mileage.form-control(style='display:none;' type='number' placeholder='Vehicle Mileage')
-    br
-    input#valuation.form-control(style='display:none;' type='number' placeholder='Vehicle Valuation')
-    // Service / Parts Only
-    .form-group
-    label(for='addInfo') Additional information
-    textarea#addInfo.form-control(rows='3' placeholder='Any additional information from the consumer' name='addInfo')
-    br
-    .form-row
-    button.btn.btn-primary.btn-lg.mx-auto(onclick='carSelectionValid(this.value)' type='submit') Submit lead
-  script.
-    // JavaScript for disabling form submissions if there are invalid fields
-    (function () {
-    'use strict';
-    window.addEventListener('load', function () {
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function (form) {
-    form.addEventListener('submit', function (event) {
-    if (form.checkValidity() === false) {
-    event.preventDefault();
-    event.stopPropagation();
-    } else if (form.checkValidity() === true) {
-    console.log("Form is valid: " + form.checkValidity())
-    collectFormData(forms);
-    }
-    form.classList.add('was-validated');
-    }, false);
-    });
-    }, false);
-    })();
-  script.
-    window.onload = function () {
-    if (lpTag.agentSDK) {
-    bindUser();
-    }
-    }
+
+block content
+  head
+  meta(http-equiv='content-type' content='text/html; charset=UTF-8')
+  title Robins And Day CRM Widget
+  form#carForm.needs-validation(action='/crm/send')
+  span.mx-auto
+  .middle
+  .form-check.form-check-inline
+  input#new.form-check-input(onchange='radioCheck(this.value,this.checked)' type='radio' name='carType' value='new' checked='')
+  label.form-check-label.front-end.box(for='new') New Vehicle
+  .form-check.form-check-inline
+  input#used.form-check-input(onchange='radioCheck(this.value,this.checked)' type='radio' name='carType' value='used')
+  label.form-check-label.back-end.box(for='used') Used Vehicle
+  .form-check.form-check-inline
+  input#service.form-check-input(onchange='radioCheck(this.value,this.checked)' type='radio' name='carType' value='service')
+  label.form-check-label.back-end.box(for='service') Service/Parts
+  br
+  br
+  hr
+  h2 Lead
+  input#dealership.form-control(type='text' placeholder='Dealership Name')
+  br
+  .form-group
+  label.float-left(for='channel') Preferred Channel
+  select#channel.form-control(value='Please select' name='channel' required='')
+  option WhatsApp
+  option SMS
+  option Email
+  option Other
+  input#source.form-control(type='url' placeholder='Source of Enquiry URL')
+  br
+  input#channelSource.form-control(type='text' placeholder='Client Channel Source')
+  br
+  br
+  hr
+  h2 Customer Information
+  .form-row
+  .form-group.col-sm-6
+  label(for='fName')
+  input#fName.form-control(type='text' placeholder='First Name' name='fName' required='')
+  .valid-feedback Looks good!
+  .form-group.col-sm-6
+  label(for='lName')
+  input#lName.form-control(type='text' placeholder='Last Name' name='lName' required='')
+  .valid-feedback Looks good!
+  .form-row
+  .form-group.col-sm-6
+  label(for='email')
+  input#email.form-control(type='email' aria-describedby='emailHelp' placeholder='Enter Email' name='email' required='')
+  .form-group.col-sm-6
+  label(for='phone')
+  input#phone.form-control(type='tel' aria-describedby='phoneHelp' placeholder='Enter Phone' name='phone' required='')
+  // Service / Parts Only
+  input#customerRegNumber.form-control(style='display:none;' type='text' placeholder="Customer's Vehicle Registration Number")
+  // Service / Parts Only
+  br
+  br
+  hr
+  h2 Vehicle of Interest
+  // NEW VEHICLE OPTIONS Only
+  .form-group
+  select#purchaseType.form-control.custom-select-lg.mb-3.top(value='Please select' name='purchaseType' required='' data-tooltip='Choose a purchase type' data-position='top')
+  option New Purchase
+  option Motability Purchase
+  option Business Purchase
+  .form-group
+  select#brand.form-control.custom-select-lg.mb-3.top(onchange='showModels(this.value)' value='Please select' name='brand' required='' data-tooltip='Choose a brand' data-position='top')
+  option Select Brand
+  .form-group
+  select#model.form-control(onchange='showFuels(this.value)' value='Please select' name='model' required='')
+  option Select Model
+  .form-group
+  select#fuel.form-control(value='Please select' name='fuel')
+  option Select Fuel Type
+  // NEW VEHICLE OPTIONS END
+  // USED VEHICLE OPTIONS Only
+  .form-group
+  select#usedBrand.form-control.custom-select-lg.mb-3(onchange='showUsedModels(this.value)' type='text' value='Enter Brand' style='display:none;' name='usedBrand')
+  option Select Brand
+  .form-group
+  select#usedModel.form-control(type='text' value='Enter Model' style='display:none;' name='usedModel')
+  option Select Model
+  input#usedRegNumber.form-control(style='display:none;' type='text' placeholder='Used Vehicle Registration Number')
+  // USED VEHICLE OPTIONS END
+  // Service / Parts Only
+  br
+  input#mileage.form-control(style='display:none;' type='number' placeholder='Vehicle Mileage')
+  br
+  input#valuation.form-control(style='display:none;' type='number' placeholder='Vehicle Valuation')
+  // Service / Parts Only
+  .form-group
+  label(for='addInfo') Additional information
+  textarea#addInfo.form-control(rows='3' placeholder='Any additional information from the consumer' name='addInfo')
+  br
+  .form-row
+  button.btn.btn-primary.btn-lg.mx-auto(onclick='carSelectionValid(this.value)' type='submit') Submit lead
+script.
+  // JavaScript for disabling form submissions if there are invalid fields
+  (function () {
+  'use strict';
+  window.addEventListener('load', function () {
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.getElementsByClassName('needs-validation');
+  // Loop over them and prevent submission
+  var validation = Array.prototype.filter.call(forms, function (form) {
+  form.addEventListener('submit', function (event) {
+  if (form.checkValidity() === false) {
+  event.preventDefault();
+  event.stopPropagation();
+  } else if (form.checkValidity() === true) {
+  console.log("Form is valid: " + form.checkValidity())
+  collectFormData(forms);
+  }
+  form.classList.add('was-validated');
+  }, false);
+  });
+  }, false);
+  })();
+script.
+  window.onload = function () {
+  if (lpTag.agentSDK) {
+  bindUser();
+  }
+  }
