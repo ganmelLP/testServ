@@ -15,6 +15,9 @@ const router = express.Router();
    getNew(req,res);
  });
 
+ router.get('/contextData',ensureLoggedIn, function(req, res) {
+  getContext(req,res);
+});
 
 
 
@@ -51,6 +54,25 @@ function getNew(req, res) {
       res.status(500).json({ error: err })
     });
 }
+
+function getNew(req, res) {
+  let conv = req.query.convId;
+  var options = {
+    uri: `https://z2.context.liveperson.net/v1/account/34811337/testInfo/${conv}/properties`,
+    json: true // Automatically parses the JSON string in the response
+  };
+  
+  rp(options)
+    .then(function (resp) {
+      //  console.log(resp);
+        res.status(200).json(resp);;
+        
+    })
+    .catch(function (err) {
+      res.status(500).json({ error: err })
+    });
+}
+
 
 
 module.exports = router;
