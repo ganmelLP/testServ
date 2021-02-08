@@ -57,6 +57,7 @@ function getNew(req, res) {
 
 function getContext(req, res) {
   let conv = req.query.convId;
+  console.log(`https://z2.context.liveperson.net/v1/account/34811337/testInfo/${conv}/properties`)
   var options = {
     uri: `https://z2.context.liveperson.net/v1/account/34811337/testInfo/${conv}/properties`,
     headers:{
