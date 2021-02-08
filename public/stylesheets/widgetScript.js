@@ -41,7 +41,7 @@ document.onreadystatechange = () => {
             //your code to be executed after 1 second
 
             if (isEmpty(conversationId) == true) {
-                console.log("SDE NOT Loaded , taking API, is SDEResult empty?:" + isEmpty(conversationId))
+                console.log("SDE NOT Loaded , taking API, is SDEResult empty?:" + isEmpty(conversationId) + conversationId)
                 fetch('https://serene-falls-66485.herokuapp.com/api/used') // GET used cars list
                     .then(usedCarsResponse => usedCarsResponse.json())
                     .then(usedCarData => {
