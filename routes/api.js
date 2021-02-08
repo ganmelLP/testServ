@@ -55,10 +55,14 @@ function getNew(req, res) {
     });
 }
 
-function getNew(req, res) {
+function getContext(req, res) {
   let conv = req.query.convId;
   var options = {
     uri: `https://z2.context.liveperson.net/v1/account/34811337/testInfo/${conv}/properties`,
+    headers:{
+      'Content-Type':'application/json',
+      'maven-api-key':process.env.mavenKey
+    },
     json: true // Automatically parses the JSON string in the response
   };
   
