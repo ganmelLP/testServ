@@ -183,7 +183,7 @@ function bindUser() {
 var updateCallback = function (data) {
     // Do something with the returning data
     var path = data.key;
-    conversationId = data.newValue;
+    conversationId = data;
     // called each time the value is updated.
     // If there's an existing value when bind is called - this callback
     // will be called with the existing value
