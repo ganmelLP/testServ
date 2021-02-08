@@ -1,8 +1,7 @@
 var usedCars = [];
 var newCars = [];
 var contextFull = {};
-var info = [];
-var conversationId = {};
+var conversationId = '';
 window.onload = function () {
     if (lpTag.agentSDK) {
         bindUser();
@@ -183,7 +182,7 @@ function bindUser() {
 var updateCallback = function (data) {
     // Do something with the returning data
     var path = data.key;
-    conversationId = data;
+    conversationId = data.newValue;
     // called each time the value is updated.
     // If there's an existing value when bind is called - this callback
     // will be called with the existing value
