@@ -97,7 +97,7 @@ document.onreadystatechange = () => {
                                     showUsedBrands(noUsedDuplicates, usedBrandName);
 
                                     // if (SDEResult.vehicleOfInterest[0].voi.stockType == "NEW") {
-                                    console.log(`Printing from inside the API Calls > ${contextFull}, Location: ${contextFull.locationName}`)
+                                    console.log(`Printing from inside the API Calls > ${JSON.stringify(contextFull)}, Location: ${contextFull.locationName}`)
                                     //optionBrand = SDEResult.vehicleOfInterest[0].voi.make;
                                     //     brandName.getElementsByTagName('option')[0].innerHTML = optionBrand;
                                     //     brandName.getElementsByTagName('option')[0].setAttribute("class", "brand selection")
