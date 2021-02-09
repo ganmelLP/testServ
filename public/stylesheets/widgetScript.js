@@ -98,6 +98,20 @@ document.onreadystatechange = () => {
                                                             console.log(dealerships)
                                                             dealershipsData = dealerships;
 
+
+                                                            autocomplete({
+                                                                input: document.getElementById("dealership"),
+                                                                fetch: function (text, update) {
+                                                                    text = text.toLowerCase();
+                                                                    // you can also use AJAX requests instead of preloaded data
+                                                                    var suggestions = dealershipsData.filtered.filter(n => n.used_name_short.toLowerCase().startsWith(text))
+                                                                    update(suggestions);
+                                                                },
+                                                                onSelect: function (item) {
+                                                                    input.id = item.used_name_short;
+                                                                }
+                                                            });
+
                                                     //Clear duplicate brands to show brand list without duplicates
                                                     let noDuplicates = clearDuplicateBrands(newCars)
                                                     showBrands(noDuplicates, brandName);
