@@ -44,7 +44,7 @@ document.onreadystatechange = () => {
                                                 dealershipsData = dealerships;
 
                                                 var labled = JSON.stringify(dealershipsData.filtered).replace(/used_name_short/ig,'label');
-                                                var input = document.getElementById("dealership");
+                                                var input =document.getElementById("dealership");
 
                                                 autocomplete({
                                                     input: input,
