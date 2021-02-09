@@ -43,16 +43,19 @@ document.onreadystatechange = () => {
                                                 console.log(dealerships)
                                                 dealershipsData = dealerships;
 
+                                                var labled = JSON.stringify(dealershipsData.filtered).replace(/used_name_short/ig,'label');
+                                                var input = document.getElementById("dealership");
+
                                                 autocomplete({
-                                                    input: document.getElementById("dealership"),
-                                                    fetch: function (text, update) {
+                                                    input: input,
+                                                    fetch: function(text, update) {
                                                         text = text.toLowerCase();
                                                         // you can also use AJAX requests instead of preloaded data
-                                                        var suggestions = dealershipsData.filtered.filter(n => n.used_name_short.toLowerCase().startsWith(text))
+                                                        var suggestions = JSON.parse(labled).filter(n => n.label.toLowerCase().startsWith(text))
                                                         update(suggestions);
                                                     },
-                                                    onSelect: function (item) {
-                                                        input.id = item.used_name_short;
+                                                    onSelect: function(item) {
+                                                        input.value = item.label;
                                                     }
                                                 });
                                                 
@@ -98,19 +101,22 @@ document.onreadystatechange = () => {
                                                             console.log(dealerships)
                                                             dealershipsData = dealerships;
 
+                                                            var labled = JSON.stringify(dealershipsData.filtered).replace(/used_name_short/ig,'label');
+                                                            var input = document.getElementById("dealership");
 
                                                             autocomplete({
-                                                                input: document.getElementById("dealership"),
-                                                                fetch: function (text, update) {
+                                                                input: input,
+                                                                fetch: function(text, update) {
                                                                     text = text.toLowerCase();
                                                                     // you can also use AJAX requests instead of preloaded data
-                                                                    var suggestions = dealershipsData.filtered.filter(n => n.used_name_short.toLowerCase().startsWith(text))
+                                                                    var suggestions = JSON.parse(labled).filter(n => n.label.toLowerCase().startsWith(text))
                                                                     update(suggestions);
                                                                 },
-                                                                onSelect: function (item) {
-                                                                    input.id = item.used_name_short;
+                                                                onSelect: function(item) {
+                                                                    input.value = item.label;
                                                                 }
                                                             });
+                                                    
 
                                                     //Clear duplicate brands to show brand list without duplicates
                                                     let noDuplicates = clearDuplicateBrands(newCars)
