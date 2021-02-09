@@ -23,7 +23,7 @@ document.onreadystatechange = () => {
             //your code to be executed after 1 second
 
             if (conversationId == true) {
-                console.log("SDE NOT Loaded , taking API, is SDEResult empty?:" + conversationId)
+                console.log("conversationId NOT Loaded, using APIs only, is SDEResult empty?:" + conversationId)
                 fetch('https://serene-falls-66485.herokuapp.com/api/used') // GET used cars list
                     .then(usedCarsResponse => usedCarsResponse.json())
                     .then(usedCarData => {
@@ -73,7 +73,7 @@ document.onreadystatechange = () => {
                     });
 
             } else {
-                console.log("SDEs Loaded, taking them instead of API, is SDEResult empty?:" + conversationId)
+                console.log("conversationId Loaded, is conversationId empty?:" + conversationId)
                 try {
 
                     fetch('https://serene-falls-66485.herokuapp.com/api/used') // GET used cars list

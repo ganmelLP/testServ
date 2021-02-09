@@ -20,7 +20,7 @@ router.get('/send', ensureLoggedIn, function(req, res, next) {
 
 
 
-function leadPost(req, res,data) {
+function leadPost(req, res, data) {
   var options = {
     method:'post',
     uri: 'https://api-preprod.robinsandday.co.uk/api/v1/lead',
