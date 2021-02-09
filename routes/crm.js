@@ -12,10 +12,10 @@ router.get('/', ensureLoggedIn, function(req, res, next) {
 });
 
 /* POST Lead Data after getting request with lead data in the URL params */
-router.get('/:lead', ensureLoggedIn, function(req, res, next) {
+router.get('/send', ensureLoggedIn, function(req, res, next) {
   var id = req.query; // $_GET["id"]
   console.log('Lead Submitted with the following details: ' + JSON.stringify(id,null,4));
- res.json(leadPost(req,res,id));
+  res.json(leadPost(req,res,id));
 });
 
 
