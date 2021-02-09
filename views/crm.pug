@@ -20,7 +20,7 @@ block content
     br
     hr
     h2 Lead
-    input#dealership.form-control(type="text", placeholder="Dealership Name")
+    input#dealership.form-control(type="text", name="dealership", placeholder="Dealership Name")
     br
     .form-group
       label.float-left(for="channel") Preferred Channel
@@ -29,9 +29,9 @@ block content
         option SMS
         option Email
         option Other
-    input#source.form-control(type="url", placeholder="Source of Enquiry URL")
+    input#source.form-control(type="url", name="source", placeholder="Source of Enquiry URL")
     br
-    input#channelSource.form-control(type="text", placeholder="Client Channel Source")
+    input#channelSource.form-control(type="text", name="channelSource", placeholder="Client Channel Source")
     br
     br
     hr
@@ -82,13 +82,13 @@ block content
     .form-group
       select.form-control#usedModel(type="text", value="Enter Model", style="display:none;", name="usedModel")
         option Select Model
-    input#usedRegNumber.form-control(style="display:none;", type="text", placeholder="Used Vehicle Registration Number")
+    input#usedRegNumber.form-control(style="display:none;", type="text", name="usedRegNumber", placeholder="Used Vehicle Registration Number")
     //  USED VEHICLE OPTIONS END
     //  Service / Parts Only
     br
-    input#mileage.form-control(style="display:none;", type="number", placeholder="Vehicle Mileage")
+    input#mileage.form-control(style="display:none;", type="number", name="mileage" placeholder="Vehicle Mileage")
     br
-    input#valuation.form-control(style="display:none;", type="number", placeholder="Vehicle Valuation")
+    input#valuation.form-control(style="display:none;", type="number", name="valuation", placeholder="Vehicle Valuation")
     br
     //  Service / Parts Only
     .form-group
