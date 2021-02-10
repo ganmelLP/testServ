@@ -140,7 +140,7 @@ document.onreadystatechange = () => {
                                                             console.log(dealerships)
                                                             dealershipsData = dealerships;
 
-                                                            dealershipsData.filtered.forEach(function (dName) { dealershipNamesArr.push(dName.used_name_short)});
+                                                            dealershipsData.filtered.forEach(function (dName) { dealershipNamesArr.push(`${dName.used_name_short} - ${dName.id}`)});
 
                                                             var substringMatcher = function (strs) {
                                                                 return function findMatches(q, cb) {
