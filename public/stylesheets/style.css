@@ -262,3 +262,7 @@ hr + h2::after {
 .twitter-typeahead{
     width:100%;
 }
+
+.form-control{
+    margin-bottom:2%;
+}
