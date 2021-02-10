@@ -16,13 +16,10 @@ block content
         .form-check.form-check-inline
           input.form-check-input#service(onchange="radioCheck(this.value,this.checked)", type="radio", name="carType", value="service")
           label.form-check-label.back-end.box(for="service") Service/Parts
-    br
-    br
     hr
     h2 Lead
     #typeahead-autocomplete
      input.thead.form-control(type="text", name="dealership", placeholder="Dealership Name")
-    br
     .form-group
       label.float-left(for="channel") Preferred Channel
       select.form-control#channel(value="Please select", name="channel", required)
@@ -31,10 +28,7 @@ block content
         option Email
         option Other
     input#source.form-control(type="text", name="source", placeholder="Source of Enquiry URL")
-    br
     input#channelSource.form-control(type="text", name="channelSource", placeholder="Client Channel Source")
-    br
-    br
     hr
     h2 Customer Information
     .form-row
@@ -54,12 +48,9 @@ block content
         label(for="phone")
         input.form-control#phone(type="tel", aria-describedby="phoneHelp", placeholder="Enter Phone", name="phone", required)
     input#postcode.form-control(type="text", name="postcode", placeholder="Customer's Postcode")
-    br
     // Service / Parts Only
     input#customerRegNumber.form-control(style="display:none;", type="text", name="customerRegNumber", placeholder="Customer\'s Vehicle Registration Number")
     //  Service / Parts Only
-    br
-    br
     hr
     h2 Vehicle of Interest
     //  NEW VEHICLE OPTIONS Only
