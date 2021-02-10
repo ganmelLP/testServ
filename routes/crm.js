@@ -23,6 +23,11 @@ router.get('/:info', ensureLoggedIn, function(req, res, next) {
 
 
 function leadPost(req, res, data) {
+
+  let numberPattern = /\d+/g;
+  let locationId = data.dealership.match( numberPattern );
+  console.log("Taking only number (id) from the location name: " + locationId);
+
   var options = {
     method:'post',
     uri: 'https://api-preprod.robinsandday.co.uk/api/v1/lead',
@@ -38,7 +43,7 @@ function leadPost(req, res, data) {
       "misc": {
           "comment": data.addInfo
       },
-      "location_id": "34",
+      "location_id": locationId,
       "customer_vehicle": {
           "make": data.brand,
           "model": data.model
