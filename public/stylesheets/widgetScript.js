@@ -538,12 +538,12 @@ function showUsedBrands(cars, brandName) {
     for (let i = 0; i < cars.length; i++) {
         option = document.createElement("option");
         option.text = cars[i].manufacturer;
-        brandName.add(option);
+        usedBrandName.add(option);
         option.setAttribute("class", "brand selection")
     }
     option = document.createElement("option");
     option.text = "other";
-    brandName.add(option);
+    usedBrandName.add(option);
     option.setAttribute("class", "brand selection")
 }
 
@@ -571,7 +571,7 @@ function showModels(brand) {
     }
     option = document.createElement("option");
     option.text = "other";
-    brandName.add(option);
+    modelName.add(option);
     option.setAttribute("class", "brand selection")
 }
 
@@ -597,7 +597,7 @@ function showUsedModels(brand) {
     }
     option = document.createElement("option");
     option.text = "other";
-    brandName.add(option);
+    modelName.add(option);
     option.setAttribute("class", "brand selection")
 }
 
@@ -627,7 +627,7 @@ function showFuels(model) {
     }
         option = document.createElement("option");
     option.text = "other";
-    brandName.add(option);
+    fuelType.add(option);
     option.setAttribute("class", "brand selection")
 }
 
