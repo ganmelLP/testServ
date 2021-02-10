@@ -7,6 +7,6 @@ block content
       h2 You are logged in!
     else
       hr
-      h2 You are not logged in! Please #[a(href="/login") Log In] to continue.
+      h2(style="letter-spacing:0.010em") You are not logged in! Please #[a(href="/login") Log In] to continue.
       form(action="/login")
         input(type="submit", value="Login")
