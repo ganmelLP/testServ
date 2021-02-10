@@ -256,7 +256,7 @@ function bindUser() {
 
     var pathToData = "chatInfo.rtSessionId";
 
-    lpTag.agentSDK.bind(pathToData, updateCallback, notifyWhenDone);
+    lpTag.agentSDK.get(pathToData, updateCallback, notifyWhenDone);
 
 
 }
