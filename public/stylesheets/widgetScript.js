@@ -29,25 +29,10 @@ document.onreadystatechange = () => {
         const usedModelName = document.querySelector("#usedModel");
         const delayInMilliseconds = 5000;
 
-        option = document.createElement("option");
-        option.text = "other";
-        modelName.add(option);
-        option.setAttribute("class", "model selection")
-
-        option = document.createElement("option");
-        option.text = "other";
-        usedModelName.add(option);
-        option.setAttribute("class", "model selection")
-
-        option = document.createElement("option");
-        option.text = "other";
-        fuelType.add(option);
-        option.setAttribute("class", "fuel selection")
-
         setTimeout(function () {
 
             if (conversationId == true) {
-                console.log("conversationId NOT Loaded, using APIs only, is SDEResult empty?:" + conversationId)
+                console.log("conversationId NOT Loaded, using APIs only, is empty?:" + conversationId)
                 fetch('https://serene-falls-66485.herokuapp.com/api/used') // GET used cars list
                     .then(usedCarsResponse => usedCarsResponse.json())
                     .then(usedCarData => {
@@ -583,6 +568,11 @@ function showModels(brand) {
         modelName.add(option);
         option.setAttribute("class", "model selection")
     }
+    
+    option = document.createElement("option");
+    option.text = "other";
+    modelName.add(option);
+    option.setAttribute("class", "model selection")
 
 }
 
@@ -607,6 +597,10 @@ function showUsedModels(brand) {
         option.setAttribute("class", "model selection")
     }
 
+    option = document.createElement("option");
+    option.text = "other";
+    usedModelName.add(option);
+    option.setAttribute("class", "model selection")
 }
 
 
@@ -633,6 +627,11 @@ function showFuels(model) {
         fuelType.add(option);
         option.setAttribute("class", "fuel selection")
     }
+    
+    option = document.createElement("option");
+    option.text = "other";
+    fuelType.add(option);
+    option.setAttribute("class", "fuel selection")
 }
 
 function collectFormData() {
