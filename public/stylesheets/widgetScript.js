@@ -29,6 +29,20 @@ document.onreadystatechange = () => {
         const usedModelName = document.querySelector("#usedModel");
         const delayInMilliseconds = 5000;
 
+        option = document.createElement("option");
+        option.text = "other";
+        modelName.add(option);
+        option.setAttribute("class", "model selection")
+
+        option = document.createElement("option");
+        option.text = "other";
+        usedModelName.add(option);
+        option.setAttribute("class", "model selection")
+
+        option = document.createElement("option");
+        option.text = "other";
+        fuelType.add(option);
+        option.setAttribute("class", "fuel selection")
 
         setTimeout(function () {
 
