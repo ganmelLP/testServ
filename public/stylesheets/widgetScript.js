@@ -52,8 +52,10 @@ document.onreadystatechange = () => {
                                                 console.log(dealerships)
                                                 dealershipsData = dealerships;
 
-                                                dealershipsData.forEach(function (dName) { dealershipNamesArr.push(dName.used_name_short) });
+                                                dealershipsData.filtered.forEach(function (dName) { dealershipNamesArr.push(`${dName.used_name_short} - ${dName.id}`) }); // Push dealership name + id to a string array, server side will take only the id
 
+
+                                                // Typeahead settings
                                                 var substringMatcher = function (strs) {
                                                     return function findMatches(q, cb) {
                                                         var matches, substringRegex;
@@ -75,8 +77,9 @@ document.onreadystatechange = () => {
                                                         cb(matches);
                                                     };
                                                 };
+                                                // Typeahead settings END
 
-                                                $('#the-basics .thead').typeahead({
+                                                $('#typeahead-autocomplete .thead').typeahead({
                                                     hint: true,
                                                     highlight: true,
                                                     minLength: 1

@@ -13,9 +13,11 @@ router.get('/', ensureLoggedIn, function(req, res, next) {
 
 /* POST Lead Data after getting request with lead data in the URL params */
 router.get('/:info', ensureLoggedIn, function(req, res, next) {
-  var id = req.query; // $_GET["id"]
-  console.log('Lead Submitted with the following details: ' + JSON.stringify(id));
-  res.json(leadPost(req,res,id));
+  var leadParams = req.query;
+  console.log('Lead Submitted with the following details: ' + JSON.stringify(leadParams));
+  var numberPattern = /\d+/g;
+  console.log("ONLY ID OF LOCATION: " +leadParams.dealership.match( numberPattern ))
+  res.json(leadPost(req,res,leadParams));
 });
 
 
