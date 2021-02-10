@@ -85,9 +85,17 @@ block content
     .form-group
       select.form-control#usedModel(type="text", value="Enter Model", style="display:none;", name="usedModel")
         option Select Model
+    br
     input#usedRegNumber.form-control(style="display:none;", type="text", name="usedRegNumber", placeholder="Used Vehicle Registration Number")
-    input#valuation.form-control(type="text", name="valuation", placeholder="Customer's Vehicle Value (Valuation)")
+    br
+    input#valuation.form-control(style="display:none;", type="text", name="valuation", placeholder="Customer's Vehicle Value (Valuation)")
+    br
     //  USED VEHICLE OPTIONS END
+    //  Service /  Parts Only
+    br
+    input#mileage.form-control(style="display:none;", type="number", name="mileage" placeholder="Vehicle Mileage")
+    br
+    //  Service / Parts Only
     //  USED+NEW VEHICLE OPTIONS Only!
     input#atidcapid.form-control(type="text", name="atidcapid", placeholder="Autotrader ID/CAP ID")
     br
@@ -97,11 +105,7 @@ block content
     br
     input#price.form-control(type="text", name="price", placeholder="Vehicle Price")
     //  USED+NEW VEHICLE OPTIONS END
-    //  Service /  Parts Only
-    br
-    input#mileage.form-control(style="display:none;", type="number", name="mileage" placeholder="Vehicle Mileage")
-    br
-    //  Service / Parts Only
+
     .form-group
       label(for="addInfo") Additional information
       textarea.form-control#addInfo(rows="3", placeholder="Any additional information from the consumer", name="addInfo")
