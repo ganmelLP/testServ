@@ -156,7 +156,7 @@ document.onreadystatechange = () => {
                                                                     };
                                                                 };
 
-                                                                $('#the-basics .thead').typeahead({
+                                                                $('#typeahead-autocomplete .thead').typeahead({
                                                                     hint: true,
                                                                     highlight: true,
                                                                     minLength: 1
