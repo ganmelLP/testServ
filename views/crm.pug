@@ -130,7 +130,7 @@ block content
             }
         }
 
-    jQuery(function ($) {
+    jQuery(function ($) { // require only one to be filled - email or phone, not both
       var $inputs = $('input[name=email],input[name=phone]');
       $inputs.on('input', function () {
         // Set the required property of the other input to false if this input is not empty.
