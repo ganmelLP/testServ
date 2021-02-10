@@ -4,7 +4,7 @@ block content
   .w3-container
     if loggedIn
       hr
-      h2(style="letter-spacing:0.010em") You are logged in, you can move to the #[a(href="/crm") Lead form]
+      h2(style="letter-spacing:0.010em") You are logged in, you can move to the #[a(href="/crm" ) Lead form]
       form(action="/crm" style="margin-left:40%")
         input.btn.btn-primary.btn-lg.mx-auto(type="submit", value="Lead Form")
     else
