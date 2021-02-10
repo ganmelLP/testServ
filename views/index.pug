@@ -3,6 +3,8 @@ extends layout
 block content
   .w3-container
     if loggedIn
+      hr
       h2 You are logged in!
     else
+      hr
       h2 You are not logged in! Please #[a(href="/login") Log In] to continue.
