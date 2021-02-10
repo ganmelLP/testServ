@@ -12,11 +12,11 @@ html
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx' crossorigin='anonymous')
   body
     nav.w3-bar.w3-border.w3-light-grey( role="navigation" )
-      .w3-bar-item.w3-text-grey Robins & Day CRM Widget
+      .w3-bar-item.w3-text-grey Robins & Day Lead Widget
       a( href="/").w3-bar-item.w3-button Home
       if loggedIn
         a( href="/user" ).w3-bar-item.w3-button Profile
-        a( href="/crm" ).w3-bar-item.w3-button CRM
+        a( href="/crm" ).w3-bar-item.w3-button Lead Form
       else
         a( id="qsLoginBtn" href="/login" ).w3-bar-item.w3-button Login
     block content

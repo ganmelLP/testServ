@@ -4,11 +4,11 @@ block content
   .w3-container
     if loggedIn
       hr
-      h2(style="letter-spacing:0.010em") You are logged in, you move to the CRM page #[a(href="/crm") Log In]
-      form(action="/crm")
-        input.btn.btn-primary.btn-lg.mx-auto(type="submit", value="Login")
+      h2(style="letter-spacing:0.010em") You are logged in, you can move to the #[a(href="/crm") Lead form]
+      form(action="/crm" style="margin-left:40%")
+        input.btn.btn-primary.btn-lg.mx-auto(type="submit", value="Lead Form")
     else
       hr
       h2(style="letter-spacing:0.010em") You are not logged in! Please #[a(href="/login") Log In] to continue.
-      form(action="/login")
+      form(action="/login" style="margin-left:40%")
         input.btn.btn-primary.btn-lg.mx-auto(type="submit", value="Login")
