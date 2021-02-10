@@ -364,11 +364,18 @@ function radioCheck(value, isChecked) {
     const usedBrandName = document.querySelector("#usedBrand");
     const usedModelName = document.querySelector("#usedModel");
     const usedRegNumber = document.querySelector("#usedRegNumber");
+    const valuation = document.querySelector("#valuation");
+
+    //New+Used
+    const atidcapid = document.querySelector("#atidcapid");
+    const trim = document.querySelector("#trim");
+    const description = document.querySelector("#description");
+    const price = document.querySelector("#price");
 
     //Service
     const customerRegNumber = document.querySelector("#customerRegNumber");
     const mileage = document.querySelector("#mileage");
-    const valuation = document.querySelector("#valuation");
+   
 
 
     if (isChecked && value == "used") {
@@ -378,12 +385,16 @@ function radioCheck(value, isChecked) {
         fuelType.style.display = "none";
         customerRegNumber.style.display = "none";
         mileage.style.display = "none";
-        valuation.style.display = "none";
         purchaseType.style.display = "none";
 
         usedBrandName.style.display = "block";
         usedModelName.style.display = "block";
         usedRegNumber.style.display = "block";
+        valuation.style.display = "block";
+        atidcapid.style.display = "block";
+        trim.style.display = "block";
+        description.style.display = "block";
+        price.style.display = "block";
 
     }
 
@@ -393,6 +404,10 @@ function radioCheck(value, isChecked) {
         modelName.style.display = "block";
         fuelType.style.display = "block";
         purchaseType.style.display = "block";
+        atidcapid.style.display = "block";
+        trim.style.display = "block";
+        description.style.display = "block";
+        price.style.display = "block";
 
         usedRegNumber.style.display = "none";
         usedBrandName.style.display = "none";
@@ -408,7 +423,6 @@ function radioCheck(value, isChecked) {
 
         customerRegNumber.style.display = "block";
         mileage.style.display = "block";
-        valuation.style.display = "block";
         usedBrandName.style.display = "block";
         usedModelName.style.display = "block";
 
@@ -417,6 +431,11 @@ function radioCheck(value, isChecked) {
         fuelType.style.display = "none";
         usedRegNumber.style.display = "none";
         purchaseType.style.display = "none";
+        valuation.style.display = "none";
+        atidcapid.style.display = "none";
+        trim.style.display = "none";
+        description.style.display = "none";
+        price.style.display = "none";
     }
 }
 
@@ -431,7 +450,7 @@ function carSelectionValid(data) {
 
     const isChecked = document.querySelector('input[name="carType"]:checked').value;
     console.log("The data:" + data)
-    if (isChecked == "used") {
+    if (isChecked == "used" || isChecked == "service") {
 
         brandName.setCustomValidity('');
         modelName.setCustomValidity('');
@@ -550,6 +569,10 @@ function showModels(brand) {
         modelName.add(option);
         option.setAttribute("class", "model selection")
     }
+    option = document.createElement("option");
+    option.text = "other";
+    brandName.add(option);
+    option.setAttribute("class", "brand selection")
 }
 
 //Updates the dropdown list of used models depending on the brand selection
@@ -572,6 +595,10 @@ function showUsedModels(brand) {
         modelName.add(option);
         option.setAttribute("class", "model selection")
     }
+    option = document.createElement("option");
+    option.text = "other";
+    brandName.add(option);
+    option.setAttribute("class", "brand selection")
 }
 
 
@@ -598,6 +625,10 @@ function showFuels(model) {
         fuelType.add(option);
         option.setAttribute("class", "fuel selection")
     }
+        option = document.createElement("option");
+    option.text = "other";
+    brandName.add(option);
+    option.setAttribute("class", "brand selection")
 }
 
 function collectFormData() {
@@ -607,18 +638,3 @@ function collectFormData() {
     console.log(JSON.stringify(formResult));
 
 }
-
-// Example POST method implementation:
-async function postData(url = '', convId) {
-    // Default options are marked with *
-    const response = await fetch(url, {
-        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data) // body data type must match "Content-Type" header
-    });
-    return response.json(); // parses JSON response into native JavaScript objects
-}
-
-!function (e, t) { "object" == typeof exports && "undefined" != typeof module ? module.exports = t() : "function" == typeof define && define.amd ? define(t) : (e = "undefined" != typeof globalThis ? globalThis : e || self).autocomplete = t() }(this, (function () { "use strict"; return function (e) { var t, n, o = document, i = o.createElement("div"), r = i.style, f = navigator.userAgent, l = -1 !== f.indexOf("Firefox") && -1 !== f.indexOf("Mobile"), u = e.debounceWaitMs || 0, a = e.preventSubmit || !1, s = e.disableAutoSelect || !1, d = l ? "input" : "keyup", c = [], p = "", v = 2, m = e.showOnFocus, g = 0; if (void 0 !== e.minLength && (v = e.minLength), !e.input) throw new Error("input undefined"); var h = e.input; function E() { n && window.clearTimeout(n) } function w() { return !!i.parentNode } function L() { var e; g++, c = [], p = "", t = void 0, (e = i.parentNode) && e.removeChild(i) } function b() { for (; i.firstChild;)i.removeChild(i.firstChild); var n = function (e, t) { var n = o.createElement("div"); return n.textContent = e.label || "", n }; e.render && (n = e.render); var f = function (e, t) { var n = o.createElement("div"); return n.textContent = e, n }; e.renderGroup && (f = e.renderGroup); var l = o.createDocumentFragment(), u = "#9?$"; if (c.forEach((function (o) { if (o.group && o.group !== u) { u = o.group; var i = f(o.group, p); i && (i.className += " group", l.appendChild(i)) } var r = n(o, p); r && (r.addEventListener("click", (function (t) { e.onSelect(o, h), L(), t.preventDefault(), t.stopPropagation() })), o === t && (r.className += " selected"), l.appendChild(r)) })), i.appendChild(l), c.length < 1) { if (!e.emptyMsg) return void L(); var a = o.createElement("div"); a.className = "empty", a.textContent = e.emptyMsg, i.appendChild(a) } i.parentNode || o.body.appendChild(i), function () { if (w()) { r.height = "auto", r.width = h.offsetWidth + "px"; var t, n = 0; f(), f(), e.customize && t && e.customize(h, t, i, n) } function f() { var e = o.documentElement, i = e.clientTop || o.body.clientTop || 0, f = e.clientLeft || o.body.clientLeft || 0, l = window.pageYOffset || e.scrollTop, u = window.pageXOffset || e.scrollLeft, a = (t = h.getBoundingClientRect()).top + h.offsetHeight + l - i, s = t.left + u - f; r.top = a + "px", r.left = s + "px", (n = window.innerHeight - (t.top + h.offsetHeight)) < 0 && (n = 0), r.top = a + "px", r.bottom = "", r.left = s + "px", r.maxHeight = n + "px" } }(), function () { var e = i.getElementsByClassName("selected"); if (e.length > 0) { var t = e[0], n = t.previousElementSibling; if (n && -1 !== n.className.indexOf("group") && !n.previousElementSibling && (t = n), t.offsetTop < i.scrollTop) i.scrollTop = t.offsetTop; else { var o = t.offsetTop + t.offsetHeight, r = i.scrollTop + i.offsetHeight; o > r && (i.scrollTop += o - r) } } }() } function y() { w() && b() } function x() { y() } function C(e) { e.target !== i ? y() : e.preventDefault() } function T(e) { for (var t = e.which || e.keyCode || 0, n = 0, o = [38, 13, 27, 39, 37, 16, 17, 18, 20, 91, 9]; n < o.length; n++) { if (t === o[n]) return } t >= 112 && t <= 123 || 40 === t && w() || D(0) } function N(n) { var o = n.which || n.keyCode || 0; if (38 === o || 40 === o || 27 === o) { var i = w(); if (27 === o) L(); else { if (!i || c.length < 1) return; 38 === o ? function () { if (c.length < 1) t = void 0; else if (t === c[0]) t = c[c.length - 1]; else for (var e = c.length - 1; e > 0; e--)if (t === c[e] || 1 === e) { t = c[e - 1]; break } }() : function () { if (c.length < 1 && (t = void 0), t && t !== c[c.length - 1]) { for (var e = 0; e < c.length - 1; e++)if (t === c[e]) { t = c[e + 1]; break } } else t = c[0] }(), b() } return n.preventDefault(), void (i && n.stopPropagation()) } 13 === o && (t && (e.onSelect(t, h), L()), a && n.preventDefault()) } function k() { m && D(1) } function D(o) { var i = ++g, r = h.value; r.length >= v || 1 === o ? (E(), n = window.setTimeout((function () { e.fetch(r, (function (e) { g === i && e && (p = r, t = (c = e).length < 1 || s ? void 0 : c[0], b()) }), o) }), 0 === o ? u : 0)) : L() } function H() { setTimeout((function () { o.activeElement !== h && L() }), 200) } return i.className = "autocomplete " + (e.className || ""), r.position = "absolute", i.addEventListener("mousedown", (function (e) { e.stopPropagation(), e.preventDefault() })), i.addEventListener("focus", (function () { return h.focus() })), h.addEventListener("keydown", N), h.addEventListener(d, T), h.addEventListener("blur", H), h.addEventListener("focus", k), window.addEventListener("resize", x), o.addEventListener("scroll", C, !0), { destroy: function () { h.removeEventListener("focus", k), h.removeEventListener("keydown", N), h.removeEventListener(d, T), h.removeEventListener("blur", H), window.removeEventListener("resize", x), o.removeEventListener("scroll", C, !0), E(), L() } } } }));

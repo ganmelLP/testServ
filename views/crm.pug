@@ -3,7 +3,7 @@ extends layout
 block content
   head
     meta(http-equiv="content-type", content="text/html; charset=UTF-8")
-    title Robins And Day CRM Widget
+    title Robins And Day Lead Widget
   form.needs-validation#carForm(action="/crm/send")
     span.mx-auto
       .middle
@@ -53,8 +53,9 @@ block content
       .form-group.col-sm-6
         label(for="phone")
         input.form-control#phone(type="tel", aria-describedby="phoneHelp", placeholder="Enter Phone", name="phone", required)
+    input#postcode.form-control(type="text", name="postcode", placeholder="Customer's Postcode")
     // Service / Parts Only
-    input#customerRegNumber.form-control(style="display:none;", type="text", placeholder="Customer\'s Vehicle Registration Number")
+    input#customerRegNumber.form-control(style="display:none;", type="text", name="customerRegNumber", placeholder="Customer\'s Vehicle Registration Number")
     //  Service / Parts Only
     br
     br
@@ -76,7 +77,7 @@ block content
       select.form-control#fuel(value="Please select", name="fuel")
         option Select Fuel Type
     //  NEW VEHICLE OPTIONS END
-    //  USED VEHICLE OPTIONS Only
+    //  USED VEHICLE OPTIONS Only (*Brand/Model also shows for Service)
     .form-group
       select.form-control.custom-select-lg.mb-3#usedBrand(onchange="showUsedModels(this.value)", type="text", value="Enter Brand", style="display:none;", name="usedBrand")
         option Select Brand
@@ -84,12 +85,17 @@ block content
       select.form-control#usedModel(type="text", value="Enter Model", style="display:none;", name="usedModel")
         option Select Model
     input#usedRegNumber.form-control(style="display:none;", type="text", name="usedRegNumber", placeholder="Used Vehicle Registration Number")
+    input#valuation.form-control(type="text", name="valuation", placeholder="Customer's Vehicle Value (Valuation)")
     //  USED VEHICLE OPTIONS END
+    //  USED+NEW VEHICLE OPTIONS Only
+    input#atidcapid.form-control(type="text", name="atidcapid", placeholder="Autotrader ID/CAP ID")
+    input#trim.form-control(type="text", name="trim", placeholder="Trim")
+    input#description.form-control(type="text", name="description", placeholder="Vehicle Description")
+    input#price.form-control(type="text", name="price", placeholder="Vehicle Price")
+    //  USED+NEW VEHICLE OPTIONS END
     //  Service / Parts Only
     br
     input#mileage.form-control(style="display:none;", type="number", name="mileage" placeholder="Vehicle Mileage")
-    br
-    input#valuation.form-control(style="display:none;", type="number", name="valuation", placeholder="Vehicle Valuation")
     br
     //  Service / Parts Only
     .form-group
