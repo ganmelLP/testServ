@@ -601,7 +601,7 @@ function showUsedModels(brand) {
 
     option = document.createElement("option");
     option.text = "other";
-    usedModelName.add(option);
+    modelName.add(option);
     option.setAttribute("class", "model selection")
 }
 
