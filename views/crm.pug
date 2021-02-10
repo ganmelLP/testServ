@@ -64,10 +64,10 @@ block content
     h2 Vehicle of Interest
     //  NEW VEHICLE OPTIONS Only
     .form-group
-      select.form-control.custom-select-lg.mb-3.top#purchaseType(value="Please select", name="purchaseType", required, data-tooltip="Choose a purchase type", data-position="top")
-        option New Purchase
-        option Motability Purchase
-        option Business Purchase
+      select.form-control.custom-select-lg.mb-3.top#purchaseType(value="Please select", name="carType", required, data-tooltip="Choose a purchase type", data-position="top")
+        option New
+        option Motability
+        option Business
     .form-group
       select.form-control.custom-select-lg.mb-3.top#brand(onchange="showModels(this.value)", value="Please select", name="brand", required, data-tooltip="Choose a brand", data-position="top")
         option Select Brand
