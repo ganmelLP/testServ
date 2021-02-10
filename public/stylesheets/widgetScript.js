@@ -618,7 +618,7 @@ function showFuels(model) {
     // Get the full list and filter out only for the selected model fuel types from the dropdown
     cars = newCars;
     fuelForModel = filterModels(cars, model)
-    console.log(fuelForModel[0].fuel_types + "  FUEL MODEL 1");
+    //console.log(fuelForModel[0].fuel_types + "  FUEL MODEL 1");
     //Update fuel types for selected brand
     if (fuelForModel[0]) {
         for (let i = 0; i < fuelForModel[0].fuel_types.length; i++) {
