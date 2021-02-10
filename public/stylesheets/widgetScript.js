@@ -12,6 +12,8 @@ window.onload = function () {
 document.onreadystatechange = () => {
     // document ready
     if (document.readyState === 'complete') {
+
+        
         /*!
          * typeahead.js v1.3.0 // Used for Autocomplete
          * https://github.com/corejavascript/typeahead.js
@@ -29,7 +31,6 @@ document.onreadystatechange = () => {
 
 
         setTimeout(function () {
-
 
             if (conversationId == true) {
                 console.log("conversationId NOT Loaded, using APIs only, is SDEResult empty?:" + conversationId)
