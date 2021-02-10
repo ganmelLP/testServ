@@ -589,12 +589,14 @@ function showUsedModels(brand) {
     // Get the full list and filter out only for the selected brand from the dropdown
     modelsForBrand = filterUsedBrand(usedCars, brand)
 
-    //Update models for selected brand
-    for (let i = 0; i < modelsForBrand.length; i++) {
-        option = document.createElement("option");
-        option.text = modelsForBrand[i].model + " - Current Stock: " + modelsForBrand[i].count;
-        modelName.add(option);
-        option.setAttribute("class", "model selection")
+    if (modelsForBrand) {
+        //Update models for selected brand
+        for (let i = 0; i < modelsForBrand.length; i++) {
+            option = document.createElement("option");
+            option.text = modelsForBrand[i].model + " - Current Stock: " + modelsForBrand[i].count;
+            modelName.add(option);
+            option.setAttribute("class", "model selection")
+        }
     }
 
     option = document.createElement("option");
