@@ -33,7 +33,7 @@ function leadPost(req, res, data) {
     uri: 'https://api-preprod.robinsandday.co.uk/api/liveperson/lead',
     headers:{
       'accept': 'application/json',
-      'authorization': process.env.X_API,
+      'X-RD-API-Key': process.env.X_API,
       'content-type': 'application/json',
     },
     body:{
