@@ -30,7 +30,7 @@ function leadPost(req, res, data) {
 
   var options = {
     method:'post',
-    uri: 'https://api-preprod.robinsandday.co.uk/api/v1/lead',
+    uri: 'https://api-preprod.robinsandday.co.uk/api/liveperson/lead',
     headers:{
       'accept': 'application/json',
       'authorization': process.env.X_API,
