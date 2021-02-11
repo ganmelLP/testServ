@@ -282,7 +282,7 @@ document.onreadystatechange = () => {
                                                                 }
 
                                                                 if (contextFull.contactMethod) {
-                                                                    document.getElementById('channel')[0].value = contextFull.channel;
+                                                                    document.getElementById('channel')[0].value = contextFull.contactMethod;
                                                                 }
 
                                                                 if (contextFull.enquirySource) {
