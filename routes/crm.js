@@ -3,7 +3,6 @@ const passport = require('passport');
 const rp = require('request-promise');
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 const router = express.Router();
-const api = require('./api.js');
 
 /* GET CRM Widget. */
 router.get('/', ensureLoggedIn, function(req, res, next) {
@@ -55,7 +54,7 @@ function leadPost(req, res, data) {
       "misc": {
           "comment": data.addInfo
       },
-      "location_id": locationId,
+      "location_id": locationId.toString(),
       "customer_vehicle": {
           "make": data.brand.toLowerCase().indexOf('select') > -1 ? data.brand : data.usedBrand,
           "model": data.model.toLowerCase().indexOf('select') > -1 ? data.model : data.usedModel,

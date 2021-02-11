@@ -133,5 +133,4 @@ function getDealerships(req, res) {
 }
 
 
-module.exports = getDealerships;
 module.exports = router;

@@ -119,12 +119,6 @@ block content
         })();
     
   script.
-    
-    window.onload = function () {
-            if (lpTag.agentSDK) {
-                bindUser();
-            }
-        }
 
     jQuery(function ($) { // require only one to be filled - email or phone, not both
       var $inputs = $('input[name=email],input[name=phone]');
