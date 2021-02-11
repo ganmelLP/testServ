@@ -5,6 +5,8 @@ const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 const rp = require('request-promise');
 // const process = require('process');
 const router = express.Router();
+const NodeCache = require( "node-cache" );
+const dataCache = new NodeCache();
 
 /* GET home page. */
  router.get('/used',ensureLoggedIn, function(req, res) {
@@ -12,7 +14,12 @@ const router = express.Router();
  });
 
  router.get('/new',ensureLoggedIn, function(req, res) {
-   getNew(req,res);
+  let value = myCache.get( "newCars" );
+  if ( value == undefined ){
+      console.log("cache expired, making an API request")
+      getNew(req,res);
+  } else {res.status(304).json(value);}
+   
  });
 
  router.get('/contextData',ensureLoggedIn, function(req, res) {
@@ -51,7 +58,8 @@ function getNew(req, res) {
   rp(options)
     .then(function (resp) {
       //  console.log(resp);
-        res.status(200).json(resp);;
+        let didSaveCache = dataCache.set( "newCars", resp, 10000 );
+        res.status(200).json(resp);
         
     })
     .catch(function (err) {
