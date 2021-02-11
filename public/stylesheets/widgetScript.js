@@ -4,6 +4,7 @@ var dealershipNamesArr = [];
 var contextFull = {};
 var dealershipsData = {};
 var conversationId = '';
+
 window.onload = function () {
     if (lpTag.agentSDK) {
         bindUser();
