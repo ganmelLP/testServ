@@ -33,7 +33,7 @@ function leadPost(req, res, data) {
     uri: 'https://api-preprod.robinsandday.co.uk/api/v1/lead',
     headers:{
       'accept': 'application/json',
-      'authorization': ,
+      'authorization': process.env.X_API,
       'content-type': 'application/json',
     },
     body:{
