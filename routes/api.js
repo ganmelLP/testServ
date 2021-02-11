@@ -10,7 +10,14 @@ const dataCache = new NodeCache();
 
 /* GET home page. */
  router.get('/used',ensureLoggedIn, function(req, res) {
-   getUsed(req,res);
+  let value = dataCache.get( "usedCars" );
+  if ( value == undefined ){
+      console.log("cache expired, making an API request")
+      getUsed(req,res);
+  } else {
+    res.status(304).json(value);
+  }
+   
  });
 
  router.get('/new',ensureLoggedIn, function(req, res) {
@@ -19,8 +26,7 @@ const dataCache = new NodeCache();
       console.log("cache expired, making an API request")
       getNew(req,res);
   } else {
-    console.log("sending cached?")
-    res.status(304).json(value + " this is is cahced!!");
+    res.status(304).json(value);
   }
    
  });
@@ -30,7 +36,14 @@ const dataCache = new NodeCache();
 });
 
 router.get('/dealerships',ensureLoggedIn, function(req, res) {
-  getDealerships(req,res);
+  let value = dataCache.get( "dealerships" );
+  if ( value == undefined ){
+      console.log("cache expired, making an API request")
+      getDealerships(req,res);
+  } else {
+    res.status(304).json(value);
+  }
+  
 });
 
 
@@ -43,8 +56,9 @@ function getUsed(req, res) {
   
   rp(options)
     .then(function (resp) {
-      //  console.log(resp);
-        res.status(200).json(resp);
+      let didSaveCache = dataCache.set( "usedCars", resp, 10000 );
+      console.log(`save cache used cars: ${didSaveCache}`)
+      res.status(200).json(resp);
         
     })
     .catch(function (err) {
@@ -60,9 +74,8 @@ function getNew(req, res) {
   
   rp(options)
     .then(function (resp) {
-      //  console.log(resp);
         let didSaveCache = dataCache.set( "newCars", resp, 10000 );
-        console.log(`save cache: ${didSaveCache}`)
+        console.log(`save cache new cars: ${didSaveCache}`)
         res.status(200).json(resp);
         
     })
@@ -97,7 +110,6 @@ function getContext(req, res) {
 
 
 function getDealerships(req, res) {
-  let conv = req.query.convId;
   var options = {
     uri: `https://z2.context.liveperson.net/v1/account/34811337/data/dealerships2/properties`,
     headers:{
@@ -109,8 +121,9 @@ function getDealerships(req, res) {
   
   rp(options)
     .then(function (resp) {
-      //  console.log(resp);
-        res.status(200).json(resp);;
+      let didSaveCache = dataCache.set( "dealerships", resp, 10000 );
+      console.log(`save cache dealerships: ${didSaveCache}`)
+      res.status(200).json(resp);;
         
     })
     .catch(function (err) {
@@ -118,6 +131,5 @@ function getDealerships(req, res) {
       res.status(500).json({ error: "There was an error getting data from Context Storage for the Dealerships" })
     });
 }
-https://z2.context.liveperson.net/v1/account/34811337/data/dealerships/properties
 
 module.exports = router;

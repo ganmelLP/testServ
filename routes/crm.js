@@ -3,6 +3,7 @@ const passport = require('passport');
 const rp = require('request-promise');
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 const router = express.Router();
+const api = require('./api.js');
 
 /* GET CRM Widget. */
 router.get('/', ensureLoggedIn, function(req, res, next) {
@@ -14,6 +15,9 @@ router.get('/', ensureLoggedIn, function(req, res, next) {
 /* POST Lead Data after getting request with lead data in the URL params */
 router.get('/:info', ensureLoggedIn, function(req, res, next) {
   var leadParams = req.query;
+  console.log("Calling get dealerships from CRM route");
+  api.getDealerships(req,res);
+  
   console.log('Lead Submitted with the following details: ' + JSON.stringify(leadParams));
   var numberPattern = /\d+/g;
   console.log("ONLY ID OF LOCATION: " +leadParams.dealership.match( numberPattern ))
