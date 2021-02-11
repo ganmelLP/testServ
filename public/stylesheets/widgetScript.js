@@ -686,9 +686,10 @@ function showUsedModels(brand) {
         //Update models for selected brand
         for (let i = 0; i < modelsForBrand.length; i++) {
             option = document.createElement("option");
-            option.text = modelsForBrand[i].model + " - Current Stock: " + modelsForBrand[i].count;
+            option.text = modelsForBrand[i].model;
             modelName.add(option);
             option.setAttribute("class", "model selection")
+            option.setAttribute("title", `Current Stock: ${modelsForBrand[i].count}`)
         }
     }
 
