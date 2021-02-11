@@ -18,7 +18,7 @@ const dataCache = new NodeCache();
   if ( value == undefined ){
       console.log("cache expired, making an API request")
       getNew(req,res);
-  } else {res.status(304).json(value);}
+  } else {res.status(304).json(value + " this is is cahced!!");}
    
  });
 
