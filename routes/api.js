@@ -59,6 +59,7 @@ function getNew(req, res) {
     .then(function (resp) {
       //  console.log(resp);
         let didSaveCache = dataCache.set( "newCars", resp, 10000 );
+        console.log(`save cache: ${didSaveCache}`)
         res.status(200).json(resp);
         
     })
