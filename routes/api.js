@@ -14,7 +14,7 @@ const dataCache = new NodeCache();
  });
 
  router.get('/new',ensureLoggedIn, function(req, res) {
-  let value = myCache.get( "newCars" );
+  let value = dataCache.get( "newCars" );
   if ( value == undefined ){
       console.log("cache expired, making an API request")
       getNew(req,res);
