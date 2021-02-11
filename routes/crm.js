@@ -3,7 +3,7 @@ const passport = require('passport');
 const rp = require('request-promise');
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 const router = express.Router();
-const api = require('./getDealerships');
+const api = require('./api.js');
 
 /* GET CRM Widget. */
 router.get('/', ensureLoggedIn, function(req, res, next) {

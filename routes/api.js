@@ -132,5 +132,6 @@ function getDealerships(req, res) {
     });
 }
 
-module.exports.getDealerships = getDealerships;
+
+module.exports = getDealerships;
 module.exports = router;
