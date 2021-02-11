@@ -109,7 +109,7 @@ function getContext(req, res) {
 }
 
 
-function getDealerships(req, res) {
+module.exports = function getDealerships(req, res) {
   var options = {
     uri: `https://z2.context.liveperson.net/v1/account/34811337/data/dealerships2/properties`,
     headers:{
