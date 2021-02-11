@@ -17,7 +17,7 @@ router.get('/:info', ensureLoggedIn, function(req, res, next) {
   console.log('Lead Submitted with the following details: ' + JSON.stringify(leadParams));
   var numberPattern = /\d+/g;
   console.log("ONLY ID OF LOCATION: " +leadParams.dealership.match( numberPattern ))
-  res.json(leadPost(req,res,leadParams)).send(leadParams);
+  res.json(leadPost(req,res,leadParams)).send(leadParams).render('crm');
 });
 
 
@@ -73,7 +73,7 @@ function leadPost(req, res, data) {
     })
     .catch(function (err) {
       console.log(err);
-     // res.status(500).json({ error: err })
+      res.status(500).json({ error: err })
     });
 }
 
