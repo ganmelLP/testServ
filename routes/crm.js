@@ -40,13 +40,25 @@ function leadPost(req, res, data) {
       "firstName": data.fName,
       "lastName": data.lName,
       "email": data.email,
+      "mobile": data.phone,
+      "vehicleCode": data.atidcapid,
+      "range": data.trim,
+      "version": data.description,
+      "price": data.price,
+      "postcode": data.postcode,
+      "leadType":data.leadType,
+      "activityType":data.carType,
       "misc": {
           "comment": data.addInfo
       },
       "location_id": locationId,
       "customer_vehicle": {
-          "make": data.brand,
-          "model": data.model
+          "make": data.brand.toLowerCase().indexOf('select') > -1 ? data.brand : data.usedBrand,
+          "model": data.model.toLowerCase().indexOf('select') > -1 ? data.model : data.usedModel,
+          "fuelType": data.fuel,
+          "regNo": data.customerRegNumber,
+          "valuation": data.valuation,
+          "mileage": data.mileage
       }
   },
     json: true // Automatically parses the JSON string in the response
