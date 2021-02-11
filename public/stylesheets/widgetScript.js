@@ -183,22 +183,22 @@ document.onreadystatechange = () => {
 
 
                                                                             if (contextFull.make) {
-                                                                                document.getElementById('usedBrand')[0].value = contextFull.make;
+                                                                                document.getElementById('usedBrand').value = contextFull.make;
                                                                                 simulate_event('change', document.getElementById('usedBrand'));
                                                                                 // in order to allow the model/fuel type to populate when automatically selected we must trigger the change event
                                                                             }
 
                                                                             if (contextFull.model) {
-                                                                                document.getElementById('usedModel')[0].value = contextFull.model;
+                                                                                document.getElementById('usedModel').value = contextFull.model;
                                                                                 simulate_event('change', document.getElementById('usedModel'));
                                                                                 // in order to allow the model/fuel type to populate when automatically selected we must trigger the change event
                                                                             }
 
                                                                             if (contextFull.vrn) {
-                                                                                document.getElementById('usedRegNumber')[0].value = contextFull.vrn;
+                                                                                document.getElementById('usedRegNumber').value = contextFull.vrn;
                                                                             }
                                                                             if (contextFull.valuation) {
-                                                                                document.getElementById('valuation')[0].value = contextFull.valuation;
+                                                                                document.getElementById('valuation').value = contextFull.valuation;
                                                                             }
 
 
@@ -214,20 +214,20 @@ document.onreadystatechange = () => {
 
 
                                                                             if (contextFull.make) {
-                                                                                document.getElementById('brand')[0].value = contextFull.make;
+                                                                                document.getElementById('brand').value = contextFull.make;
                                                                                 simulate_event('change', document.getElementById('brand'));
                                                                                 // in order to allow the model/fuel type to populate when automatically selected we must trigger the change event
                                                                             }
 
                                                                             if (contextFull.model) {
-                                                                                document.getElementById('model')[0].value = contextFull.model;
+                                                                                document.getElementById('model').value = contextFull.model;
                                                                                 simulate_event('change', document.getElementById('model'));
                                                                                 // in order to allow the model/fuel type to populate when automatically selected we must trigger the change event
                                                                             }
 
 
                                                                             if (contextFull.fuelType) {
-                                                                                document.getElementById('fuel')[0].value = contextFull.fuelType;
+                                                                                document.getElementById('fuel').value = contextFull.fuelType;
                                                                                 simulate_event('change', document.getElementById('fuel'));
                                                                                 // in order to allow the model/fuel type to populate when automatically selected we must trigger the change event
                                                                             }
@@ -235,19 +235,19 @@ document.onreadystatechange = () => {
                                                                         }
 
                                                                         if (contextFull.capId) {
-                                                                            document.getElementById('atidcapid')[0].value = contextFull.capId;
+                                                                            document.getElementById('atidcapid').value = contextFull.capId;
                                                                         }
 
                                                                         if (contextFull.trim) {
-                                                                            document.getElementById('trim')[0].value = contextFull.trim;
+                                                                            document.getElementById('trim').value = contextFull.trim;
                                                                         }
 
                                                                         if (contextFull.description) {
-                                                                            document.getElementById('description')[0].value = contextFull.description;
+                                                                            document.getElementById('description').value = contextFull.description;
                                                                         }
 
                                                                         if (contextFull.value) {
-                                                                            document.getElementById('price')[0].value = contextFull.value;
+                                                                            document.getElementById('price').value = contextFull.value;
                                                                         }
 
 
@@ -256,19 +256,19 @@ document.onreadystatechange = () => {
                                                                         document.getElementById("service").click();
 
                                                                         if (contextFull.make) {
-                                                                            document.getElementById('usedBrand')[0].value = contextFull.make;
+                                                                            document.getElementById('usedBrand').value = contextFull.make;
                                                                             simulate_event('change', document.getElementById('usedBrand'));
                                                                             // in order to allow the model/fuel type to populate when automatically selected we must trigger the change event
                                                                         }
 
                                                                         if (contextFull.model) {
-                                                                            document.getElementById('usedModel')[0].value = contextFull.model;
+                                                                            document.getElementById('usedModel').value = contextFull.model;
                                                                             simulate_event('change', document.getElementById('usedModel'));
                                                                             // in order to allow the model/fuel type to populate when automatically selected we must trigger the change event
 
 
                                                                             if (contextFull.mileage) {
-                                                                                document.getElementById('mileage')[0].value = contextFull.mileage;
+                                                                                document.getElementById('mileage').value = contextFull.mileage;
                                                                             }
 
                                                                         }
@@ -282,15 +282,15 @@ document.onreadystatechange = () => {
                                                                 }
 
                                                                 if (contextFull.contactMethod) {
-                                                                    document.getElementById('channel')[0].value = contextFull.contactMethod;
+                                                                    document.getElementById('channel').value = contextFull.contactMethod;
                                                                 }
 
                                                                 if (contextFull.enquirySource) {
-                                                                    document.getElementById('source')[0].value = contextFull.channel;
+                                                                    document.getElementById('source').value = contextFull.channel;
                                                                 }
 
                                                                 if (contextFull.channel) {
-                                                                    document.getElementById('channelSource')[0].value = contextFull.channel;
+                                                                    document.getElementById('channelSource').value = contextFull.channel;
                                                                 }
 
 
