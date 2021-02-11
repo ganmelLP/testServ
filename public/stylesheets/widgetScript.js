@@ -286,7 +286,7 @@ document.onreadystatechange = () => {
                                                                 }
 
                                                                 if (contextFull.enquirySource) {
-                                                                    document.getElementById('source').value = contextFull.channel;
+                                                                    document.getElementById('source').value = contextFull.enquirySource;
                                                                 }
 
                                                                 if (contextFull.channel) {
