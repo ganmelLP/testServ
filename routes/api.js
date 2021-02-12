@@ -15,7 +15,6 @@ const dataCache = new NodeCache();
       console.log("cache expired, making an API request")
       getUsed(req,res);
   } else {
-    console.log(value)
     res.status(304).json(value);
   }
    
@@ -59,7 +58,6 @@ function getUsed(req, res) {
     .then(function (resp) {
       let didSaveCache = dataCache.set( "usedCars", resp, 10000 );
       console.log(`save cache used cars: ${didSaveCache}`)
-      console.log(resp)
       res.status(200).json(resp);
         
     })
