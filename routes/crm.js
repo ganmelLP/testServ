@@ -46,7 +46,7 @@ function leadPost(req, res, data) {
     "vrm":data.usedRegNumber,
     "make": data.brand.toLowerCase().indexOf('select') < 0 ? data.brand : data.usedBrand,
     "model": data.model.toLowerCase().indexOf('select') < 0 ? data.model : data.usedModel,
-    "fuelType": data.fuel
+    "fuelType": data.fuel.toLowerCase().indexOf('select') < 0 ? data.fuel : '',
   }
 
   if(bodyToSend.email.length < 4){
