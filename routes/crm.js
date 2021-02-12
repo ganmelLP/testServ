@@ -15,7 +15,6 @@ router.get('/', ensureLoggedIn, function(req, res, next) {
 router.get('/send', ensureLoggedIn, function(req, res, next) {
   var leadParams = req.query;
   leadPost(req,res,leadParams);
-  res.render('leadSent');
 });
 
 
@@ -62,6 +61,7 @@ function leadPost(req, res, data) {
     .then(function (resp) {
        console.log("Success lead")
        console.log(resp)
+       res.render('leadSent');
       // res.status(200).render('user');
       //  res.status(200).json(resp);
         

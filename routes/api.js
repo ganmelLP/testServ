@@ -124,7 +124,7 @@ function getDealerships(req, res) {
     .then(function (resp) {
       let didSaveCache = dataCache.set( "dealerships", resp, 10000 );
       console.log(`save cache dealerships: ${didSaveCache}`)
-      res.status(200).json(resp);;
+      res.status(200).json(resp);
         
     })
     .catch(function (err) {
