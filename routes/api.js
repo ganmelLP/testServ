@@ -11,11 +11,11 @@ const CACHE_EXPIRY_TIME = 10000;
 
  router.get('/used',ensureLoggedIn, function(req, res) {
   let value = dataCache.get( "usedCars" );
-  if ( value == undefined ){
-      console.log("cache expired, making an API request")
+  // if ( value == undefined ){
+  //     console.log("cache expired, making an API request")
       getUsed(req,res);
-  } else {
-    res.status(304).json(value);
+  // } else {
+  //   res.status(304).json(value);
   }
    
  });

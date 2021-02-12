@@ -47,6 +47,8 @@ function leadPost(req, res, data) {
       "mileage": data.mileage
     }
 
+    "make": data.brand.toLowerCase().indexOf('select') < 0 ? data.brand : data.usedBrand,
+    "model": data.model.toLowerCase().indexOf('select') < 0 ? data.model : data.usedModel,
 
   }
 
