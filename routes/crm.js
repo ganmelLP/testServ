@@ -14,8 +14,8 @@ router.get('/', ensureLoggedIn, function(req, res, next) {
 /* POST Lead Data after getting request with lead data in the URL params */
 router.get('/:info', ensureLoggedIn, function(req, res, next) {
   var leadParams = req.query;
-  console.log('Lead Submitted with the following details: ' + JSON.stringify(leadParams));
-  //res.json(leadPost(req,res,leadParams)).send(leadParams).render('crm');
+  console.log('Submitting lead with: ' + JSON.stringify(leadParams));
+  leadPost(req,res,leadParams);
 });
 
 
@@ -60,8 +60,9 @@ function leadPost(req, res, data) {
   
   rp(options)
     .then(function (resp) {
+       console.log("Success lead")
        console.log(resp)
-       res.render('crm');
+       res.json(resp);
         //res.status(200).json(resp);
         
     })
