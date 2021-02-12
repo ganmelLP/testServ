@@ -15,7 +15,7 @@ router.get('/', ensureLoggedIn, function(req, res, next) {
 router.get('/send', ensureLoggedIn, function(req, res, next) {
   var leadParams = req.query;
   leadPost(req,res,leadParams);
-  res.send('received request to /send');
+  res.render('crm');
 });
 
 
