@@ -39,8 +39,8 @@ function leadPost(req, res, data) {
     },
     "location_id": data.dealershipId,
     "customerVehicle": {
-      "make": data.brand.toLowerCase().indexOf('select') > -1 ? data.brand : data.usedBrand,
-      "model": data.model.toLowerCase().indexOf('select') > -1 ? data.model : data.usedModel,
+      "make": data.brand.toLowerCase().indexOf('select') < 0 ? data.brand : data.usedBrand,
+      "model": data.model.toLowerCase().indexOf('select') < 0 ? data.model : data.usedModel,
       "fuelType": data.fuel,
       "regNo": data.customerRegNumber,
       "valuation": data.valuation,
