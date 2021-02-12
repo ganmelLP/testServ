@@ -105,7 +105,7 @@ document.onreadystatechange = () => {
                                                 //     });
 
                                                     $('#typeahead-autocomplete .thead').typeahead( {
-                                                          source: dealershipsData,
+                                                          source: dealershipsData.filtered,
                                                          displayText: function(item) {
                                                               return item.used_name_short
                                                           },
@@ -193,7 +193,7 @@ document.onreadystatechange = () => {
                                                                 //     });
 
                                                                 $('#typeahead-autocomplete .thead').typeahead( {
-                                                                    source: dealershipsData,
+                                                                    source: dealershipsData.filtered,
                                                                    displayText: function(item) {
                                                                         return item.used_name_short
                                                                     },
@@ -335,7 +335,7 @@ document.onreadystatechange = () => {
                                                 }))
                                     }))
                         }));
-                        
+
                 } catch (e) {
                     console.error(e);
                 }
