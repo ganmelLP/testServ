@@ -242,17 +242,17 @@ document.onreadystatechange = () => {
 
                                                                 //LEAD
 
-                                                                // if (contextFull.locationName) {
-                                                                //     $("#typeahead-autocomplete .thead").typeahead('val', contextFull.locationName);
-                                                                // }
-                                                                
                                                                 if (contextFull.locationName) {
-                                                                    $("#typeahead-autocomplete .thead").val(contextFull.locationName );
+                                                                    $("#typeahead-autocomplete .thead").typeahead('val', contextFull.locationName);
                                                                 }
+                                                                
+                                                                // if (contextFull.locationName) {
+                                                                //     $("#typeahead-autocomplete .thead").val(contextFull.locationName );
+                                                                // }
 
-                                                                if (contextFull.locationId) {
-                                                                    $("#dealershipId").val(contextFull.locationId );
-                                                                }
+                                                                // if (contextFull.locationId) {
+                                                                //     $("#dealershipId").val(contextFull.locationId );
+                                                                // }
 
                                                                 if (contextFull.contactMethod) {
                                                                     document.getElementById('channel').value = contextFull.contactMethod;
