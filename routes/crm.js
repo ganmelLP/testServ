@@ -12,8 +12,11 @@ router.get('/', ensureLoggedIn, function(req, res, next) {
 });
 
 /* POST Lead Data after getting request with lead data in the URL params */
-router.get('/send', ensureLoggedIn, function(req, res, next) {
+router.get('/send/:data', ensureLoggedIn, function(req, res, next) {
+  var leadParams = req.query;
+  leadPost(req,res,leadParams);
   res.send('received request to /send');
+  //res.render('crm')
 });
 
 /* POST Lead Data after getting request with lead data in the URL params */
