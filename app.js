@@ -11,8 +11,6 @@ const OAuth2Strategy = require('passport-oauth2');
 const refresh = require('passport-oauth2-refresh');
 const flash = require('connect-flash');
 
-//var helmet = require('helmet')
-
 dotenv.load();
 
 const routes = require('./routes/index');
@@ -68,7 +66,6 @@ app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-//app.use(helmet())
 app.disable('x-powered-by')
 app.use(logger('dev'));
 app.use(bodyParser.json());
