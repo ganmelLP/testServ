@@ -15,6 +15,7 @@ const dataCache = new NodeCache();
       console.log("cache expired, making an API request")
       getUsed(req,res);
   } else {
+    console.log(value)
     res.status(304).json(value);
   }
    
@@ -42,7 +43,6 @@ router.get('/dealerships',ensureLoggedIn, function(req, res) {
       console.log("cache expired, making an API request")
       getDealerships(req,res);
   } else {
-    console.log(value)
     res.status(304).json(value);
   }
   
