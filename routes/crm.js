@@ -39,17 +39,14 @@ function leadPost(req, res, data) {
     },
     "location_id": data.dealershipId,
     "customerVehicle": {
-      "make": data.brand.toLowerCase().indexOf('select') < 0 ? data.brand : data.usedBrand,
-      "model": data.model.toLowerCase().indexOf('select') < 0 ? data.model : data.usedModel,
-      "fuelType": data.fuel,
       "regNo": data.customerRegNumber,
       "valuation": data.valuation,
       "mileage": data.mileage
-    }
-
+    },
+    "vrm":data.usedRegNumber,
     "make": data.brand.toLowerCase().indexOf('select') < 0 ? data.brand : data.usedBrand,
     "model": data.model.toLowerCase().indexOf('select') < 0 ? data.model : data.usedModel,
-
+    "fuelType": data.fuel
   }
 
   if(bodyToSend.email.length < 4){
