@@ -16,7 +16,7 @@ const CACHE_EXPIRY_TIME = 10000;
       getUsed(req,res);
   // } else {
   //   res.status(304).json(value);
- // }
+ // } // disabled cacheing as it seems to be not 100% stable, sometimes it fails to get anything in the browser side and I am not sure what is the reason.
    
  });
 

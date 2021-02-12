@@ -37,7 +37,7 @@ function leadPost(req, res, data) {
     "misc": {
       "comment": data.addInfo
     },
-    "location_id": data.dealershipId,
+    "location_id": data.dealershipId, // taken from a hidden field in the form
     "customerVehicle": {
       "regNo": data.customerRegNumber,
       "valuation": data.valuation,
@@ -46,7 +46,7 @@ function leadPost(req, res, data) {
     "vrm":data.usedRegNumber,
     "make": data.brand.toLowerCase().indexOf('select') < 0 ? data.brand : data.usedBrand,
     "model": data.model.toLowerCase().indexOf('select') < 0 ? data.model : data.usedModel,
-    "fuelType": data.fuel.toLowerCase().indexOf('select') < 0 ? data.fuel : '',
+    "fuelType": data.fuel.toLowerCase().indexOf('select') < 0 ? data.fuel : '', // As these three values are by deafult "Select a .." to allow a clear understanding for the agent as to what they must do as well as to verify that a selection has been made with form validation we have to check if they have not been filled in the other irrelevant categories, as when sending the form, it sends all of the fields regarless if they are displayed or display:none
   }
 
   if(bodyToSend.email.length < 4){
@@ -67,13 +67,10 @@ function leadPost(req, res, data) {
 
   rp(options)
     .then(function (resp) {
-      console.log("Success lead")
+      console.log("Success, sent lead data and response below:")
       console.log(bodyToSend)
       console.log(resp)
-      res.render('leadSent');
-      // res.status(200).render('user');
-      //  res.status(200).json(resp);
-
+      res.render('leadSent'); // Show the leadSent pug view
     })
     .catch(function (err) {
       console.log(err);
