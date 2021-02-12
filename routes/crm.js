@@ -22,7 +22,7 @@ router.get('/send', ensureLoggedIn, function (req, res, next) {
 function leadPost(req, res, data) {
 
 
-  let bodyToSend = {
+  var bodyToSend = {
     "firstName": data.fName,
     "lastName": data.lName,
     "email": data.email,
