@@ -15,7 +15,7 @@ router.get('/', ensureLoggedIn, function(req, res, next) {
 router.get('/:info', ensureLoggedIn, function(req, res, next) {
   var leadParams = req.query;
   console.log('Lead Submitted with the following details: ' + JSON.stringify(leadParams));
-  res.json(leadPost(req,res,leadParams)).send(leadParams).render('crm');
+  //res.json(leadPost(req,res,leadParams)).send(leadParams).render('crm');
 });
 
 
@@ -61,7 +61,7 @@ function leadPost(req, res, data) {
   rp(options)
     .then(function (resp) {
        console.log(resp)
-       return resp;
+       res.render('crm');
         //res.status(200).json(resp);
         
     })
