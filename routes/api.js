@@ -16,7 +16,7 @@ const CACHE_EXPIRY_TIME = 10000;
       getUsed(req,res);
   // } else {
   //   res.status(304).json(value);
-  }
+ // }
    
  });
 
