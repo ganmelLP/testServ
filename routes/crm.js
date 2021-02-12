@@ -46,6 +46,8 @@ function leadPost(req, res, data) {
       "valuation": data.valuation,
       "mileage": data.mileage
     }
+
+
   }
 
   if(bodyToSend.email.length < 4){
@@ -67,6 +69,7 @@ function leadPost(req, res, data) {
   rp(options)
     .then(function (resp) {
       console.log("Success lead")
+      console.log(bodyToSend)
       console.log(resp)
       res.render('leadSent');
       // res.status(200).render('user');

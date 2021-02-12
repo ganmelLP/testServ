@@ -3,12 +3,12 @@ const passport = require('passport');
 const refresh = require('passport-oauth2-refresh');
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 const rp = require('request-promise');
-// const process = require('process');
 const router = express.Router();
 const NodeCache = require( "node-cache" );
 const dataCache = new NodeCache();
+const CACHE_EXPIRY_TIME = 10000;
 
-/* GET home page. */
+
  router.get('/used',ensureLoggedIn, function(req, res) {
   let value = dataCache.get( "usedCars" );
   if ( value == undefined ){
@@ -31,9 +31,10 @@ const dataCache = new NodeCache();
    
  });
 
+
  router.get('/contextData',ensureLoggedIn, function(req, res) {
   getContext(req,res);
-});
+}); 
 
 router.get('/dealerships',ensureLoggedIn, function(req, res) {
   let value = dataCache.get( "dealerships" );
@@ -51,12 +52,12 @@ router.get('/dealerships',ensureLoggedIn, function(req, res) {
 function getUsed(req, res) {
   var options = {
     uri: 'https://api-preprod.robinsandday.co.uk/api/used/available-options',
-    json: true // Automatically parses the JSON string in the response
+    json: true
   };
   
   rp(options)
     .then(function (resp) {
-      let didSaveCache = dataCache.set( "usedCars", resp, 10000 );
+      let didSaveCache = dataCache.set( "usedCars", resp, CACHE_EXPIRY_TIME );
       console.log(`save cache used cars: ${didSaveCache}`)
       res.status(200).json(resp);
         
@@ -69,12 +70,12 @@ function getUsed(req, res) {
 function getNew(req, res) {
   var options = {
     uri: 'https://api-preprod.robinsandday.co.uk/api/new/available-options',
-    json: true // Automatically parses the JSON string in the response
+    json: true 
   };
   
   rp(options)
     .then(function (resp) {
-        let didSaveCache = dataCache.set( "newCars", resp, 10000 );
+        let didSaveCache = dataCache.set( "newCars", resp, CACHE_EXPIRY_TIME );
         console.log(`save cache new cars: ${didSaveCache}`)
         res.status(200).json(resp);
         
@@ -84,6 +85,9 @@ function getNew(req, res) {
     });
 }
 
+// Get the data saved from the website and collected by the bot saved to the Context Warehouse, the
+// Key part to the functionality is the conversationID (@ - conv ) this is how we know to pull the data saved by the bot on the same conversation
+// and collect it for this current conversation (we know the current conversationID as we receive it from the Agent Widget SDK running on the widgetScript)
 function getContext(req, res) {
   let conv = req.query.convId;
   console.log(`https://z2.context.liveperson.net/v1/account/34811337/testInfo/${conv}/properties`)
@@ -93,12 +97,11 @@ function getContext(req, res) {
       'Content-Type':'application/json',
       'maven-api-key':process.env.mavenKey
     },
-    json: true // Automatically parses the JSON string in the response
+    json: true 
   };
   
   rp(options)
     .then(function (resp) {
-      //  console.log(resp);
         res.status(200).json(resp);;
         
     })
@@ -108,7 +111,8 @@ function getContext(req, res) {
     });
 }
 
-
+// Data is cached using FaaS into the Context Warehouse(Function as a service) on the Conversational Cloud account, we then retrieve it from the
+// Context Warehouse.
 function getDealerships(req, res) {
   var options = {
     uri: `https://z2.context.liveperson.net/v1/account/34811337/data/dealerships2/properties`,
@@ -116,12 +120,12 @@ function getDealerships(req, res) {
       'Content-Type':'application/json',
       'maven-api-key':process.env.mavenKey
     },
-    json: true // Automatically parses the JSON string in the response
+    json: true
   };
   
   rp(options)
     .then(function (resp) {
-      let didSaveCache = dataCache.set( "dealerships", resp, 10000 );
+      let didSaveCache = dataCache.set( "dealerships", resp, CACHE_EXPIRY_TIME ); // Cache on the server side, save to a key and return key unless the key data expired, in which case calls the API again
       console.log(`save cache dealerships: ${didSaveCache}`)
       res.status(200).json(resp);
         
