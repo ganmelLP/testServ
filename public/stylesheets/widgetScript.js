@@ -134,7 +134,7 @@ document.onreadystatechange = () => {
                 try {
 
                     fetch('https://serene-falls-66485.herokuapp.com/api/used') // GET used cars list
-                        .then(usedCarsResponse => {  usedCarsResponse.json()})
+                        .then(usedCarsResponse =>  usedCarsResponse.json()
                         .then(usedCarData => {
                             console.log(usedCarData)
                             usedCars = usedCarData;
@@ -334,10 +334,8 @@ document.onreadystatechange = () => {
                                                             }))
                                                 }))
                                     }))
-                        });
-
-
-
+                        }));
+                        
                 } catch (e) {
                     console.error(e);
                 }
