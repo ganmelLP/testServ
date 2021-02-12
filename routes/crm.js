@@ -12,6 +12,11 @@ router.get('/', ensureLoggedIn, function(req, res, next) {
 });
 
 /* POST Lead Data after getting request with lead data in the URL params */
+router.get('/send', ensureLoggedIn, function(req, res, next) {
+  res.send('received request to /send');
+});
+
+/* POST Lead Data after getting request with lead data in the URL params */
 router.get('/:info', ensureLoggedIn, function(req, res, next) {
   var leadParams = req.query;
   console.log('Submitting lead with: ' + JSON.stringify(leadParams));
