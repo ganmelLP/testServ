@@ -54,7 +54,7 @@ function leadPost(req, res, data) {
       "misc": {
           "comment": data.addInfo
       },
-      "location_id": locationId.toString(),
+      "location_id": data.dealershipId,
       "customer_vehicle": {
           "make": data.brand.toLowerCase().indexOf('select') > -1 ? data.brand : data.usedBrand,
           "model": data.model.toLowerCase().indexOf('select') > -1 ? data.model : data.usedModel,
