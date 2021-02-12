@@ -49,7 +49,7 @@ function leadPost(req, res, data) {
   }
 
   if(bodyToSend.email.length < 4){
-  delete bodyToSend[email]; 
+  delete bodyToSend.email; 
   } // Remove email key if it wasn't sent
 
   var options = {
