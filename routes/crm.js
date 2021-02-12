@@ -63,7 +63,7 @@ function leadPost(req, res, data) {
        console.log("Success lead")
        console.log(resp)
       // res.status(200).render('user');
-        res.status(200).json(resp);
+      //  res.status(200).json(resp);
         
     })
     .catch(function (err) {
