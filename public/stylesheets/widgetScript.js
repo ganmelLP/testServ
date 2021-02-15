@@ -99,6 +99,7 @@ document.onreadystatechange = () => {
                                                         console.log(contextData)
                                                         contextFull = contextData;
                                                         contextFull.leadtype = contextFull.leadtype.toLowerCase(); // evaluate leadtype in lower case
+                                                        contextFull.make = contextFull.make.toLowerCase(); // evaluate leadtype in lower case
 
 
                                                         fetch('https://serene-falls-66485.herokuapp.com/api/dealerships') // when used cars request is done, GET new cars list and init all values
