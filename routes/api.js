@@ -95,9 +95,9 @@ function getNew(req, res) {
 // and collect it for this current conversation (we know the current conversationID as we receive it from the Agent Widget SDK running on the widgetScript)
 function getContext(req, res) {
   let conv = req.query.convId;
-  console.log(`https://${CONTEXT_WAREHOUSE_EMEA}/v1/account/${ACCOUNT_ID}/testInfo/${conv}/properties`)
+  console.log(`https://${CONTEXT_WAREHOUSE_EMEA}/v1/account/${ACCOUNT_ID}/info/${conv}/properties`)
   var options = {
-    uri: `https://${CONTEXT_WAREHOUSE_EMEA}/v1/account/${ACCOUNT_ID}/testInfo/${conv}/properties`,
+    uri: `https://${CONTEXT_WAREHOUSE_EMEA}/v1/account/${ACCOUNT_ID}/info/${conv}/properties`,
     headers:{
       'Content-Type':'application/json',
       'maven-api-key':process.env.mavenKey
