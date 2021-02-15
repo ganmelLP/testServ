@@ -92,5 +92,5 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug(`Listening on: ${bind}`);
-  console.log(`Listening on ${addr}' + ${addr.port}`);
+  console.log(`Listening on ${JSON.stringify(addr)}' + ${addr.port}`);
 }
