@@ -229,11 +229,11 @@ document.onreadystatechange = () => {
 
                                                                     if (contextFull.locationName) {
                                                                         $("#typeahead-autocomplete .thead").val(contextFull.locationName);
-                                                                    }
+                                                                    } // Display for the agent to be aware which dealership was populated
 
                                                                     if (contextFull.locationId) {
                                                                         $("#dealershipId").val(contextFull.locationId);
-                                                                    }
+                                                                    } // The hidden field of the ID being populated directly from the data
 
                                                                     if (contextFull.contactMethod) {
                                                                         document.getElementById('channel').value = contextFull.contactMethod;
@@ -296,7 +296,7 @@ function bindUser() {
         visitorBlurredCallback: blurHandler
     });
 
-    var pathToData = "chatInfo.rtSessionId";
+    var pathToData = "chatInfo.rtSessionId"; //See: https://developers.liveperson.com/agent-workspace-widget-sdk-public-model-structure.html for the full data structure
 
     lpTag.agentSDK.get(pathToData, updateCallback, notifyWhenDone);
 
@@ -590,7 +590,7 @@ function showUsedBrands(cars, brandName) {
     option = document.createElement("option");
     option.text = "other";
     brandName.add(option);
-    option.setAttribute("class", "brand selection")
+    option.setAttribute("class", "brand selection") // Always show other as an option ()
 }
 
 
@@ -626,9 +626,8 @@ function showModels(brand) {
 //Updates the dropdown list of used models depending on the brand selection
 function showUsedModels(brand) {
 
-    clearSelections("all");
-
     // Clear previous data on every change
+    clearSelections("all");
     let modelsForBrand = [];
     let option;
     const modelName = document.querySelector("#usedModel");
@@ -650,7 +649,7 @@ function showUsedModels(brand) {
     option = document.createElement("option");
     option.text = "other";
     modelName.add(option);
-    option.setAttribute("class", "model selection")
+    option.setAttribute("class", "model selection") 
 }
 
 
@@ -687,11 +686,8 @@ function showFuels(model) {
 }
 
 function collectFormData() {
-
     var formResult = Object.fromEntries(new FormData(document.querySelector('form')).entries())
-
     console.log(JSON.stringify(formResult));
-
 }
 
 // In order to allow depending options in the vehicle model/fuel type to populate when automatically populated

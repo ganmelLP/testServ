@@ -14,17 +14,19 @@ const CONTEXT_WAREHOUSE_EMEA = 'z2.context.liveperson.net'
 
  router.get('/used',ensureLoggedIn, function(req, res) {
   let value = dataCache.get( "usedCars" );
-  // if ( value == undefined ){
-  //     console.log("cache expired, making an API request")
+  console.log(`This is the value of used: ${JSON.stringify(value)}`)
+  if ( value == undefined ){
+      console.log("cache expired, making an API request")
       getUsed(req,res);
-  // } else {
-  //   res.status(304).json(value);
- // } // disabled cacheing for used vehicles as it seems to be not 100% stable, sometimes it fails to get anything in the browser side and I am not sure what is the reason.
+  } else {
+    res.status(304).json(value);
+ } // disabled cacheing for used vehicles as it seems to be not 100% stable, sometimes it fails to get anything in the browser side and I am not sure what is the reason.
    
  });
 
  router.get('/new',ensureLoggedIn, function(req, res) {
   let value = dataCache.get( "newCars" );
+  console.log(`This is the value of new: ${JSON.stringify(value)}`)
   if ( value == undefined ){
       console.log("cache expired, making an API request")
       getNew(req,res);
