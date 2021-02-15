@@ -31,7 +31,7 @@ const CONTEXT_WAREHOUSE_EMEA = 'z2.context.liveperson.net'
       console.log("cache expired, making an API request")
       getNew(req,res);
   } else {
-    res.status(304).json(value);
+    res.status(302).json(value);
   }
    
  });
