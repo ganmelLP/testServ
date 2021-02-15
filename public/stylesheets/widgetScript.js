@@ -97,7 +97,7 @@ document.onreadystatechange = () => {
                                                 .then(contextResponse => contextResponse.json()
                                                     .then(contextData => {
                                                         console.log(contextData)
-                                                        contextFull = contextData.toLowerCase();
+                                                        contextFull = JSON.parse(JSON.stringify(contextData).toLowerCase());
 
 
                                                         fetch('https://serene-falls-66485.herokuapp.com/api/dealerships') // when used cars request is done, GET new cars list and init all values
@@ -126,9 +126,11 @@ document.onreadystatechange = () => {
 
                                                                     console.log(`Printing from inside the API Calls > ${JSON.stringify(contextFull)}`)
 
-                                                                    if (contextFull.leadType) { //Open the relevant category depending on values received, only if leadType is sales we will check if vehicleType is new or used, otherwise if leadType has a different value it will go to service. Also if it's new will also populate the purchaseType (ctype) with motability or business
-                                                                        if (contextFull.leadType == "used" || contextFull.leadType == "personal" || contextFull.leadType == "motability" || contextFull.leadType == "business") {
-                                                                            if (contextFull.leadType == "used") {
+                                                                                                    
+
+                                                                    if (contextFull.leadtype) { //Open the relevant category depending on values received, only if leadtype is sales we will check if vehicleType is new or used, otherwise if leadtype has a different value it will go to service. Also if it's new will also populate the purchaseType (ctype) with motability or business
+                                                                        if (contextFull.leadtype == "used" || contextFull.leadtype == "personal" || contextFull.leadtype == "motability" || contextFull.leadtype == "business") {
+                                                                            if (contextFull.leadtype == "used") {
                                                                                 document.getElementById("used").click();
 
                                                                                 if (contextFull.make) {
@@ -152,13 +154,13 @@ document.onreadystatechange = () => {
 
 
 
-                                                                            } else if (contextFull.leadType == "personal" || contextFull.leadType == "motability" || contextFull.leadType == "business") {
+                                                                            } else if (contextFull.leadtype == "personal" || contextFull.leadtype == "motability" || contextFull.leadtype == "business") {
 
                                                                                 document.getElementById("new").click();
-                                                                                if (contextFull.leadType == "motability") {
+                                                                                if (contextFull.leadtype == "motability") {
                                                                                     document.getElementById('purchaseType').value = 'Motability';
 
-                                                                                } else if (contextFull.leadType == "business") {
+                                                                                } else if (contextFull.leadtype == "business") {
                                                                                     document.getElementById('purchaseType').value = 'Business';
                                                                                 }
 
@@ -176,16 +178,16 @@ document.onreadystatechange = () => {
                                                                                 }
 
 
-                                                                                if (contextFull.fuelType) {
-                                                                                    document.getElementById('fuel').value = contextFull.fuelType;
+                                                                                if (contextFull.fueltype) {
+                                                                                    document.getElementById('fuel').value = contextFull.fueltype;
                                                                                     simulate_event('change', document.getElementById('fuel'));
                                                                                     // in order to allow the model/fuel type to populate when automatically selected we must trigger the change event
                                                                                 }
 
                                                                             }
 
-                                                                            if (contextFull.capId) {
-                                                                                document.getElementById('atidcapid').value = contextFull.capId;
+                                                                            if (contextFull.capid) {
+                                                                                document.getElementById('atidcapid').value = contextFull.capid;
                                                                             }
 
                                                                             if (contextFull.trim) {
@@ -227,20 +229,20 @@ document.onreadystatechange = () => {
 
                                                                     //LEAD
 
-                                                                    if (contextFull.locationName) {
-                                                                        $("#typeahead-autocomplete .thead").val(contextFull.locationName);
+                                                                    if (contextFull.locationname) {
+                                                                        $("#typeahead-autocomplete .thead").val(contextFull.locationname);
                                                                     } // Display for the agent to be aware which dealership was populated
 
-                                                                    if (contextFull.locationId) {
-                                                                        $("#dealershipId").val(contextFull.locationId);
+                                                                    if (contextFull.locationid) {
+                                                                        $("#dealershipId").val(contextFull.locationid);
                                                                     } // The hidden field of the ID being populated directly from the data
 
-                                                                    if (contextFull.contactMethod) {
-                                                                        document.getElementById('channel').value = contextFull.contactMethod;
+                                                                    if (contextFull.contactmethod) {
+                                                                        document.getElementById('channel').value = contextFull.contactmethod;
                                                                     }
 
-                                                                    if (contextFull.enquirySource) {
-                                                                        document.getElementById('source').value = contextFull.enquirySource;
+                                                                    if (contextFull.enquirysource) {
+                                                                        document.getElementById('source').value = contextFull.enquirysource;
                                                                     }
 
                                                                     if (contextFull.channel) {
@@ -689,6 +691,7 @@ function collectFormData() {
     var formResult = Object.fromEntries(new FormData(document.querySelector('form')).entries())
     console.log(JSON.stringify(formResult));
 }
+
 
 // In order to allow depending options in the vehicle model/fuel type to populate when automatically populated
 function simulate_event(eventName, element) {
