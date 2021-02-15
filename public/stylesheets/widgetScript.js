@@ -164,9 +164,7 @@ document.onreadystatechange = () => {
 
                                                                                 } else if (contextFull.leadtype == "business") {
                                                                                     document.getElementById('purchaseType').value = 'Business';
-                                                                                } else if (contextFull.leadtype == "personal") {
-                                                                                    document.getElementById('purchaseType').value = 'New';
-                                                                                }
+                                                                                } // else it will be the default, which is "New"
 
                                                                                 if (contextFull.make) {
                                                                                     document.getElementById('brand').value = contextFull.make;
