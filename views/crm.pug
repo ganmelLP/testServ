@@ -24,10 +24,11 @@ block content
     .form-group
       label.float-left(for="channel") Preferred Channel
       select.form-control#channel(value="Please select", name="channel", required)
-        option WhatsApp
-        option SMS
-        option Email
-        option Other
+        option whatsapp
+        option sms
+        option email
+        option phone
+        option other
     input#source.form-control(type="text", name="source", placeholder="Source of Enquiry URL")
     input#channelSource.form-control(type="text", name="channelSource", placeholder="Client Channel Source")
     hr

@@ -97,9 +97,8 @@ document.onreadystatechange = () => {
                                                 .then(contextResponse => contextResponse.json()
                                                     .then(contextData => {
                                                         console.log(contextData)
-                                                        //contextData.leadType = contextData.leadType.toLowerCase();
                                                         contextFull = contextData;
-                                                        contextFull.leadtype = contextFull.leadtype.toLowerCase();
+                                                        contextFull.leadtype = contextFull.leadtype.toLowerCase(); // evaluate leadtype in lower case
 
 
                                                         fetch('https://serene-falls-66485.herokuapp.com/api/dealerships') // when used cars request is done, GET new cars list and init all values
@@ -240,7 +239,7 @@ document.onreadystatechange = () => {
                                                                     } // The hidden field of the ID being populated directly from the data
 
                                                                     if (contextFull.contactmethod) {
-                                                                        document.getElementById('channel').value = contextFull.contactmethod;
+                                                                        document.getElementById('channel').value = contextFull.contactmethod.toLowerCase();
                                                                     }
 
                                                                     if (contextFull.enquirysource) {
