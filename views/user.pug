@@ -4,15 +4,11 @@ block content
   br
   .w3-container
     .w3-card-4.w3-left(style="width: 100%; padding: 15px; word-wrap:break-word;")
-      div(style="color:white; margin-bottom: 10px;font-size: 2em; text-decoration: underline;") Welcome
+      div(style="color:white; margin-bottom: 10px;font-size: 2em; text-decoration: underline;") User Login Data
       div(style="color:white; font-size: 1.6em; text-decoration: underline;") accessToken:
       div(style="color:white; margin-bottom: 20px;") #{user.at}
       div(style="color:white; font-size: 1.6em; text-decoration: underline;") refreshToken:
       div(style="color:white; margin-bottom: 20px;") #{user.rt}
-      div(style="color:white; font-size: 1.6em; text-decoration: underline;") extra:
-      div(style="color:white; margin-bottom: 20px;") #{JSON.stringify(user)}
-      div(style="color:white; font-size: 1.6em; text-decoration: underline;") extra2:
-      div(style="color:white; margin-bottom: 20px;") #{JSON.stringify(user.extra)}
       if user.idToken
         div(style="color:white; font-size: 1.6em; text-decoration: underline;") idToken:
         div(style="color:white; margin-bottom: 20px;") #{user.idToken}

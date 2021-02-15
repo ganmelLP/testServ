@@ -30,8 +30,7 @@ const strategy = new OAuth2Strategy({
       return done(null, {
         at: accessToken,
         rt: refreshToken,
-        idToken: params['id_token'],
-        extra: params
+        idToken: params['id_token']
       });
     }
     this._oauth2.get(process.env.OIDC_USERINFO_URL, accessToken, function (err, body, res) {
