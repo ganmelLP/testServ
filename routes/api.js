@@ -18,7 +18,7 @@ const CONTEXT_WAREHOUSE_EMEA = 'z2.context.liveperson.net'
       console.log("cache expired, making an API request")
       getUsed(req,res);
   } else {
-    console.log(`This is the  value of used LOADED: ${JSON.stringify(value)}`)
+    console.log(`This is the  value of used  LOADED: ${JSON.stringify(value)}`)
     res.status(302).json(value);
  } // disabled cacheing for used vehicles as it seems to be not 100% stable, sometimes it fails to get anything in the browser side and I am not sure what is the reason.
    
