@@ -26,11 +26,11 @@ const CONTEXT_WAREHOUSE_EMEA = 'z2.context.liveperson.net'
 
  router.get('/new',ensureLoggedIn, function(req, res) {
   let value = dataCache.get( "newCars" );
-  console.log(`This is the value of new: ${JSON.stringify(value)}`)
   if ( value == undefined ){
       console.log("cache expired, making an API request")
       getNew(req,res);
   } else {
+    console.log(`This is the value of new: ${JSON.stringify(value)}`)
     res.status(302).json(value);
   }
    
