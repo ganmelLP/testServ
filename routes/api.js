@@ -6,7 +6,10 @@ const rp = require('request-promise');
 const router = express.Router();
 const NodeCache = require( "node-cache" );
 const dataCache = new NodeCache();
+
 const CACHE_EXPIRY_TIME = 10000;
+const ACCOUNT_ID = '34811337';
+const CONTEXT_WAREHOUSE_EMEA = 'z2.context.liveperson.net'
 
 
  router.get('/used',ensureLoggedIn, function(req, res) {
@@ -16,7 +19,7 @@ const CACHE_EXPIRY_TIME = 10000;
       getUsed(req,res);
   // } else {
   //   res.status(304).json(value);
- // } // disabled cacheing as it seems to be not 100% stable, sometimes it fails to get anything in the browser side and I am not sure what is the reason.
+ // } // disabled cacheing for used vehicles as it seems to be not 100% stable, sometimes it fails to get anything in the browser side and I am not sure what is the reason.
    
  });
 
@@ -90,9 +93,9 @@ function getNew(req, res) {
 // and collect it for this current conversation (we know the current conversationID as we receive it from the Agent Widget SDK running on the widgetScript)
 function getContext(req, res) {
   let conv = req.query.convId;
-  console.log(`https://z2.context.liveperson.net/v1/account/34811337/testInfo/${conv}/properties`)
+  console.log(`https://${CONTEXT_WAREHOUSE_EMEA}/v1/account/${ACCOUNT_ID}/testInfo/${conv}/properties`)
   var options = {
-    uri: `https://z2.context.liveperson.net/v1/account/34811337/testInfo/${conv}/properties`,
+    uri: `https://${CONTEXT_WAREHOUSE_EMEA}/v1/account/${ACCOUNT_ID}/testInfo/${conv}/properties`,
     headers:{
       'Content-Type':'application/json',
       'maven-api-key':process.env.mavenKey
@@ -115,7 +118,7 @@ function getContext(req, res) {
 // Context Warehouse.
 function getDealerships(req, res) {
   var options = {
-    uri: `https://z2.context.liveperson.net/v1/account/34811337/data/dealerships2/properties`,
+    uri: `https://${CONTEXT_WAREHOUSE_EMEA}/v1/account/${ACCOUNT_ID}/data/dealerships2/properties`,
     headers:{
       'Content-Type':'application/json',
       'maven-api-key':process.env.mavenKey

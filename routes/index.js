@@ -6,55 +6,56 @@ const rp = require('request-promise');
 const router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.render('index');
 });
 
 router.get('/login', passport.authenticate('oauth2', {
   responseType: 'code',
-  scope: 'openid profile offline_access'}),
-  function(req, res) {
+  scope: 'openid profile offline_access'
+}),
+  function (req, res) {
     res.redirect("/crm");
-});
+  });
 
-router.get('/logout', function(req, res) {
-  if(process.env.OAUTH2_REVOKE_URL){
-    logout(req,res);
+router.get('/logout', function (req, res) {
+  if (process.env.OAUTH2_REVOKE_URL) {
+    logout(req, res);
   }
-  else{
+  else {
     res.redirect('/');
   }
 });
 
 
-router.get('/refresh', function(req, res, next) {
-  try{
-  if (req.user.rt) {
-    refresh.requestNewAccessToken('oauth2', req.user.rt, function(err, accessToken, refreshToken, results) {
-      req.user.at = accessToken;
-      req.user.rt = refreshToken || req.user.rt;
-      req.user.idToken = results.idToken;
-      res.redirect("/user");    
-  
-    });    
-  } else {
-    res.redirect("/user");    
-  }
-    }catch(e){
-      console.log(e);
+router.get('/refresh', function (req, res, next) {
+  try {
+    if (req.user.rt) {
+      refresh.requestNewAccessToken('oauth2', req.user.rt, function (err, accessToken, refreshToken, results) {
+        req.user.at = accessToken;
+        req.user.rt = refreshToken || req.user.rt;
+        req.user.idToken = results.idToken;
+        res.redirect("/user");
+
+      });
+    } else {
+      res.redirect("/user");
     }
+  } catch (e) {
+    console.log(e);
+  }
 });
 
 router.get('/callback',
   passport.authenticate('oauth2', {
     failureRedirect: '/failure'
   }),
-  function(req, res) {
+  function (req, res) {
     res.redirect('/crm');
   }
 );
 
-router.get('/failure', function(req, res) {
+router.get('/failure', function (req, res) {
   var error = req.flash("error");
   var error_description = req.flash("error_description");
   req.logout();
@@ -82,13 +83,13 @@ function logout(req, res) {
   };
 
   rp(options)
-      .then(function (body) {
-        req.logout();
-        res.redirect('/');
-      })
-      .catch(function (err) {
-        res.redirect('/failure')
-      });
+    .then(function (body) {
+      req.logout();
+      res.redirect('/');
+    })
+    .catch(function (err) {
+      res.redirect('/failure')
+    });
 }
 
 module.exports = router;
