@@ -97,7 +97,7 @@ document.onreadystatechange = () => {
                                                 .then(contextResponse => contextResponse.json()
                                                     .then(contextData => {
                                                         console.log(contextData)
-                                                        contextFull = contextData;
+                                                        contextFull = contextData.toLowerCase();
 
 
                                                         fetch('https://serene-falls-66485.herokuapp.com/api/dealerships') // when used cars request is done, GET new cars list and init all values
@@ -127,10 +127,9 @@ document.onreadystatechange = () => {
                                                                     console.log(`Printing from inside the API Calls > ${JSON.stringify(contextFull)}`)
 
                                                                     if (contextFull.leadType) { //Open the relevant category depending on values received, only if leadType is sales we will check if vehicleType is new or used, otherwise if leadType has a different value it will go to service. Also if it's new will also populate the purchaseType (ctype) with motability or business
-                                                                        if (contextFull.leadType == "sales" || contextFull.leadType == "motability" || contextFull.leadType == "business") {
-                                                                            if (contextFull.vehicleType && contextFull.vehicleType == "used") {
+                                                                        if (contextFull.leadType == "used" || contextFull.leadType == "personal" || contextFull.leadType == "motability" || contextFull.leadType == "business") {
+                                                                            if (contextFull.leadType == "used") {
                                                                                 document.getElementById("used").click();
-
 
                                                                                 if (contextFull.make) {
                                                                                     document.getElementById('usedBrand').value = contextFull.make;
@@ -153,7 +152,8 @@ document.onreadystatechange = () => {
 
 
 
-                                                                            } else if (contextFull.vehicleType && contextFull.vehicleType == "new") {
+                                                                            } else if (contextFull.leadType == "personal" || contextFull.leadType == "motability" || contextFull.leadType == "business") {
+
                                                                                 document.getElementById("new").click();
                                                                                 if (contextFull.leadType == "motability") {
                                                                                     document.getElementById('purchaseType').value = 'Motability';
@@ -649,7 +649,7 @@ function showUsedModels(brand) {
     option = document.createElement("option");
     option.text = "other";
     modelName.add(option);
-    option.setAttribute("class", "model selection") 
+    option.setAttribute("class", "model selection")
 }
 
 
