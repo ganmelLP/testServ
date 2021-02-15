@@ -97,9 +97,9 @@ document.onreadystatechange = () => {
                                                 .then(contextResponse => contextResponse.json()
                                                     .then(contextData => {
                                                         console.log(contextData)
-                                                        contextData.leadType = contextData.leadType.toLowerCase();
+                                                        //contextData.leadType = contextData.leadType.toLowerCase();
                                                         contextFull = contextData;
-                                                        //JSON.parse(JSON.stringify(contextData).toLowerCase());
+                                                        contextFull.leadType = contextFull.leadType.toLowerCase();
 
 
                                                         fetch('https://serene-falls-66485.herokuapp.com/api/dealerships') // when used cars request is done, GET new cars list and init all values
