@@ -164,7 +164,8 @@ document.onreadystatechange = () => {
 
                                                                                 } else if (contextFull.leadtype == "business") {
                                                                                     document.getElementById('purchaseType').value = 'Business';
-                                                                                }
+                                                                                } else if (contextFull.leadtype == "personal") {
+                                                                                    document.getElementById('purchaseType').value = 'New';
 
 
                                                                                 if (contextFull.make) {
