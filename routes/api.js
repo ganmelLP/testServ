@@ -14,7 +14,7 @@ const CONTEXT_WAREHOUSE_EMEA = 'z2.context.liveperson.net'
 
  router.get('/used',ensureLoggedIn, function(req, res) {
   let value = dataCache.get( "usedCars" );
-  console.log(`This is the value of used: ${JSON.stringify(value)}`)
+  console.log(`This is the  value of used: ${JSON.stringify(value)}`)
   if ( value == undefined ){
       console.log("cache expired, making an API request")
       getUsed(req,res);
