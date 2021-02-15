@@ -44,7 +44,7 @@ const CONTEXT_WAREHOUSE_EMEA = 'z2.context.liveperson.net'
 router.get('/dealerships',ensureLoggedIn, function(req, res) {
   let value = dataCache.get( "dealerships" );
   if ( value == undefined ){
-      console.log("cache expired, making an API request")
+      console.log("cache expired,  making an API request")
       getDealerships(req,res);
   } else {
     res.status(302).json(value);
