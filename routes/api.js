@@ -47,7 +47,7 @@ router.get('/dealerships',ensureLoggedIn, function(req, res) {
       console.log("cache expired, making an API request")
       getDealerships(req,res);
   } else {
-    res.status(304).json(value);
+    res.status(302).json(value);
   }
   
 });
