@@ -9,7 +9,7 @@ const dataCache = new NodeCache();
 
 const CACHE_EXPIRY_TIME = 10000;
 const ACCOUNT_ID = '34811337';
-const CONTEXT_WAREHOUSE_EMEA = 'z2.context.liveperson.net'
+const CONTEXT_WAREHOUSE = 'z2.context.liveperson.net'
 
 
  router.get('/used',ensureLoggedIn, function(req, res) {
@@ -19,8 +19,8 @@ const CONTEXT_WAREHOUSE_EMEA = 'z2.context.liveperson.net'
       getUsed(req,res);
   } else {
     console.log(`This is the  value of used  LOADED: ${JSON.stringify(value)}`)
-    res.status(302).json(value);
- } // disabled cacheing for used vehicles as it seems to be not 100% stable, sometimes it fails to get anything in the browser side and I am not sure what is the reason.
+    res.status(302).json(value); // Possibly using 304 caused an intermittent issue (data wouldn't show in the response on browser side) so using 302 instead
+ }
    
  });
 
@@ -95,9 +95,9 @@ function getNew(req, res) {
 // and collect it for this current conversation (we know the current conversationID as we receive it from the Agent Widget SDK running on the widgetScript)
 function getContext(req, res) {
   let conv = req.query.convId;
-  console.log(`https://${CONTEXT_WAREHOUSE_EMEA}/v1/account/${ACCOUNT_ID}/info/${conv}/properties`)
+  console.log(`https://${CONTEXT_WAREHOUSE}/v1/account/${ACCOUNT_ID}/info/${conv}/properties`)
   var options = {
-    uri: `https://${CONTEXT_WAREHOUSE_EMEA}/v1/account/${ACCOUNT_ID}/info/${conv}/properties`,
+    uri: `https://${CONTEXT_WAREHOUSE}/v1/account/${ACCOUNT_ID}/info/${conv}/properties`,
     headers:{
       'Content-Type':'application/json',
       'maven-api-key':process.env.mavenKey
@@ -120,7 +120,7 @@ function getContext(req, res) {
 // Context Warehouse.
 function getDealerships(req, res) {
   var options = {
-    uri: `https://${CONTEXT_WAREHOUSE_EMEA}/v1/account/${ACCOUNT_ID}/data/dealerships2/properties`,
+    uri: `https://${CONTEXT_WAREHOUSE}/v1/account/${ACCOUNT_ID}/data/dealerships2/properties`,
     headers:{
       'Content-Type':'application/json',
       'maven-api-key':process.env.mavenKey
