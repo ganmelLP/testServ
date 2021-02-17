@@ -5,6 +5,7 @@ const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 const rp = require('request-promise');
 const router = express.Router();
 const NodeCache = require( "node-cache" );
+const app = require('../app');
 const dataCache = new NodeCache();
 
 const CACHE_EXPIRY_TIME = 10000;
@@ -107,7 +108,7 @@ function getContext(req, res) {
   
   rp(options)
     .then(function (resp) {
-        res.locals.isService = true;
+        app.locals.isService = JSON.parse(resp).leadtype == 'service' ? true : false;
         res.status(200).json(resp);;
         
     })
