@@ -455,6 +455,8 @@ function radioCheck(value, isChecked) {
         description.style.display = "block";
         price.style.display = "block";
         voiTitle.style.display = "block";
+        voiTitle.innerHTML = "Vehicle of Interest";
+
 
     }
 
@@ -468,7 +470,7 @@ function radioCheck(value, isChecked) {
         trim.style.display = "block";
         description.style.display = "block";
         price.style.display = "block";
-        voiTitle.style.display = "block";
+        voiTitle.innerHTML = "Vehicle of Interest";
 
         usedRegNumber.style.display = "none";
         usedBrandName.style.display = "none";
