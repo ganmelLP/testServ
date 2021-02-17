@@ -430,7 +430,7 @@ function radioCheck(value, isChecked) {
     //Service
     const customerRegNumber = document.querySelector("#customerRegNumber");
     const mileage = document.querySelector("#mileage");
-    const serviceTitle = document.querySelector("#serviceTitle");
+    const serviceTitle = document.querySelector(".serviceTitle");
     const customerBrand = document.querySelector("#customerBrand");
     const customerModel = document.querySelector("#customerModel");
 
