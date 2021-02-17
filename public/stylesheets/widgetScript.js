@@ -488,7 +488,7 @@ function radioCheck(value, isChecked) {
         mileage.style.display = "block";
         customerBrand.style.display = "block";
         customerModel.style.display = "block";
-        voiTitle.value = "Service";
+        voiTitle.innerHTML = "Service";
 
 
         brandName.style.display = "none";
