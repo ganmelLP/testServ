@@ -187,7 +187,7 @@ hr {
     border-top: 1px solid rgb(255, 255, 255) !important;
 }
 
-h2 {
+hr+h2 {
     display: inline-block;
     position: relative;
     left: 50%;
@@ -196,7 +196,7 @@ h2 {
     border: 1px solid #453986;
     transform: translateX(-50%);
     color: #453986;
-    font-size: 1rem !important;
+    font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.32em;
     text-align: center;
@@ -205,19 +205,19 @@ h2 {
     margin-bottom: 10px;
 }
 
-h2::first-letter {
+hr+h2::first-letter {
     margin-left: 0.32em;
 }
 
-h2 {
+hr+h2 {
     border-width: 1px 0;
 }
 
-h2::before {
+hr+h2::before {
     left: 0;
 }
 
-h2::after {
+hr+h2::after {
     right: 0;
 }
 
