@@ -107,6 +107,7 @@ function getContext(req, res) {
   
   rp(options)
     .then(function (resp) {
+        res.locals.isService = false;
         res.status(200).json(resp);;
         
     })
