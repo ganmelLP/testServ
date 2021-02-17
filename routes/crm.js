@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/', ensureLoggedIn, function (req, res, next) {
   res.render('crm', {
     user: req.user,
-    isService:app.locals.isService ? true : false
+    isService:console.dir(app.locals.isService) ? true : false
   });
 });
 
