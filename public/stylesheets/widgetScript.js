@@ -489,8 +489,6 @@ function radioCheck(value, isChecked) {
 
         customerRegNumber.style.display = "block";
         mileage.style.display = "block";
-        usedBrandName.style.display = "block";
-        usedModelName.style.display = "block";
         serviceTitle.style.display = "block";
         customerBrand.style.display = "block";
         customerModel.style.display = "block";
@@ -506,6 +504,8 @@ function radioCheck(value, isChecked) {
         description.style.display = "none";
         price.style.display = "none";
         voiTitle.style.display = "none";
+        usedBrandName.style.display = "none";
+        usedModelName.style.display = "none";
     }
 }
 
