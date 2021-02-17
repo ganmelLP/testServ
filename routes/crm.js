@@ -7,8 +7,7 @@ const router = express.Router();
 /* GET CRM Widget. */
 router.get('/', ensureLoggedIn, function (req, res, next) {
   res.render('crm', {
-    user: req.user,
-    data:console.log(JSON.stringify(req))
+    user: req.user
   });
 });
 
