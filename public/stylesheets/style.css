@@ -205,19 +205,19 @@ h2 {
     margin-bottom: 10px;
 }
 
-hr+h2::first-letter {
+h2::first-letter {
     margin-left: 0.32em;
 }
 
-hr+h2 {
+h2 {
     border-width: 1px 0;
 }
 
-hr+h2::before {
+h2::before {
     left: 0;
 }
 
-hr+h2::after {
+h2::after {
     right: 0;
 }
 
