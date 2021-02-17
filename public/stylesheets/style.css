@@ -187,7 +187,7 @@ hr {
     border-top: 1px solid rgb(255, 255, 255) !important;
 }
 
-hr+h2 {
+h2 {
     display: inline-block;
     position: relative;
     left: 50%;
