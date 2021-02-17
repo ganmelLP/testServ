@@ -108,8 +108,6 @@ function getContext(req, res) {
   
   rp(options)
     .then(function (resp) {
-        //app.locals.isService = JSON.parse(resp).leadtype == 'service' ? true : false;
-        app.locals.isService = true;
         res.status(200).json(resp);
         
     })
