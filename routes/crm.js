@@ -41,7 +41,9 @@ function leadPost(req, res, data) {
     "customerVehicle": {
       "regNo": data.customerRegNumber,
       "valuation": data.valuation,
-      "mileage": data.mileage
+      "mileage": data.mileage,
+      "make":data.customerBrand,
+      "model":data.customerModel,
     },
     "vrm": data.usedRegNumber,
     "make": data.brand.toLowerCase().indexOf('select') < 0 ? data.brand : data.usedBrand,
@@ -52,6 +54,16 @@ function leadPost(req, res, data) {
     //validation we have to check if they have not been filled in the other irrelevant categories, as when sending 
     //the form, it sends all of the fields regarless if they are displayed or display:none
   }
+
+  if(data.leadType == 'service'){
+    delete bodyToSend.range;
+    delete bodyToSend.version;
+    delete bodyToSend.price;
+    delete bodyToSend.vrm;
+    delete bodyToSend.make;
+    delete bodyToSend.model;
+    delete bodyToSend.fuelType;
+  } // Remove VOI data if it's a service lead type
 
   if (bodyToSend.email.length < 4) {
     delete bodyToSend.email;

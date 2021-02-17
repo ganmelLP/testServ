@@ -234,6 +234,11 @@ document.onreadystatechange = () => {
                                                                                     insertDataToDomId('mileage',contextFull.mileage);
                                                                                 }
 
+                                                                                if (contextFull.bookingtime) {
+                                                                                    insertDataToDomId('addInfo',contextFull.bookingtime);
+                                                                                }
+
+
                                                                             }
                                                                         }
                                                                     }
@@ -419,10 +424,15 @@ function radioCheck(value, isChecked) {
     const trim = document.querySelector("#trim");
     const description = document.querySelector("#description");
     const price = document.querySelector("#price");
+    const voiTitle = document.querySelector("#voiTitle");
+
 
     //Service
     const customerRegNumber = document.querySelector("#customerRegNumber");
     const mileage = document.querySelector("#mileage");
+    const serviceTitle = document.querySelector("#serviceTitle");
+    const customerBrand = document.querySelector("#customerBrand");
+    const customerModel = document.querySelector("#customerModel");
 
 
 
@@ -434,6 +444,9 @@ function radioCheck(value, isChecked) {
         customerRegNumber.style.display = "none";
         mileage.style.display = "none";
         purchaseType.style.display = "none";
+        serviceTitle.style.display = "none";
+        customerBrand.style.display = "none";
+        customerModel.style.display = "none";
 
         usedBrandName.style.display = "block";
         usedModelName.style.display = "block";
@@ -443,6 +456,7 @@ function radioCheck(value, isChecked) {
         trim.style.display = "block";
         description.style.display = "block";
         price.style.display = "block";
+        voiTitle.style.display = "block";
 
     }
 
@@ -456,6 +470,7 @@ function radioCheck(value, isChecked) {
         trim.style.display = "block";
         description.style.display = "block";
         price.style.display = "block";
+        voiTitle.style.display = "block";
 
         usedRegNumber.style.display = "none";
         usedBrandName.style.display = "none";
@@ -463,6 +478,9 @@ function radioCheck(value, isChecked) {
         customerRegNumber.style.display = "none";
         mileage.style.display = "none";
         valuation.style.display = "none";
+        serviceTitle.style.display = "none";
+        customerBrand.style.display = "none";
+        customerModel.style.display = "none";
 
     }
 
@@ -473,6 +491,9 @@ function radioCheck(value, isChecked) {
         mileage.style.display = "block";
         usedBrandName.style.display = "block";
         usedModelName.style.display = "block";
+        serviceTitle.style.display = "block";
+        customerBrand.style.display = "block";
+        customerModel.style.display = "block";
 
         brandName.style.display = "none";
         modelName.style.display = "none";
@@ -484,6 +505,7 @@ function radioCheck(value, isChecked) {
         trim.style.display = "none";
         description.style.display = "none";
         price.style.display = "none";
+        voiTitle.style.display = "none";
     }
 }
 

@@ -54,7 +54,8 @@ block content
     input#customerRegNumber.form-control(style="display:none;", type="text", name="customerRegNumber", placeholder="Customer\'s Vehicle Registration Number")
     //  Service / Parts Only
     hr
-    h2 Vehicle of Interest
+    h2#voiTitle Vehicle of Interest
+    h2#serviceTitle(style="display:none;") Service
     //  NEW VEHICLE OPTIONS Only
     .form-group
       select.form-control.custom-select-lg.mb-3.top#purchaseType(value="Please select", name="leadType", required, data-tooltip="Choose a purchase type", data-position="top")
@@ -83,6 +84,8 @@ block content
     //  USED VEHICLE OPTIONS END
     //  Service /  Parts Only
     input#mileage.form-control(style="display:none;", type="number", name="mileage" placeholder="Vehicle Mileage")
+    input#customerBrand.form-control(style="display:none;", type="text", name="customerBrand" placeholder="Customer Vehicle Brand")
+    input#customerModel.form-control(style="display:none;", type="text", name="customerModel" placeholder="Customer Vehicle Model")
     //  Service / Parts Only
     //  USED+NEW VEHICLE OPTIONS Only!
     input#atidcapid.form-control(type="text", name="atidcapid", placeholder="Autotrader ID/CAP ID")
