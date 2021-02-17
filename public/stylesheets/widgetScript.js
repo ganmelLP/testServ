@@ -430,7 +430,6 @@ function radioCheck(value, isChecked) {
     //Service
     const customerRegNumber = document.querySelector("#customerRegNumber");
     const mileage = document.querySelector("#mileage");
-    const serviceTitle = document.querySelector("#serviceTitle");
     const customerBrand = document.querySelector("#customerBrand");
     const customerModel = document.querySelector("#customerModel");
 
@@ -444,7 +443,6 @@ function radioCheck(value, isChecked) {
         customerRegNumber.style.display = "none";
         mileage.style.display = "none";
         purchaseType.style.display = "none";
-        serviceTitle.style.display = "none";
         customerBrand.style.display = "none";
         customerModel.style.display = "none";
 
@@ -478,7 +476,6 @@ function radioCheck(value, isChecked) {
         customerRegNumber.style.display = "none";
         mileage.style.display = "none";
         valuation.style.display = "none";
-        serviceTitle.style.display = "none";
         customerBrand.style.display = "none";
         customerModel.style.display = "none";
 
@@ -489,7 +486,6 @@ function radioCheck(value, isChecked) {
 
         customerRegNumber.style.display = "block";
         mileage.style.display = "block";
-        serviceTitle.style.display = "block";
         customerBrand.style.display = "block";
         customerModel.style.display = "block";
 
