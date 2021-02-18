@@ -8,7 +8,7 @@ const NodeCache = require( "node-cache" );
 const app = require('../app');
 const dataCache = new NodeCache();
 
-const CACHE_EXPIRY_TIME = 10000;
+const CACHE_EXPIRY_TIME = 10000; // seconds
 const ACCOUNT_ID = '34811337';
 const CONTEXT_WAREHOUSE = 'z2.context.liveperson.net'
 

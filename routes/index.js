@@ -2,7 +2,6 @@ const express = require('express');
 const passport = require('passport');
 const refresh = require('passport-oauth2-refresh');
 const rp = require('request-promise');
-// const process = require('process');
 const router = express.Router();
 
 /* GET home page. */

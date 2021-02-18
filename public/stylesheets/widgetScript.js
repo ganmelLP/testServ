@@ -1,5 +1,5 @@
 /* =============================================================
-* widgetSCript.js - 02/2021
+* widgetScript.js - 02/2021
 * Logic of the Widget and the Lead Form:
 * Control DOM elements in the Lead Form
 * Get data from APIs and automatically populate them in the form
@@ -38,7 +38,7 @@ document.onreadystatechange = () => {
 
             // If we do not have the conversationID, don't try to go through all the pre-fill data logic
             // And only load the data from the APIs, otherwise if we do have the ConversationID go through the pre-fill data logic
-            if (conversationId == true) { 
+            if (isEmpty(conversationId)) { 
 
                 console.log("conversationId NOT Loaded, using APIs only, is empty?:" + conversationId)
 
@@ -283,6 +283,16 @@ document.onreadystatechange = () => {
 
 };
 
+function isEmpty(obj) {
+    for(var prop in obj) {
+      if(obj.hasOwnProperty(prop)) {
+        return false;
+      }
+    }
+  
+    return JSON.stringify(obj) === JSON.stringify({});
+  }
+  
 
 // Function to start the SDK and get the conversationID
 function sdkStart() {
