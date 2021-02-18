@@ -4,7 +4,7 @@ const rp = require('request-promise');
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 const router = express.Router();
 
-/* GET CRM Widget. */
+/* GET Lead Form Widget. */
 router.get('/', ensureLoggedIn, function (req, res, next) {
   res.render('crm', {
     user: req.user
