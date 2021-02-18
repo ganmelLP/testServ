@@ -436,7 +436,6 @@ function radioCheck(value, isChecked) {
     const price = document.querySelector("#price");
     const voiTitle = document.querySelector("#voiTitle");
 
-
     //Service
     const customerRegNumber = document.querySelector("#customerRegNumber");
     const mileage = document.querySelector("#mileage");
@@ -466,7 +465,6 @@ function radioCheck(value, isChecked) {
         price.style.display = "block";
         voiTitle.style.display = "block";
         voiTitle.innerHTML = "Vehicle of Interest";
-
 
     }
 
