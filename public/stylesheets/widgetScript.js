@@ -235,7 +235,7 @@ document.onreadystatechange = () => {
                                                                                 }
 
                                                                                 if (contextFull.bookingtime) {
-                                                                                    insertDataToDomId('addInfo',contextFull.bookingtime);
+                                                                                    insertDataToDomId('addInfo',`Booking Time Request: ${contextFull.bookingtime}`);
                                                                                 }
 
 
