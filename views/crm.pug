@@ -20,77 +20,77 @@ block content
     h2 Lead
     input#dealershipId.form-control(style="display:none;", type="text", name="dealershipId" placeholder="Dealership ID")
     #typeahead-autocomplete
-     input.thead.form-control(type="text", name="dealership", placeholder="Dealership Name")
+     input.thead.form-control(type="text", name="dealership",title="Dealership Name" placeholder="Dealership Name")
     .form-group
-      label.float-left(for="channel") Preferred Channel
-      select.form-control#channel(value="Please select", name="channel", required)
+      label.float-left(for="channel") Preferred Contact Method
+      select.form-control#channel(value="Please select", name="channel", title="Preferred Contact Method", required)
         option whatsapp
         option sms
         option email
         option phone
-        option other
-    input#source.form-control(type="text", name="source", placeholder="Source of Enquiry URL")
-    input#channelSource.form-control(type="text", name="channelSource", placeholder="Client Channel Source")
+        option no preference
+    input#source.form-control(type="text", name="source",title="Source of Enquiry URL" placeholder="Source of Enquiry URL")
+    input#channelSource.form-control(type="text", name="channelSource",title="Client Channel Source" placeholder="Client Channel Source")
     hr
     h2 Customer Information
     .form-row
       .form-group.col-sm-6
         label(for="fName")
-        input.form-control#fName(type="text", placeholder="First Name", name="fName", required)
+        input.form-control#fName(type="text", placeholder="First Name", name="fName",title="First Name", required)
       .valid-feedback Looks good!
       .form-group.col-sm-6
         label(for="lName")
-        input.form-control#lName(type="text", placeholder="Last Name", name="lName", required)
+        input.form-control#lName(type="text", placeholder="Last Name", name="lName",title="Last Name", required)
         .valid-feedback Looks good!
     .form-row
       .form-group.col-sm-6
         label(for="email")
-        input.form-control#email(type="email", aria-describedby="emailHelp", placeholder="Enter Email", name="email", required)
+        input.form-control#email(type="email", aria-describedby="emailHelp", placeholder="Enter Email", name="email",title="Enter Email", required)
       .form-group.col-sm-6
         label(for="phone")
-        input.form-control#phone(type="tel", aria-describedby="phoneHelp", placeholder="Enter Phone", name="phone", required)
-    input#postcode.form-control(type="text", name="postcode", placeholder="Customer's Postcode")
+        input.form-control#phone(type="tel", aria-describedby="phoneHelp",title="Enter Phone", placeholder="Enter Phone", name="phone", required)
+    input#postcode.form-control(type="text", name="postcode", title="Customer's Postcode" placeholder="Customer's Postcode")
     // Service / Parts Only
-    input#customerRegNumber.form-control(style="display:none;", type="text", name="customerRegNumber", placeholder="Customer\'s Vehicle Registration Number")
+    input#customerRegNumber.form-control(style="display:none;", type="text", name="customerRegNumber",title="Customer\'s Vehicle Registration Number" placeholder="Customer\'s Vehicle Registration Number")
     //  Service / Parts Only
     hr
     h2#voiTitle Vehicle of Interest
     //  NEW VEHICLE OPTIONS Only
     .form-group
-      select.form-control.custom-select-lg.mb-3.top#purchaseType(value="Please select", name="leadType", required, data-tooltip="Choose a purchase type", data-position="top")
+      select.form-control.custom-select-lg.mb-3.top#purchaseType(value="Please select", name="leadType",title="Choose a Lead Type" required)
         option New 
         option Motability
         option Business
     .form-group
-      select.form-control.custom-select-lg.mb-3.top#brand(onchange="showModels(this.value)", value="Please select", name="brand", required, data-tooltip="Choose a brand", data-position="top")
+      select.form-control.custom-select-lg.mb-3.top#brand(onchange="showModels(this.value)", value="Please select", name="brand",title="Choose a Vehicle Brand" required, data-tooltip="Choose a brand", data-position="top")
         option Select Brand
     .form-group
-      select.form-control#model(onchange="showFuels(this.value)", value="Please select", name="model", required)
+      select.form-control#model(onchange="showFuels(this.value)", value="Please select", name="model",title="Choose a Vehicle Model" required)
         option Select Model
     .form-group
-      select.form-control#fuel(value="Please select", name="fuel")
+      select.form-control#fuel(value="Please select", name="fuel", title="Choose a Vehicle Fuel Type")
         option Select Fuel Type
     //  NEW VEHICLE OPTIONS END
     //  USED VEHICLE OPTIONS Only (*Brand/Model also shows for Service)
     .form-group
-      select.form-control.custom-select-lg.mb-3#usedBrand(onchange="showUsedModels(this.value)", type="text", value="Enter Brand", style="display:none;", name="usedBrand")
+      select.form-control.custom-select-lg.mb-3#usedBrand(onchange="showUsedModels(this.value)", type="text", value="Enter Brand", style="display:none;", name="usedBrand",title="Choose a Used Vehicle Brand")
         option Select Brand
     .form-group
-      select.form-control#usedModel(type="text", value="Enter Model", style="display:none;", name="usedModel")
+      select.form-control#usedModel(type="text", value="Enter Model", style="display:none;",title="Choose a Used Vehicle Model" name="usedModel")
         option Select Model
-    input#usedRegNumber.form-control(style="display:none;", type="text", name="usedRegNumber", placeholder="Used Vehicle Registration Number")
-    input#valuation.form-control(style="display:none;", type="text", name="valuation", placeholder="Customer's Vehicle Value (Valuation)")
+    input#usedRegNumber.form-control(style="display:none;", type="text", name="usedRegNumber",title="Used Vehicle Registration Number" placeholder="Used Vehicle Registration Number")
+    input#valuation.form-control(style="display:none;", type="text", name="valuation",title="Customer's Vehicle Value (Valuation)" placeholder="Customer's Vehicle Value (Valuation)")
     //  USED VEHICLE OPTIONS END
     //  Service /  Parts Only
-    input#mileage.form-control(style="display:none;", type="number", name="mileage" placeholder="Vehicle Mileage")
-    input#customerBrand.form-control(style="display:none;", type="text", name="customerBrand" placeholder="Customer Vehicle Brand")
-    input#customerModel.form-control(style="display:none;", type="text", name="customerModel" placeholder="Customer Vehicle Model")
+    input#mileage.form-control(style="display:none;", type="number", name="mileage",title="Vehicle Mileage" placeholder="Vehicle Mileage")
+    input#customerBrand.form-control(style="display:none;", type="text", name="customerBrand", title="Customer Vehicle Brand" placeholder="Customer Vehicle Brand")
+    input#customerModel.form-control(style="display:none;", type="text", name="customerModel", title="Customer Vehicle Model" placeholder="Customer Vehicle Model")
     //  Service / Parts Only
     //  USED+NEW VEHICLE OPTIONS Only!
     input#atidcapid.form-control(type="text", name="atidcapid", title="AutoTrader ID / CAP ID" placeholder="Autotrader ID/CAP ID")
-    input#trim.form-control(type="text", name="trim", placeholder="Trim")
-    input#description.form-control(type="text", name="description", placeholder="Vehicle Description")
-    input#price.form-control(type="text", name="price", placeholder="Vehicle Price")
+    input#trim.form-control(type="text", name="trim", title="Trim" placeholder="Trim")
+    input#description.form-control(type="text", name="description", title="Vehicle Description" placeholder="Vehicle Description")
+    input#price.form-control(type="text", name="price", title="Vehicle Price" placeholder="Vehicle Price")
     //  USED+NEW VEHICLE OPTIONS END
 
     .form-group
