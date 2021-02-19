@@ -101,7 +101,7 @@ document.onreadystatechange = () => {
                                             console.log(newCarData)
                                             newCars = newCarData;
                                             //newCars.forEach(element,index =>  newCars[index].brand = capitalize(element.brand));
-                                            myArray.forEach(function (value, i) {
+                                            newCars.forEach(function (value, i) {
                                                 newCars[i].brand = capitalize(value.brand)
                                             });
                                             console.log(newCars)
