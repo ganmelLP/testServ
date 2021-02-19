@@ -454,7 +454,6 @@ function radioCheck(value, isChecked) {
         trim.style.display = "block";
         description.style.display = "block";
         price.style.display = "block";
-        voiTitle.style.display = "block";
         voiTitle.innerHTML = "Vehicle of Interest";
 
     }
