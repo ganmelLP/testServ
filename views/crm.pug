@@ -22,7 +22,6 @@ block content
     #typeahead-autocomplete
      input.thead.form-control(type="text", name="dealership",title="Dealership Name" placeholder="Dealership Name" , data-toggle="tooltip", data-placement="top")
     .form-group
-      label.float-left(for="channel") Preferred Contact Method
       select.form-control#channel(value="Please select", name="channel", title="Preferred Contact Method", data-toggle="tooltip", data-placement="top" required)
         option whatsapp
         option sms
@@ -94,7 +93,6 @@ block content
     //  USED+NEW VEHICLE OPTIONS END
 
     .form-group
-      label(for="addInfo") Additional information
       textarea.form-control#addInfo(rows="3", placeholder="Any additional information from the consumer", name="addInfo", title="Additional Information about the customer" data-toggle="tooltip", data-placement="top")
     .form-row
       button.btn.btn-primary.btn-lg.mx-auto(onclick="carSelectionValid(this.value)", type="submit", title="Submit the lead", data-toggle="tooltip", data-placement="top") Submit lead
@@ -133,4 +131,4 @@ block content
     });
     $(function () {
       $('[data-toggle="tooltip"]').tooltip()
-    });
+    });//Activate tooltips with bootstrap
