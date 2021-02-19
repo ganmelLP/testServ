@@ -723,6 +723,10 @@ function insertDataToDomId(element, data) {
 }
 
 
+//******************//
+// Utility functions
+//******************//
+
 // In order to allow depending options in the vehicle model/fuel type to populate when automatically populated
 function simulate_event(eventName, element) {
     var event;
