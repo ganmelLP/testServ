@@ -59,21 +59,17 @@ block content
     //  NEW VEHICLE OPTIONS Only
   .form-row  
     .form-group.col-sm-6   
-    .form-group
       select.form-control.custom-select-lg.mb-3.top#purchaseType(value="Please select", name="leadType",title="Choose a Lead Type", data-toggle="tooltip", data-placement="top", required)
         option New 
         option Motability
         option Business
     .form-group.col-sm-6     
-    .form-group
       select.form-control.custom-select-lg.mb-3.top#brand(onchange="showModels(this.value)", value="Please select", name="brand",title="Choose a Vehicle Brand", data-toggle="tooltip", data-placement="top", required)
         option Select Brand
     .form-group.col-sm-6     
-    .form-group
       select.form-control#model(onchange="showFuels(this.value)", value="Please select", name="model",title="Choose a Vehicle Model", data-toggle="tooltip", data-placement="top", required)
         option Select Model
     .form-group.col-sm-6     
-    .form-group
       select.form-control#fuel(value="Please select", name="fuel", title="Choose a Vehicle Fuel Type", data-toggle="tooltip", data-placement="top")
         option Select Fuel Type
     //  NEW VEHICLE OPTIONS END
