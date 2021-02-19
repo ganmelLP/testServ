@@ -100,8 +100,11 @@ document.onreadystatechange = () => {
                                         .then(newCarData => {
                                             console.log(newCarData)
                                             newCars = newCarData;
-                                            newCars.forEach(element,index =>  newCars[index].brand = capitalize(element.brand));
-
+                                            //newCars.forEach(element,index =>  newCars[index].brand = capitalize(element.brand));
+                                            myArray.forEach(function (value, i) {
+                                                newCars[i].brand = capitalize(value.brand)
+                                            });
+                                            console.log(newCars)
                                             fetch(`https://serene-falls-66485.herokuapp.com/api/contextData/?convId=${conversationId}`)// get context data passed to the server with ConversationID grabbed by the Agent Widget SDK
                                                 .then(contextResponse => contextResponse.json()
                                                     .then(contextData => {
