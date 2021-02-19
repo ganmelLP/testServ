@@ -18,7 +18,7 @@ block content
           label.form-check-label.back-end.box(for="service") Service/Parts
     hr
     h2 Lead
-    input#dealershipId.form-control(style="display:none;", type="text",data-toggle="tooltip", name="dealershipId" placeholder="Dealership ID")
+    input#dealershipId.form-control(style="display:none;", type="text",data-toggle="tooltip", data-placement="top", name="dealershipId" placeholder="Dealership ID")
     #typeahead-autocomplete
      input.thead.form-control(type="text", name="dealership",title="Dealership Name" placeholder="Dealership Name")
     .form-group
@@ -62,7 +62,7 @@ block content
         option Motability
         option Business
     .form-group
-      select.form-control.custom-select-lg.mb-3.top#brand(onchange="showModels(this.value)", value="Please select", name="brand",title="Choose a Vehicle Brand" required, data-tooltip="Choose a brand", data-position="top")
+      select.form-control.custom-select-lg.mb-3.top#brand(onchange="showModels(this.value)", value="Please select", name="brand",title="Choose a Vehicle Brand", data-toggle="tooltip", data-placement="top" required)
         option Select Brand
     .form-group
       select.form-control#model(onchange="showFuels(this.value)", value="Please select", name="model",title="Choose a Vehicle Model" required)
