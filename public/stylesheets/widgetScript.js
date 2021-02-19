@@ -284,18 +284,6 @@ document.onreadystatechange = () => {
 
 };
 
-// Function to check if an object is empty - if results from the Context Warehouse are not populated then
-// The result would be an empty object, we use this function to check that.
-function isEmpty(obj) {
-    for (var prop in obj) {
-        if (obj.hasOwnProperty(prop)) {
-            return false;
-        }
-    }
-
-    return JSON.stringify(obj) === JSON.stringify({});
-}
-
 
 // Function to start the SDK and get the conversationID
 function sdkStart() {
@@ -747,4 +735,16 @@ function simulate_event(eventName, element) {
     } else {
         element.fireEvent("on" + event.eventName, event);
     }
+};
+
+// Function to check if an object is empty - if results from the Context Warehouse are not populated then
+// The result would be an empty object, we use this function to check that.
+function isEmpty(obj) {
+    for (var prop in obj) {
+        if (obj.hasOwnProperty(prop)) {
+            return false;
+        }
+    }
+
+    return JSON.stringify(obj) === JSON.stringify({});
 };
