@@ -131,4 +131,6 @@ block content
         $inputs.not(this).prop('required', !$(this).val().length);
       });
     });
-  
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    });
