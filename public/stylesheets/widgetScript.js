@@ -53,6 +53,11 @@ document.onreadystatechange = () => {
                                 .then(newCarData => {
                                     console.log(newCarData)
                                     newCars = newCarData;
+
+                                    newCars.forEach(function (value, i) {
+                                        newCars[i].brand = capitalize(value.brand)
+                                    }); // API returns brands in lower case, but SDEs come in capitalized, therefore adding capitalization to API brand results
+                                    // Altough not needed here as this triggers if we do not get the Conversation ID - adding just to allow results to be similar and avoid confusion
                                     
                                     fetch('https://serene-falls-66485.herokuapp.com/api/dealerships') // when used cars request is done, GET new cars list and init all values
                                         .then(dealershipsResponse => dealershipsResponse.json()
@@ -100,11 +105,11 @@ document.onreadystatechange = () => {
                                         .then(newCarData => {
                                             console.log(newCarData)
                                             newCars = newCarData;
-                                            //newCars.forEach(element,index =>  newCars[index].brand = capitalize(element.brand));
+
                                             newCars.forEach(function (value, i) {
                                                 newCars[i].brand = capitalize(value.brand)
-                                            });
-                                            console.log(newCars)
+                                            }); // API returns brands in lower case, but SDEs come in capitalized, therefore adding capitalization to API brand results
+                                            
                                             fetch(`https://serene-falls-66485.herokuapp.com/api/contextData/?convId=${conversationId}`)// get context data passed to the server with ConversationID grabbed by the Agent Widget SDK
                                                 .then(contextResponse => contextResponse.json()
                                                     .then(contextData => {
