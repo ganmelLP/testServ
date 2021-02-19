@@ -107,7 +107,7 @@ document.onreadystatechange = () => {
                                                     .then(contextData => {
                                                         console.log(contextData)
                                                         contextFull = contextData;
-                                                        if (!isEmpty(contextFull)) {
+                                                        if (!isEmpty(contextFull) && contextFull.leadtype && contextFull.make) {
                                                             contextFull.leadtype = contextFull.leadtype.toLowerCase(); // evaluate leadtype in lower case
                                                             contextFull.make = contextFull.make.toLowerCase(); // evaluate make in lower case (due to data in the API returned as lower case)
                                                         }
