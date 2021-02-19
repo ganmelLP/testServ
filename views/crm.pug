@@ -74,25 +74,34 @@ block content
         option Select Fuel Type
     //  NEW VEHICLE OPTIONS END
     //  USED VEHICLE OPTIONS Only (*Brand/Model also shows for Service)
-    .form-group
+    .form-group.col-sm-6
       select.form-control.custom-select-lg.mb-3#usedBrand(onchange="showUsedModels(this.value)", type="text", value="Enter Brand", style="display:none;", name="usedBrand",title="Choose a Used Vehicle Brand", data-toggle="tooltip", data-placement="top")
         option Select Brand
-    .form-group
+    .form-group.col-sm-6
       select.form-control#usedModel(type="text", value="Enter Model", style="display:none;",title="Choose a Used Vehicle Model" name="usedModel", data-toggle="tooltip", data-placement="top")
         option Select Model
-    input#usedRegNumber.form-control(style="display:none;", type="text", name="usedRegNumber",title="Used Vehicle Registration Number" placeholder="Used Vehicle Registration Number", data-toggle="tooltip", data-placement="top")
-    input#valuation.form-control(style="display:none;", type="text", name="valuation",title="Customer's Vehicle Value (Valuation)" placeholder="Customer's Vehicle Value (Valuation)", data-toggle="tooltip", data-placement="top")
+    .form-group.col-sm-6    
+      input#usedRegNumber.form-control(style="display:none;", type="text", name="usedRegNumber",title="Used Vehicle Registration Number" placeholder="Used Vehicle Registration Number", data-toggle="tooltip", data-placement="top")
+    .form-group.col-sm-6  
+      input#valuation.form-control(style="display:none;", type="text", name="valuation",title="Customer's Vehicle Value (Valuation)" placeholder="Customer's Vehicle Value (Valuation)", data-toggle="tooltip", data-placement="top")
     //  USED VEHICLE OPTIONS END
     //  Service /  Parts Only
-    input#mileage.form-control(style="display:none;", type="number", name="mileage",title="Vehicle Mileage" placeholder="Vehicle Mileage", data-toggle="tooltip", data-placement="top")
-    input#customerBrand.form-control(style="display:none;", type="text", name="customerBrand", title="Customer Vehicle Brand" placeholder="Customer Vehicle Brand", data-toggle="tooltip", data-placement="top")
-    input#customerModel.form-control(style="display:none;", type="text", name="customerModel", title="Customer Vehicle Model" placeholder="Customer Vehicle Model", data-toggle="tooltip", data-placement="top")
+    .form-group.col-sm-6
+      input#mileage.form-control(style="display:none;", type="number", name="mileage",title="Vehicle Mileage" placeholder="Vehicle Mileage", data-toggle="tooltip", data-placement="top")
+    .form-group.col-sm-6  
+      input#customerBrand.form-control(style="display:none;", type="text", name="customerBrand", title="Customer Vehicle Brand" placeholder="Customer Vehicle Brand", data-toggle="tooltip", data-placement="top")
+    .form-group.col-sm-6  
+      input#customerModel.form-control(style="display:none;", type="text", name="customerModel", title="Customer Vehicle Model" placeholder="Customer Vehicle Model", data-toggle="tooltip", data-placement="top")
     //  Service / Parts Only
     //  USED+NEW VEHICLE OPTIONS Only!
-    input#atidcapid.form-control(type="text", name="atidcapid", title="AutoTrader ID / CAP ID" placeholder="Autotrader ID/CAP ID", data-toggle="tooltip", data-placement="top")
-    input#trim.form-control(type="text", name="trim", title="Trim" placeholder="Trim", data-toggle="tooltip", data-placement="top")
-    input#description.form-control(type="text", name="description", title="Vehicle Description" placeholder="Vehicle Description", data-toggle="tooltip", data-placement="top")
-    input#price.form-control(type="text", name="price", title="Vehicle Price" placeholder="Vehicle Price", data-toggle="tooltip", data-placement="top")
+    .form-group.col-sm-6
+      input#atidcapid.form-control(type="text", name="atidcapid", title="AutoTrader ID / CAP ID" placeholder="Autotrader ID/CAP ID", data-toggle="tooltip", data-placement="top")
+    .form-group.col-sm-6  
+      input#trim.form-control(type="text", name="trim", title="Trim" placeholder="Trim", data-toggle="tooltip", data-placement="top")
+    .form-group.col-sm-6  
+      input#description.form-control(type="text", name="description", title="Vehicle Description" placeholder="Vehicle Description", data-toggle="tooltip", data-placement="top")
+    .form-group.col-sm-6  
+      input#price.form-control(type="text", name="price", title="Vehicle Price" placeholder="Vehicle Price", data-toggle="tooltip", data-placement="top")
     //  USED+NEW VEHICLE OPTIONS END
     textarea.form-control#addInfo(rows="3", placeholder="Any additional information from the consumer", name="addInfo", title="Additional Information about the customer" data-toggle="tooltip", data-placement="top")
     button.btn.btn-primary.btn-lg.mx-auto(onclick="carSelectionValid(this.value)", type="submit", title="Submit the lead", data-toggle="tooltip", data-placement="top") Submit lead
