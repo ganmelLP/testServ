@@ -38,7 +38,7 @@ document.onreadystatechange = () => {
 
             // If we do not have the conversationID, don't try to go through all the pre-fill data logic
             // And only load the data from the APIs, otherwise if we do have the ConversationID go through the pre-fill data logic
-            if (isEmpty(conversationId)) { 
+            if (conversationId) {
 
                 console.log("conversationId NOT Loaded, using APIs only, is empty?:" + conversationId)
 
@@ -107,9 +107,10 @@ document.onreadystatechange = () => {
                                                     .then(contextData => {
                                                         console.log(contextData)
                                                         contextFull = contextData;
-                                                        contextFull.leadtype = contextFull.leadtype.toLowerCase(); // evaluate leadtype in lower case
-                                                        contextFull.make = contextFull.make.toLowerCase(); // evaluate make in lower case (due to data in the API returned as lower case)
-
+                                                        if (!isEmpty(contextFull)) {
+                                                            contextFull.leadtype = contextFull.leadtype.toLowerCase(); // evaluate leadtype in lower case
+                                                            contextFull.make = contextFull.make.toLowerCase(); // evaluate make in lower case (due to data in the API returned as lower case)
+                                                        }
 
                                                         fetch('https://serene-falls-66485.herokuapp.com/api/dealerships') // when used cars request is done, GET new cars list and init all values
                                                             .then(dealershipsResponse => dealershipsResponse.json()
@@ -132,7 +133,7 @@ document.onreadystatechange = () => {
                                                                     let noDuplicates = clearDuplicateBrands(newCars)
                                                                     showBrands(noDuplicates, brandName);
 
-                                                                    let noUsedDuplicates = clearDuplicateUsedBrands(usedCars)  
+                                                                    let noUsedDuplicates = clearDuplicateUsedBrands(usedCars)
                                                                     showUsedBrands(noUsedDuplicates, usedBrandName);
 
 
@@ -146,22 +147,22 @@ document.onreadystatechange = () => {
                                                                                 document.getElementById("used").click();
 
                                                                                 if (contextFull.make) {
-                                                                                    insertDataToDomId('usedBrand',contextFull.make)
+                                                                                    insertDataToDomId('usedBrand', contextFull.make)
                                                                                     simulate_event('change', document.getElementById('usedBrand'));
                                                                                     // in order to allow the model/fuel type to populate when automatically selected we must trigger the change event
                                                                                 }
 
                                                                                 if (contextFull.model) {
-                                                                                    insertDataToDomId('usedModel',contextFull.model)
+                                                                                    insertDataToDomId('usedModel', contextFull.model)
                                                                                     simulate_event('change', document.getElementById('usedModel'));
                                                                                     // in order to allow the model/fuel type to populate when automatically selected we must trigger the change event
                                                                                 }
 
                                                                                 if (contextFull.vrn) {
-                                                                                    insertDataToDomId('usedRegNumber',contextFull.vrn)
+                                                                                    insertDataToDomId('usedRegNumber', contextFull.vrn)
                                                                                 }
                                                                                 if (contextFull.valuation) {
-                                                                                    insertDataToDomId('valuation',contextFull.valuation)
+                                                                                    insertDataToDomId('valuation', contextFull.valuation)
                                                                                 }
 
 
@@ -170,27 +171,27 @@ document.onreadystatechange = () => {
 
                                                                                 document.getElementById("new").click();
                                                                                 if (contextFull.leadtype == "motability") {
-                                                                                    insertDataToDomId('purchaseType','Motability');
+                                                                                    insertDataToDomId('purchaseType', 'Motability');
 
                                                                                 } else if (contextFull.leadtype == "business") {
-                                                                                    insertDataToDomId('purchaseType','Business');
+                                                                                    insertDataToDomId('purchaseType', 'Business');
                                                                                 } // else it will be the default, which is "New"
 
                                                                                 if (contextFull.make) {
-                                                                                    insertDataToDomId('brand',contextFull.make);
+                                                                                    insertDataToDomId('brand', contextFull.make);
                                                                                     simulate_event('change', document.getElementById('brand'));
                                                                                     // in order to allow the model/fuel type to populate when automatically selected we must trigger the change event
                                                                                 }
 
                                                                                 if (contextFull.model) {
-                                                                                    insertDataToDomId('model',contextFull.model);
+                                                                                    insertDataToDomId('model', contextFull.model);
                                                                                     simulate_event('change', document.getElementById('model'));
                                                                                     // in order to allow the model/fuel type to populate when automatically selected we must trigger the change event
                                                                                 }
 
 
                                                                                 if (contextFull.fueltype) {
-                                                                                    insertDataToDomId('fuel',contextFull.fueltype);
+                                                                                    insertDataToDomId('fuel', contextFull.fueltype);
                                                                                     simulate_event('change', document.getElementById('fuel'));
                                                                                     // in order to allow the model/fuel type to populate when automatically selected we must trigger the change event
                                                                                 }
@@ -198,19 +199,19 @@ document.onreadystatechange = () => {
                                                                             }
 
                                                                             if (contextFull.capid) {
-                                                                                insertDataToDomId('atidcapid',contextFull.capid);
+                                                                                insertDataToDomId('atidcapid', contextFull.capid);
                                                                             }
 
                                                                             if (contextFull.trim) {
-                                                                                insertDataToDomId('trim',contextFull.trim);
+                                                                                insertDataToDomId('trim', contextFull.trim);
                                                                             }
 
                                                                             if (contextFull.description) {
-                                                                                insertDataToDomId('description',contextFull.description);
+                                                                                insertDataToDomId('description', contextFull.description);
                                                                             }
 
                                                                             if (contextFull.value) {
-                                                                                insertDataToDomId('price',contextFull.value);
+                                                                                insertDataToDomId('price', contextFull.value);
                                                                             }
 
 
@@ -219,23 +220,23 @@ document.onreadystatechange = () => {
                                                                             document.getElementById("service").click();
 
                                                                             if (contextFull.make) {
-                                                                                insertDataToDomId('usedBrand',contextFull.make);
+                                                                                insertDataToDomId('usedBrand', contextFull.make);
                                                                                 simulate_event('change', document.getElementById('usedBrand'));
                                                                                 // in order to allow the model/fuel type to populate when automatically selected we must trigger the change event
                                                                             }
 
                                                                             if (contextFull.model) {
-                                                                                insertDataToDomId('usedModel',contextFull.model);
+                                                                                insertDataToDomId('usedModel', contextFull.model);
                                                                                 simulate_event('change', document.getElementById('usedModel'));
                                                                                 // in order to allow the model/fuel type to populate when automatically selected we must trigger the change event
 
 
                                                                                 if (contextFull.mileage) {
-                                                                                    insertDataToDomId('mileage',contextFull.mileage);
+                                                                                    insertDataToDomId('mileage', contextFull.mileage);
                                                                                 }
 
                                                                                 if (contextFull.bookingtime) {
-                                                                                    insertDataToDomId('addInfo',`Booking Time Request: ${contextFull.bookingtime}`);
+                                                                                    insertDataToDomId('addInfo', `Booking Time Request: ${contextFull.bookingtime}`);
                                                                                 }
 
 
@@ -254,15 +255,15 @@ document.onreadystatechange = () => {
                                                                     } // The hidden field of the ID being populated directly from the data
 
                                                                     if (contextFull.contactmethod) {
-                                                                        insertDataToDomId('channel',contextFull.contactmethod.toLowerCase())
+                                                                        insertDataToDomId('channel', contextFull.contactmethod.toLowerCase())
                                                                     }
 
                                                                     if (contextFull.enquirysource) {
-                                                                        insertDataToDomId('source',contextFull.enquirysource);
+                                                                        insertDataToDomId('source', contextFull.enquirysource);
                                                                     }
 
                                                                     if (contextFull.channel) {
-                                                                        insertDataToDomId('channelSource',contextFull.channel);
+                                                                        insertDataToDomId('channelSource', contextFull.channel);
                                                                     }
 
                                                                     // ******
@@ -284,15 +285,15 @@ document.onreadystatechange = () => {
 };
 
 function isEmpty(obj) {
-    for(var prop in obj) {
-      if(obj.hasOwnProperty(prop)) {
-        return false;
-      }
+    for (var prop in obj) {
+        if (obj.hasOwnProperty(prop)) {
+            return false;
+        }
     }
-  
+
     return JSON.stringify(obj) === JSON.stringify({});
-  }
-  
+}
+
 
 // Function to start the SDK and get the conversationID
 function sdkStart() {
@@ -622,7 +623,7 @@ function showUsedBrands(cars, brandName) {
     option = document.createElement("option");
     option.text = "other";
     brandName.add(option);
-    option.setAttribute("class", "brand selection") 
+    option.setAttribute("class", "brand selection")
 }
 
 
@@ -720,7 +721,7 @@ function collectFormData() {
 }
 
 // Using a function to insert value to element, to allow easier control if changes need to be made
-function insertDataToDomId(element,data){ 
+function insertDataToDomId(element, data) {
     document.getElementById(element).value = data;
 }
 
