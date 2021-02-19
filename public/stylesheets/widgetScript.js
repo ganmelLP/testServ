@@ -38,7 +38,7 @@ document.onreadystatechange = () => {
 
             // If we do not have the conversationID, don't try to go through all the pre-fill data logic
             // And only load the data from the APIs, otherwise if we do have the ConversationID go through the pre-fill data logic
-            if (conversationId) {
+            if (conversationId == true) {
 
                 console.log("conversationId NOT Loaded, using APIs only, is empty?:" + conversationId)
 
