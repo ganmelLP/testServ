@@ -53,8 +53,7 @@ document.onreadystatechange = () => {
                                 .then(newCarData => {
                                     console.log(newCarData)
                                     newCars = newCarData;
-
-
+                                    
                                     fetch('https://serene-falls-66485.herokuapp.com/api/dealerships') // when used cars request is done, GET new cars list and init all values
                                         .then(dealershipsResponse => dealershipsResponse.json()
                                             .then(dealerships => {
@@ -101,6 +100,7 @@ document.onreadystatechange = () => {
                                         .then(newCarData => {
                                             console.log(newCarData)
                                             newCars = newCarData;
+                                            newCars.forEach(element,index =>  newCars[index].brand = capitalize(element.brand));
 
                                             fetch(`https://serene-falls-66485.herokuapp.com/api/contextData/?convId=${conversationId}`)// get context data passed to the server with ConversationID grabbed by the Agent Widget SDK
                                                 .then(contextResponse => contextResponse.json()
@@ -109,7 +109,7 @@ document.onreadystatechange = () => {
                                                         contextFull = contextData;
                                                         if (!isEmpty(contextFull) && contextFull.leadtype && contextFull.make) {
                                                             contextFull.leadtype = contextFull.leadtype.toLowerCase(); // evaluate leadtype in lower case
-                                                            contextFull.make = contextFull.make.toLowerCase(); // evaluate make in lower case (due to data in the API returned as lower case)
+                                                         //   contextFull.make = contextFull.make.toLowerCase(); // evaluate make in lower case (due to data in the API returned as lower case)
                                                         }
 
                                                         fetch('https://serene-falls-66485.herokuapp.com/api/dealerships') // when used cars request is done, GET new cars list and init all values
@@ -747,3 +747,9 @@ function isEmpty(obj) {
 
     return JSON.stringify(obj) === JSON.stringify({});
 };
+
+//Capitalize the first letter of a word
+const capitalize = (s) => {
+    if (typeof s !== 'string') return ''
+    return s.charAt(0).toUpperCase() + s.slice(1)
+  }
