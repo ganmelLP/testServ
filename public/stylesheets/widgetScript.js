@@ -58,7 +58,7 @@ document.onreadystatechange = () => {
                                         if (newCars[i].brand.length > 2) {
                                             newCars[i].brand = capitalize(value.brand)
                                         } else newCars[i].brand = value.brand.toUpperCase();
-                                    }); // API returns brands in lower case, but SDEs come in capitalized, therefore adding capitalization to API brand results
+                                    }); // API returns brands in lower case, but SDEs come in capitalized, therefore adding capitalization to API brand results, if the brand name consists of 2 letters or less it will uppercase the entire brand name
                                     // Altough not needed here as this triggers if we do not get the Conversation ID - adding just to allow results to be similar and avoid confusion
 
                                     fetch('https://serene-falls-66485.herokuapp.com/api/dealerships') // when used cars request is done, GET new cars list and init all values
@@ -109,8 +109,10 @@ document.onreadystatechange = () => {
                                             newCars = newCarData;
 
                                             newCars.forEach(function (value, i) {
-                                                newCars[i].brand = capitalize(value.brand)
-                                            }); // API returns brands in lower case, but SDEs come in capitalized, therefore adding capitalization to API brand results
+                                                if (newCars[i].brand.length > 2) {
+                                                    newCars[i].brand = capitalize(value.brand)
+                                                } else newCars[i].brand = value.brand.toUpperCase();
+                                            }); // API returns brands in lower case, but SDEs come in capitalized, therefore adding capitalization to API brand results, if the brand name consists of 2 letters or less it will uppercase the entire brand name
 
                                             fetch(`https://serene-falls-66485.herokuapp.com/api/contextData/?convId=${conversationId}`)// get context data passed to the server with ConversationID grabbed by the Agent Widget SDK
                                                 .then(contextResponse => contextResponse.json()
