@@ -154,7 +154,7 @@ document.onreadystatechange = () => {
                                                                     // ******
 
                                                                     if (contextFull.leadtype) { //Open the relevant category depending on values received, only if leadtype is sales we will check if vehicleType is new or used, otherwise if leadtype has a different value it will go to service. Also if it's new will also populate the purchaseType (ctype) with motability or business
-                                                                        if (contextFull.leadtype == "used" || contextFull.leadtype == "personal" || contextFull.leadtype == "motability" || contextFull.leadtype == "business") {
+                                                                        if (contextFull.leadtype == "used" || contextFull.leadtype == "new" || contextFull.leadtype == "motability" || contextFull.leadtype == "business") {
                                                                             if (contextFull.leadtype == "used") {
                                                                                 document.getElementById("used").click();
 
@@ -179,7 +179,7 @@ document.onreadystatechange = () => {
 
 
 
-                                                                            } else if (contextFull.leadtype == "personal" || contextFull.leadtype == "motability" || contextFull.leadtype == "business") {
+                                                                            } else if (contextFull.leadtype == "new" || contextFull.leadtype == "motability" || contextFull.leadtype == "business") {
 
                                                                                 document.getElementById("new").click();
                                                                                 if (contextFull.leadtype == "motability") {
