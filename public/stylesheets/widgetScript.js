@@ -129,11 +129,12 @@ document.onreadystatechange = () => {
                                                                 .then(dealerships => {
                                                                     console.log(dealerships)
                                                                     dealershipsData = dealerships;
+                                                                    console.log(dealershipsData.filtered)
 
                                                                     $('#typeahead-autocomplete .thead').typeahead({
                                                                         source: dealershipsData.filtered,
                                                                         displayText: function (item) {
-                                                                            console.log("test")
+                                                                            console.log(JSON.stringify(item))
                                                                             return item.used_name_short
                                                                         },
                                                                         afterSelect: function (item) {
