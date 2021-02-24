@@ -129,7 +129,7 @@ document.onreadystatechange = () => {
                                                                 .then(dealerships => {
                                                                     console.log(dealerships)
                                                                     dealershipsData = dealerships;
-                                                                    dealershipsData.filtered[62] = "TEST"
+                                                                    dealershipsData.filtered[62].used_name_short = "TEST"
                                                                     console.log(dealershipsData.filtered)
                                                                     
 
