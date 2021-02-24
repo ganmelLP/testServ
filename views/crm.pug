@@ -22,7 +22,7 @@ block content
     #typeahead-autocomplete
      input.thead.form-control(type="text", name="dealership",title="Dealership Name" placeholder="Dealership Name" , data-toggle="tooltip", data-placement="top")
     .form-group
-      select.form-control#channel(value="Please select", name="channel", title="Preferred Contact Method", data-toggle="tooltip", data-placement="top", required)
+      select.form-control#channel(value="Please select", name="channel", title="Preferred Contact Method", data-toggle="tooltip", data-placement="top" required)
         option whatsapp
         option sms
         option email
@@ -38,18 +38,18 @@ block content
     .form-row
       .form-group.col-sm-6
         label(for="fName")
-        input.form-control#fName(type="text", placeholder="First Name", name="fName",title="First Name", data-toggle="tooltip", data-placement="top", required)
+        input.form-control#fName(type="text", placeholder="First Name", name="fName",title="First Name", data-toggle="tooltip", data-placement="top" required)
       .form-group.col-sm-6
         label(for="lName")
-        input.form-control#lName(type="text", placeholder="Last Name", name="lName",title="Last Name", data-toggle="tooltip", data-placement="top", required)
+        input.form-control#lName(type="text", placeholder="Last Name", name="lName",title="Last Name", data-toggle="tooltip", data-placement="top" required)
     .form-row
       .form-group.col-sm-6
         label(for="email")
-        input.form-control#email(type="email", aria-describedby="emailHelp", placeholder="Enter Email", name="email",title="Enter Email", data-toggle="tooltip", data-placement="top", required)
+        input.form-control#email(type="email", aria-describedby="emailHelp", placeholder="Enter Email", name="email",title="Enter Email", data-toggle="tooltip", data-placement="top" required)
         .valid-feedback Looks good!
       .form-group.col-sm-6
         label(for="phone")
-        input.form-control#phone(type="tel", aria-describedby="phoneHelp",title="Enter Phone", placeholder="Enter Phone", name="phone", data-toggle="tooltip", data-placement="top", required)
+        input.form-control#phone(type="tel", aria-describedby="phoneHelp",title="Enter Phone", placeholder="Enter Phone", name="phone", data-toggle="tooltip", data-placement="top" required)
     .form-row
       .form-group.col-sm-6
         input#postcode.form-control(type="text", name="postcode", title="Customer's Postcode" placeholder="Customer's Postcode", data-toggle="tooltip", data-placement="top")
@@ -60,15 +60,15 @@ block content
     //  NEW VEHICLE OPTIONS Only
   .form-row  
     .form-group.col-sm-6   
-      select.form-control.custom-select-lg.mb-3.top#purchaseType(value="Please select", name="leadType",title="Choose a Lead Type", data-toggle="tooltip", data-placement="top", required)
+      select.form-control.custom-select-lg.mb-3.top#purchaseType(value="Please select", name="leadType",title="Choose a Lead Type", data-toggle="tooltip", data-placement="top" required)
         option New 
         option Motability
         option Business
     .form-group.col-sm-6     
-      select.form-control.custom-select-lg.mb-3.top#brand(onchange="showModels(this.value)", value="Please select", name="brand",title="Choose a Vehicle Brand", data-toggle="tooltip", data-placement="top", required)
+      select.form-control.custom-select-lg.mb-3.top#brand(onchange="showModels(this.value)", value="Please select", name="brand",title="Choose a Vehicle Brand", data-toggle="tooltip", data-placement="top" required)
         option Select Brand
     .form-group.col-sm-6     
-      select.form-control#model(onchange="showFuels(this.value)", value="Please select", name="model",title="Choose a Vehicle Model", data-toggle="tooltip", data-placement="top", required)
+      select.form-control#model(onchange="showFuels(this.value)", value="Please select", name="model",title="Choose a Vehicle Model", data-toggle="tooltip", data-placement="top" required)
         option Select Model
     .form-group.col-sm-6     
       select.form-control#fuel(value="Please select", name="fuel", title="Choose a Vehicle Fuel Type", data-toggle="tooltip", data-placement="top")
