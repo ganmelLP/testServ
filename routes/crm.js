@@ -90,7 +90,7 @@ function leadPost(req, res, data) {
     })
     .catch(function (err) {
       console.log(err);
-      res.status(500).json({ error: err })
+      res.status(500).json({ error: "There was an error while attempting to send the lead, please try again" })
     });
 }
 
