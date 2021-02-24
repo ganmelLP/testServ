@@ -521,7 +521,7 @@ function carSelectionValid(data) {
     const usedModelName = document.querySelector("#usedModel");
 
     const isChecked = document.querySelector('input[name="carType"]:checked').value;
-    console.log("The data:" + data)
+    console.log("The data:" + JSON.stringify(data))
     if (isChecked == "used" || isChecked == "service") {
 
         brandName.setCustomValidity('');
