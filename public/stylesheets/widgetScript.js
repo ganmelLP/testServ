@@ -134,7 +134,7 @@ document.onreadystatechange = () => {
                                                                     $('#typeahead-autocomplete .thead').typeahead({
                                                                         source: dealershipsData.filtered,
                                                                         displayText: function (item) {
-                                                                            console.log(JSON.stringify(item))
+                                                                            console.log(item.used_name_short)
                                                                             return item.used_name_short
                                                                         },
                                                                         afterSelect: function (item) {
