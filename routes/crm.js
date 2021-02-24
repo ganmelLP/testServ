@@ -35,7 +35,7 @@ function leadPost(req, res, data) {
     "leadType": data.leadType,
     "activityType": data.carType,
     "misc": {
-      "comment": data.addInfo
+      "comment": JSON.stringify(data.addInfo)
     },
     "location_id": data.dealershipId, // taken from a hidden field in the form
     "customerVehicle": {
