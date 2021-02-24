@@ -129,8 +129,9 @@ document.onreadystatechange = () => {
                                                                 .then(dealerships => {
                                                                     console.log(dealerships)
                                                                     dealershipsData = dealerships;
-                                                                    console.log(dealershipsData.filtered)
                                                                     dealershipsData.filtered[62] = "TEST"
+                                                                    console.log(dealershipsData.filtered)
+                                                                    
 
                                                                     $('#typeahead-autocomplete .thead').typeahead({
                                                                         source: dealershipsData.filtered,
