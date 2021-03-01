@@ -48,7 +48,7 @@ function leadPost(req, res, data) {
     "vrm": data.usedRegNumber,
     "make": data.brand.toLowerCase().indexOf('select') < 0 ? data.brand 
             : data.usedBrand.toLowerCase().indexOf('select') < 0 ? data.usedBrand 
-            : '',
+            : '', // If there is no "select in the brand/usedbrand show it otherwise send empty string"
     "model": data.model.toLowerCase().indexOf('select') < 0 ? data.model 
             : data.usedModel.toLowerCase().indexOf('select') < 0 ? data.usedModel 
             : '',
