@@ -47,9 +47,11 @@ function leadPost(req, res, data) {
     },
     "vrm": data.usedRegNumber,
     "make": data.brand.toLowerCase().indexOf('select') < 0 ? data.brand 
-            : data.usedBrand.toLowerCase().indexOf('select') < 0 ? data.usedBrand : '',
+            : data.usedBrand.toLowerCase().indexOf('select') < 0 ? data.usedBrand 
+            : '',
     "model": data.model.toLowerCase().indexOf('select') < 0 ? data.model 
-            : data.usedModel.toLowerCase().indexOf('select') < 0 ? data.usedModel : '',
+            : data.usedModel.toLowerCase().indexOf('select') < 0 ? data.usedModel 
+            : '',
     "fuelType": data.fuel.toLowerCase().indexOf('select') < 0 ? data.fuel : '',
     // As these three values are by deafult "Select a .." to allow a clear understanding for 
     //the agent as to what they must do as well as to verify that a selection has been made with form 
