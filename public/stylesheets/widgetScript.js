@@ -134,7 +134,6 @@ document.onreadystatechange = () => {
                                                                     $('#typeahead-autocomplete .thead').typeahead({
                                                                         source: dealershipsData.filtered,
                                                                         displayText: function (item) {
-                                                                            console.log(item.used_name_short)
                                                                             return item.used_name_short
                                                                         },
                                                                         afterSelect: function (item) {
@@ -524,7 +523,7 @@ function carSelectionValid(data) {
 
     const isChecked = document.querySelector('input[name="carType"]:checked').value;
     console.log("The data:" + JSON.stringify(data))
-    if (isChecked == "used" || isChecked == "service") {
+    if (isChecked == "used") {
 
         brandName.setCustomValidity('');
         modelName.setCustomValidity('');
