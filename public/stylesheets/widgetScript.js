@@ -244,10 +244,6 @@ document.onreadystatechange = () => {
                                                                                 // in order to allow the model/fuel type to populate when automatically selected we must trigger the change event
 
 
-                                                                                if (contextFull.mileage) {
-                                                                                    insertDataToDomId('mileage', contextFull.mileage);
-                                                                                }
-
                                                                                 if (contextFull.bookingtime) {
                                                                                     insertDataToDomId('addInfo', `Booking Time Request: ${contextFull.bookingtime}`);
                                                                                 }
@@ -277,6 +273,10 @@ document.onreadystatechange = () => {
 
                                                                     if (contextFull.channel) {
                                                                         insertDataToDomId('channelSource', contextFull.channel);
+                                                                    }
+                                                                    
+                                                                    if (contextFull.mileage) {
+                                                                        insertDataToDomId('mileage', contextFull.mileage);
                                                                     }
 
                                                                     // ******
