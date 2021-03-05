@@ -40,7 +40,7 @@ document.onreadystatechange = () => {
 
             // If we do not have the conversationID, don't try to go through all the pre-fill data logic
             // And only load the data from the APIs, otherwise if we do have the ConversationID go through the pre-fill data logic
-            if (conversationId) {
+            if (!conversationId) {
 
                 console.log("conversationId NOT Loaded, using APIs only, is empty?:" + conversationId)
 
@@ -336,14 +336,14 @@ function sdkStart() {
 var successCallbackAgent = function (data) {
     // Do something with the returning data
     agentNameLogin =  data; // saving to the global var
-    console.log("agentSDK Data successCallbackAgent: " + JSON.stringify(agentNameLogin));
+    console.log(`agentSDK Data successCallbackConv: ${JSON.stringify(agentNameLogin)}`);
 
 };
 
 var successCallbackConv = function (data) {
     // Do something with the returning data
     conversationId = data; // saving to the global var
-    console.log("agentSDK Data successCallbackConv: " + JSON.stringify(conversationId));
+    console.log(`agentSDK Data successCallbackConv: ${JSON.stringify(conversationId)}`);
 
 };
 
