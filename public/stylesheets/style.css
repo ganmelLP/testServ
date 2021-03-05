@@ -244,7 +244,7 @@ hr+h2::after {
     border-top: 16px solid #3498db;
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
-    display:none;
+    /* display:none; */
   }
   
   @-webkit-keyframes spin {
