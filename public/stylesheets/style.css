@@ -234,7 +234,7 @@ hr+h2::after {
 #loader {
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 100%;
     z-index: 1;
     width: 120px;
     height: 120px;
