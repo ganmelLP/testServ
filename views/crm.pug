@@ -19,6 +19,7 @@ block content
     hr
     h2 Lead
     input#dealershipId.form-control(style="display:none;" type="text" name="dealershipId" placeholder="Dealership ID")
+    input#agentName.form-control(style="display:none;" type="text" name="agentName" placeholder="Agent Name")
     #typeahead-autocomplete
       input.thead.form-control(type="text" name="dealership" title="Dealership Name" placeholder="Please Choose a Dealership" data-toggle="tooltip" data-placement="top" required)
     .form-group
@@ -106,7 +107,7 @@ block content
         input#price.form-control(type="text" name="price" title="Vehicle Price" placeholder="Vehicle Price" data-toggle="tooltip" data-placement="top")
       //  USED+NEW VEHICLE OPTIONS END
       textarea.form-control#addInfo(rows="3" placeholder="Any additional information from the consumer" name="addInfo" title="Additional Information about the customer" data-toggle="tooltip" data-placement="top")
-      button.btn.btn-primary.btn-lg.mx-auto(onclick="carSelectionValid(this.value)" type="submit" title="Submit the lead" data-toggle="tooltip" data-placement="top") Submit lead
+      button#submitButton.btn.btn-primary.btn-lg.mx-auto(onclick="carSelectionValid(this.value)" type="submit" title="Submit the lead" data-toggle="tooltip" data-placement="top") Submit lead
         script.
 
           // JavaScript for disabling form submissions if there are invalid fields
@@ -124,6 +125,7 @@ block content
                     } else if (form.checkValidity() === true) {
                       console.log("Form is valid: " + form.checkValidity())
                       collectFormData(forms);
+                      document.getElementById("submitButton").style.display === "none"
                     }
                     form.classList.add('was-validated');
                   }, false);

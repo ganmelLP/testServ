@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* =============================================================
 * widgetScript.js - 02/2021
 * Logic of the Widget and the Lead Form:
@@ -12,6 +13,7 @@ var newCars = [];
 var contextFull = {}; // Context Storage Data response
 var dealershipsData = {}; // All dealerships
 var conversationId = ''; // Used to get the relevant conversationID content, such as data loaded from SDEs and information collected by the bot and get it from the Context Storage
+var agentNameLogin = 'Unknown'; // Set the agent name (logged in agent, doesn't have to be the one chatting who submits the request)
 
 window.onload = function () {
     if (lpTag.agentSDK) {
@@ -38,7 +40,7 @@ document.onreadystatechange = () => {
 
             // If we do not have the conversationID, don't try to go through all the pre-fill data logic
             // And only load the data from the APIs, otherwise if we do have the ConversationID go through the pre-fill data logic
-            if (conversationId == true) {
+            if (!conversationId) {
 
                 console.log("conversationId NOT Loaded, using APIs only, is empty?:" + conversationId)
 
@@ -78,6 +80,7 @@ document.onreadystatechange = () => {
                                                     }
                                                 })
 
+                                                insertDataToDomId('agentName', agentNameLogin);
 
                                                 //Clear duplicate brands to show brand list without duplicates
                                                 let noDuplicates = clearDuplicateBrands(newCars)
@@ -141,7 +144,8 @@ document.onreadystatechange = () => {
                                                                             document.getElementById('dealershipId').value = item.id;
                                                                         }
                                                                     })
-
+                                                                    
+                                                                    insertDataToDomId('agentName', agentNameLogin);
                                                                     //Clear duplicate brands to show brand list without duplicates
                                                                     let noDuplicates = clearDuplicateBrands(newCars)
                                                                     showBrands(noDuplicates, brandName);
@@ -320,9 +324,11 @@ function sdkStart() {
         visitorBlurredCallback: blurHandler
     });
 
-    var pathToData = "chatInfo.rtSessionId"; //See: https://developers.liveperson.com/agent-workspace-widget-sdk-public-model-structure.html for the full data structure
+    var conversationIdentifier = 'chatInfo.rtSessionId'; //See: https://developers.liveperson.com/agent-workspace-widget-sdk-public-model-structure.html for the full data structure
+    var agentName = 'agentInfo.agentName'; // Logged in agent name (does not mean it is the one chatting, but it is the agent that is logged in to the system who getst he lead submitted on his name)
 
-    lpTag.agentSDK.get(pathToData, successCallback, failureCallback);
+    lpTag.agentSDK.get(conversationIdentifier, successCallback, failureCallback);
+    lpTag.agentSDK.get(agentName, successCallback, failureCallback);
 
 
 }
@@ -331,7 +337,11 @@ function sdkStart() {
 var successCallback = function (data) {
     // Do something with the returning data
     var path = data;
+    if(path == 'agentInfo.agentName'){
     conversationId = data; // saving to the global var
+    } else if (path == 'chatInfo.rtSessionId'){
+    agentNameLogin =  data;
+    }
 
     console.log(path);
     console.log("agentSDK Data Result: " + JSON.stringify(conversationId));
