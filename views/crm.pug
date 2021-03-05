@@ -18,6 +18,7 @@ block content
           label.form-check-label.back-end.box(for="service") Service/Parts
     hr
     h2 Lead
+    div#loader
     input#dealershipId.form-control(style="display:none;" type="text" name="dealershipId" placeholder="Dealership ID")
     input#agentName.form-control(style="display:none;" type="text" name="agentName" placeholder="Agent Name")
     #typeahead-autocomplete
@@ -125,6 +126,7 @@ block content
                     } else if (form.checkValidity() === true) {
                       console.log("Form is valid: " + form.checkValidity())
                       document.getElementById("submitButton").style.display = "none"
+                      document.getElementById("loader").style.display = "block"
                       collectFormData(forms);
                     }
                     form.classList.add('was-validated');
