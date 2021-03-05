@@ -327,25 +327,23 @@ function sdkStart() {
     var conversationIdentifier = 'chatInfo.rtSessionId'; //See: https://developers.liveperson.com/agent-workspace-widget-sdk-public-model-structure.html for the full data structure
     var agentName = 'agentInfo.agentName'; // Logged in agent name (does not mean it is the one chatting, but it is the agent that is logged in to the system who getst he lead submitted on his name)
 
-    lpTag.agentSDK.get(conversationIdentifier, successCallback, failureCallback);
-    lpTag.agentSDK.get(agentName, successCallback, failureCallback);
+    lpTag.agentSDK.get(conversationIdentifier, successCallbackConv, failureCallback);
+    lpTag.agentSDK.get(agentName, successCallbackAgent, failureCallback);
 
 
 }
 
-
-var successCallback = function (data) {
+var successCallbackAgent = function (data) {
     // Do something with the returning data
-    var path = data;
-    console.log("PATH IN SUCCESS" + path);
-    if(path == 'chatInfo.rtSessionId'){
-    conversationId = data; // saving to the global var
-    } else if (path == 'agentInfo.agentName'){
-    agentNameLogin =  data;
-    }
+    agentNameLogin =  data; // saving to the global var
+    console.log("agentSDK Data successCallbackAgent: " + JSON.stringify(agentNameLogin));
 
-    console.log(path);
-    console.log("agentSDK Data Result: " + JSON.stringify(conversationId));
+};
+
+var successCallbackConv = function (data) {
+    // Do something with the returning data
+    conversationId = data; // saving to the global var
+    console.log("agentSDK Data successCallbackConv: " + JSON.stringify(conversationId));
 
 };
 
