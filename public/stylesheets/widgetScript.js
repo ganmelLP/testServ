@@ -338,9 +338,9 @@ var successCallback = function (data) {
     // Do something with the returning data
     var path = data;
     console.log("PATH IN SUCCESS" + path);
-    if(path == 'agentInfo.agentName'){
+    if(path == 'chatInfo.rtSessionId'){
     conversationId = data; // saving to the global var
-    } else if (path == 'chatInfo.rtSessionId'){
+    } else if (path == 'agentInfo.agentName'){
     agentNameLogin =  data;
     }
 
