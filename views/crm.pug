@@ -124,8 +124,8 @@ block content
                       event.stopPropagation();
                     } else if (form.checkValidity() === true) {
                       console.log("Form is valid: " + form.checkValidity())
+                      document.getElementById("submitButton").style.display = "none"
                       collectFormData(forms);
-                      document.getElementById("submitButton").style.display === "none"
                     }
                     form.classList.add('was-validated');
                   }, false);
