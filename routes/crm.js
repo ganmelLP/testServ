@@ -21,9 +21,9 @@ router.get('/:send', ensureLoggedIn, function (req, res, next) {
 
 function leadPost(req, res, data) {
 
-console.log("AGENT NAME:" + data.agentName);
   var bodyToSend = {
     "firstName": data.fName,
+    "agentName": data.agentName,
     "lastName": data.lName,
     "email": data.email,
     "mobile": data.phone,
