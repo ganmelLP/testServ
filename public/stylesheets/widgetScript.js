@@ -336,7 +336,7 @@ function sdkStart() {
 var successCallbackAgent = function (data) {
     // Do something with the returning data
     agentNameLogin =  data; // saving to the global var
-    console.log(`agentSDK Data successCallbackConv: ${JSON.stringify(agentNameLogin)}`);
+    console.log(`agentSDK Data successCallbackAgent: ${JSON.stringify(agentNameLogin)}`);
 
 };
 
