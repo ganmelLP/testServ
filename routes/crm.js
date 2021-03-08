@@ -93,7 +93,7 @@ function leadPost(req, res, data) {
       res.render('leadSent'); // Show the leadSent pug view
     })
     .catch(function (err) {
-      console.log(err);
+      console.log(JSON.stringify(err));
       res.status(500).json({ error: "There was an error while attempting to send the lead, please try again" })
     });
 }
