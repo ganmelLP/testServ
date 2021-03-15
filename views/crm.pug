@@ -123,6 +123,7 @@ block content
                     if (form.checkValidity() === false) {
                       event.preventDefault();
                       event.stopPropagation();
+                      console.log('Form invalid, please fill out all the details before attempting to send a lead');
                     } else if (form.checkValidity() === true) {
                       console.log("Form is valid: " + form.checkValidity())
                       document.getElementById("submitButton").style.display = "none"
