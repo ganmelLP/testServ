@@ -459,7 +459,7 @@ function radioCheck(value, isChecked) {
 
     if (isChecked && value == "used") {
 
-        insertDataToDomId('purchaseType', 'Used');
+        //insertDataToDomId('purchaseType', 'Used');
 
         brandName.style.display = "none";
         modelName.style.display = "none";
@@ -482,7 +482,7 @@ function radioCheck(value, isChecked) {
 
     if (isChecked && value == "new") {
 
-        insertDataToDomId('purchaseType', 'New');
+        //insertDataToDomId('purchaseType', 'New');
 
         brandName.style.display = "block";
         modelName.style.display = "block";
@@ -505,7 +505,7 @@ function radioCheck(value, isChecked) {
 
     if (isChecked && value == "service") {
 
-        insertDataToDomId('purchaseType', 'Service');
+        //insertDataToDomId('purchaseType', 'Service');
 
         customerBrand.style.display = "block";
         customerModel.style.display = "block";
