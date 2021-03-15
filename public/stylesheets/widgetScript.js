@@ -79,7 +79,7 @@ document.onreadystatechange = () => {
                                                         document.getElementById('dealershipId').value = item.id; // assign a hidden field the ID of the dealership so we can grab it when the form is sent to the server
                                                     }
                                                 })
-
+                                                console.log(`Agent name login: ${agentNameLogin}`)
                                                 insertDataToDomId('agentName', agentNameLogin);
 
                                                 //Clear duplicate brands to show brand list without duplicates
@@ -144,7 +144,8 @@ document.onreadystatechange = () => {
                                                                             document.getElementById('dealershipId').value = item.id;
                                                                         }
                                                                     })
-
+                                                                    
+                                                                    console.log(`Agent name login: ${agentNameLogin}`)
                                                                     insertDataToDomId('agentName', agentNameLogin);
                                                                     //Clear duplicate brands to show brand list without duplicates
                                                                     let noDuplicates = clearDuplicateBrands(newCars)
