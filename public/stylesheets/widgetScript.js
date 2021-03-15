@@ -546,6 +546,7 @@ function carSelectionValid(data) {
 
         if (usedBrandName.value.indexOf("Select") > -1) {
             usedBrandName.setCustomValidity('You must choose a Brand');
+            console.log('You did not select a used car brand', usedBrandName.value.indexOf("Select"))
         } else {
             usedBrandName.setCustomValidity('');
         }
@@ -553,6 +554,7 @@ function carSelectionValid(data) {
 
         if (usedModelName.value.indexOf("Select") > -1) {
             usedModelName.setCustomValidity('You must choose a Model');
+            console.log('You did not select a used car model', usedModelName.value.indexOf("Select"))
         } else {
             usedModelName.setCustomValidity('');
         }
@@ -565,6 +567,7 @@ function carSelectionValid(data) {
 
         if (brandName.value.indexOf("Select") > -1) {
             brandName.setCustomValidity('You must choose a Brand');
+            console.log('You did not select a new car brand', brandName.value.indexOf("Select"))
         } else {
             brandName.setCustomValidity('');
         }
@@ -572,12 +575,14 @@ function carSelectionValid(data) {
 
         if (modelName.value.indexOf("Select") > -1) {
             modelName.setCustomValidity('You must choose a Model');
+            console.log('You did not select a new car model', modelName.value.indexOf("Select"))
         } else {
             modelName.setCustomValidity('');
         }
 
         if (fuelType.value.indexOf("Select") > -1) {
             fuelType.setCustomValidity('You must choose a FuelType');
+            console.log('You did not select a new car fuel type', fuelType.value.indexOf("Select"))
         } else {
             fuelType.setCustomValidity('');
         }
