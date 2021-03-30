@@ -44,13 +44,13 @@ document.onreadystatechange = () => {
 
                 console.log("conversationId NOT Loaded, using APIs only, is empty?:" + conversationId)
 
-                fetch('https://serene-falls-66485.herokuapp.com/api/used') // GET used cars list
+                fetch('https://liveperson.robinsandday.co.uk/api/used') // GET used cars list
                     .then(usedCarsResponse => usedCarsResponse.json())
                     .then(usedCarData => {
                         console.log(usedCarData)
                         usedCars = usedCarData;
 
-                        fetch('https://serene-falls-66485.herokuapp.com/api/new') // when used cars request is done, GET new cars list and init all values
+                        fetch('https://liveperson.robinsandday.co.uk/api/new') // when used cars request is done, GET new cars list and init all values
                             .then(newCarResponse => newCarResponse.json()
                                 .then(newCarData => {
                                     console.log(newCarData)
@@ -63,7 +63,7 @@ document.onreadystatechange = () => {
                                     }); // API returns brands in lower case, but SDEs come in capitalized, therefore adding capitalization to API brand results, if the brand name consists of 2 letters or less it will uppercase the entire brand name
                                     // Altough not needed here as this triggers if we do not get the Conversation ID - adding just to allow results to be similar and avoid confusion
 
-                                    fetch('https://serene-falls-66485.herokuapp.com/api/dealerships') // when used cars request is done, GET new cars list and init all values
+                                    fetch('https://liveperson.robinsandday.co.uk/api/dealerships') // when used cars request is done, GET new cars list and init all values
                                         .then(dealershipsResponse => dealershipsResponse.json()
                                             .then(dealerships => {
                                                 console.log(dealerships)
@@ -99,13 +99,13 @@ document.onreadystatechange = () => {
                 console.log("conversationId Loaded, is conversationId empty?:" + conversationId)
                 try {
 
-                    fetch('https://serene-falls-66485.herokuapp.com/api/used') // GET used cars list
+                    fetch('https://liveperson.robinsandday.co.uk/api/used') // GET used cars list
                         .then(usedCarsResponse => usedCarsResponse.json()
                             .then(usedCarData => {
                                 console.log(usedCarData)
                                 usedCars = usedCarData;
 
-                                fetch('https://serene-falls-66485.herokuapp.com/api/new') // when used cars request is done, GET new cars list and init all values
+                                fetch('https://liveperson.robinsandday.co.uk/api/new') // when used cars request is done, GET new cars list and init all values
                                     .then(newCarResponse => newCarResponse.json()
                                         .then(newCarData => {
                                             console.log(newCarData)
@@ -117,7 +117,7 @@ document.onreadystatechange = () => {
                                                 } else newCars[i].brand = value.brand.toUpperCase();
                                             }); // API returns brands in lower case, but SDEs come in capitalized, therefore adding capitalization to API brand results, if the brand name consists of 2 letters or less it will uppercase the entire brand name
 
-                                            fetch(`https://serene-falls-66485.herokuapp.com/api/contextData/?convId=${conversationId}`)// get context data passed to the server with ConversationID grabbed by the Agent Widget SDK
+                                            fetch(`https://liveperson.robinsandday.co.uk/api/contextData/?convId=${conversationId}`)// get context data passed to the server with ConversationID grabbed by the Agent Widget SDK
                                                 .then(contextResponse => contextResponse.json()
                                                     .then(contextData => {
                                                         console.log(contextData)
@@ -127,7 +127,7 @@ document.onreadystatechange = () => {
                                                             //   contextFull.make = contextFull.make.toLowerCase(); // evaluate make in lower case (due to data in the API returned as lower case)
                                                         }
 
-                                                        fetch('https://serene-falls-66485.herokuapp.com/api/dealerships') // when used cars request is done, GET new cars list and init all values
+                                                        fetch('https://liveperson.robinsandday.co.uk/api/dealerships') // when used cars request is done, GET new cars list and init all values
                                                             .then(dealershipsResponse => dealershipsResponse.json()
                                                                 .then(dealerships => {
                                                                     console.log(dealerships)
