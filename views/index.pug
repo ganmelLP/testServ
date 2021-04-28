@@ -6,12 +6,12 @@ block content
       hr
       h2(style="letter-spacing:0.010em") You are logged in, you can move to the #[a(href="/crm" ) Lead form]
       form(action="/crm" style="text-align:center")
-        input.btn.btn-primary.btn-lg.mx-auto(type="submit", value="Lead Form")
+        input.btn.btn-primary.btn-lg.mx-auto(type="submit" value="Lead Form")
     else
       hr
       h2(style="letter-spacing:0.010em") You are not logged in! Please #[a(href="/login") Log In] to continue.
       form(action="/login" style="text-align:center")
-        input.btn.btn-primary.btn-lg.mx-auto(type="submit", value="Login")
+        input.btn.btn-primary.btn-lg.mx-auto(type="submit" value="Login")
       hr
       h2(style="letter-spacing:0.010em") You are not logged in! Please #[a(href="/login" target="_blank") Log In] to continue.
       button#submitButton.btn.btn-primary.btn-lg.mx-auto(onclick="openLoginWindow()") LoginTest
@@ -19,5 +19,11 @@ block content
 
           function openLoginWindow(){
             var newWindow = window.open(window.location.origin + "/login")
-          }
-            
+            setTimeout(function() {
+              newWindow.close();
+           }, 5000);
+              location.reload()
+              return false;
+  };
+
+    }

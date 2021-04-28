@@ -6,8 +6,10 @@ const router = express.Router();
 
 /* GET Lead Form Widget. */
 router.get('/', ensureLoggedIn, function (req, res, next) {
+ var params = req.query;
+ 
   res.render('crm', {
-    user: req.user
+    paramData: req.user
   });
 });
 
