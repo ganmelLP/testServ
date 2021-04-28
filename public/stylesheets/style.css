@@ -24,10 +24,6 @@ body {
     display: none !important;
 }
 
-.w3-container{
-    text-align:center;
-}
-
 label {
     color: white;
     display: inline-block;
