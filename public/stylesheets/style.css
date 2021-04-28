@@ -16,6 +16,11 @@ body {
     margin-bottom: 2%;
 }
 
+.indexButton{
+    display: block;
+    margin-top: 0em;
+}
+
 .show {
     display: block !important;
 }
