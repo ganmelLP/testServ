@@ -8,7 +8,7 @@
 * Other Form Control
 * =============================================================*/
 
-var usedCars = []; 
+var usedCars = [];
 var newCars = [];
 var contextFull = {}; // Context Storage Data response
 var dealershipsData = {}; // All dealerships
