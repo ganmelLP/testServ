@@ -18,19 +18,19 @@ block content
         script.
 
           async function openLoginWindow(){
+            try{
             var newWindow = window.open(window.location.origin + "/login")
              newWindow.addEventListener('load', function () {
-               try{
+
                  window.setTimeout(() => {
                   if (document.getElementById("voiTitle").innerHTML){
                   newWindow.close();
                }
               }, 1500);               
              })
-             catch(e){
+             }catch(e){
                console.log(e);
              }
-            }
              // location.reload();
               return false;
              };
