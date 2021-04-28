@@ -10,7 +10,8 @@ block content
     else
       hr
       h2(style="letter-spacing:0.010em") You are not logged in! Please #[a(href="/login" target="_blank") Log In] to continue.
-        button#submitButton.btn.btn-primary.btn-lg.mx-auto(onclick="openLoginWindow()" style="text-align:center") Login
+      span(style="text-align:center")
+        button#submitButton.btn.btn-primary.btn-lg.mx-auto(onclick="openLoginWindow()") Login
           script.
 
             async function openLoginWindow() {
