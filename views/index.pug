@@ -21,7 +21,6 @@ block content
             try{
             var newWindow = window.open(window.location.origin + "/login")
              newWindow.addEventListener('load', function () {
-
                  window.setTimeout(() => {
                   if (newWindow.document.getElementById("voiTitle").innerHTML){
                     console.log("Verified voi title loaded to check loggedin " + newWindow.document.getElementById("voiTitle").innerHTML)
