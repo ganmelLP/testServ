@@ -13,21 +13,21 @@ block content
       button#submitButton.btn.btn-primary.btn-lg.mx-auto(onclick="openLoginWindow()" style="text-align:center") Login
         script.
 
-          async function openLoginWindow(){
-            try{
-            var newWindow = window.open(window.location.origin + "/login")
-             await newWindow.addEventListener('load', function () {
-                 window.setTimeout(() => {
-                  if (newWindow.document.getElementById("voiTitle").innerHTML){
-                  console.log("Verified voi title loaded to check loggedin " + newWindow.document.getElementById("voiTitle").innerHTML)
-                  newWindow.close();
-                  window.location.reload();
-               }
-              }, 200);               
-             })
-             }catch(e){
-               console.log(e);
-             }
-              
-              return false;
-             }; 
+            async function openLoginWindow() {
+                try {
+                    var newWindow = window.open(window.location.origin + "/login")
+                    await newWindow.addEventListener('load', function() {
+                        window.setTimeout(() => {
+                            if (newWindow.document.getElementById("voiTitle").innerHTML) {
+                                console.log("Verified voi title loaded to check loggedin " + newWindow.document.getElementById("voiTitle").innerHTML)
+                                newWindow.close();
+                                window.location.reload();
+                            }
+                        }, 200);
+                    })
+                } catch (e) {
+                    console.log(e);
+                }
+
+                return false;
+            };
