@@ -24,6 +24,7 @@ block content
 
                  window.setTimeout(() => {
                   if (newWindow.document.getElementById("voiTitle").innerHTML){
+                    console.log("Verified voi title loaded to check loggedin " + newWindow.document.getElementById("voiTitle").innerHTML)
                   newWindow.close();
                }
               }, 200);               
@@ -31,6 +32,6 @@ block content
              }catch(e){
                console.log(e);
              }
-              location.reload();
+              //location.reload();
               return false;
              };
