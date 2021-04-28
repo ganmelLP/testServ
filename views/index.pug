@@ -10,7 +10,7 @@ block content
     else
       hr
       h2(style="letter-spacing:0.010em") You are not logged in! Please #[a(href="/login" target="_blank") Log In] to continue.
-      form(style="text-align:center")
+      span(style="text-align:center")
         button#submitButton.btn.btn-primary.btn-lg.mx-auto(onclick="openLoginWindow()") Login
           script.
             //Function is needed due to the LivePerson login page not allowing Iframes with a different domain to open it
