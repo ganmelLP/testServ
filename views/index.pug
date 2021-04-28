@@ -20,8 +20,8 @@ block content
           async function openLoginWindow(){
             try{
             var newWindow = window.open(window.location.origin + "/login")
-             newWindow.addEventListener('load', function () {
-                 window.setTimeout(() => {
+             await newWindow.addEventListener('load', function () {
+                await window.setTimeout(() => {
                   if (newWindow.document.getElementById("voiTitle").innerHTML){
                     console.log("Verified voi title loaded to check loggedin " + newWindow.document.getElementById("voiTitle").innerHTML)
                   newWindow.close();
