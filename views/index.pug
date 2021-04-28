@@ -20,8 +20,10 @@ block content
           async function openLoginWindow(){
             var newWindow = window.open(window.location.origin + "/login")
              newWindow.addEventListener('load', function () {
+               if (document.getElementById("voiTitle").innerHTML){
                 newWindow.close();
-             }
+               }               
+             })
              // location.reload();
               return false;
              };
