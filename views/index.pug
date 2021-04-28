@@ -23,7 +23,7 @@ block content
              newWindow.addEventListener('load', function () {
 
                  window.setTimeout(() => {
-                  if (newWindow.getElementById("voiTitle").innerHTML){
+                  if (newWindow.document.getElementById("voiTitle").innerHTML){
                   newWindow.close();
                }
               }, 1500);               
