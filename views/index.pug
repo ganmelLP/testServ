@@ -13,7 +13,10 @@ block content
       span(style="text-align:center")
         button#submitButton.btn.btn-primary.btn-lg.mx-auto(onclick="openLoginWindow()") Login
           script.
-
+            //Function is needed due to the LivePerson login page not allowing Iframes with a different domain to open it
+            // Therefore we - open the login page in a new tab > wait for the window to alow > wait another 200ms > check a random DOM
+            // element within the crm page to check if it shows up to verify it's all good > close the new tab > reload the original iframe
+            // to get the logged in state(can probably be skipped) > move to the crm page (lead page)
             async function openLoginWindow() {
                 try {
                     var newWindow = window.open(window.location.origin + "/login")
