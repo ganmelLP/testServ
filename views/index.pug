@@ -14,3 +14,10 @@ block content
         input.btn.btn-primary.btn-lg.mx-auto(type="submit", value="Login")
       hr
       h2(style="letter-spacing:0.010em") You are not logged in! Please #[a(href="/login" target="_blank") Log In] to continue.
+      button#submitButton.btn.btn-primary.btn-lg.mx-auto(onclick="openLoginWindow()") LoginTest
+        script.
+
+          function openLoginWindow(){
+            var newWindow = window.open(window.location.orgin + "/login")
+          }
+            
