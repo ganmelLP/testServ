@@ -9,12 +9,8 @@ block content
         input.btn.btn-primary.btn-lg.mx-auto(type="submit" value="Lead Form")
     else
       hr
-      h2(style="letter-spacing:0.010em") You are not logged in! Please #[a(href="/login") Log In] to continue.
-      form(action="/login" style="text-align:center")
-        input.btn.btn-primary.btn-lg.mx-auto(type="submit" value="Login")
-      hr
       h2(style="letter-spacing:0.010em") You are not logged in! Please #[a(href="/login" target="_blank") Log In] to continue.
-      button#submitButton.btn.btn-primary.btn-lg.mx-auto(onclick="openLoginWindow()") LoginTest
+      button#submitButton.btn.btn-primary.btn-lg.mx-auto(onclick="openLoginWindow()" style="text-align:center") Login
         script.
 
           async function openLoginWindow(){
