@@ -23,14 +23,15 @@ block content
              await newWindow.addEventListener('load', function () {
                  window.setTimeout(() => {
                   if (newWindow.document.getElementById("voiTitle").innerHTML){
-                    console.log("Verified voi title loaded to check loggedin " + newWindow.document.getElementById("voiTitle").innerHTML)
+                  console.log("Verified voi title loaded to check loggedin " + newWindow.document.getElementById("voiTitle").innerHTML)
                   newWindow.close();
+                  window.location.reload();
                }
               }, 200);               
              })
              }catch(e){
                console.log(e);
              }
-              location.reload();
+              
               return false;
              }; 
