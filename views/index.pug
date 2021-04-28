@@ -17,11 +17,12 @@ block content
       button#submitButton.btn.btn-primary.btn-lg.mx-auto(onclick="openLoginWindow()") LoginTest
         script.
 
-          function openLoginWindow(){
+          async function openLoginWindow(){
             var newWindow = window.open(window.location.origin + "/login")
-            setTimeout(function() {
-              newWindow.close();
-             }, 10000);
+            
+             newWindow.addEventListener('load', function () {
+                newWindow.close();
+             }
              // location.reload();
               return false;
              };
